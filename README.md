@@ -23,7 +23,7 @@ Simply import the icons you need, and add them anywhere in your render method. P
 ```tsx
 import React from "react";
 import { View } from "react-native";
-import { Horse, Heart, Cube } from "phosphor-react";
+import { Horse, Heart, Cube } from "phosphor-react-native";
 
 const App = () => {
   return (
@@ -52,7 +52,7 @@ Phosphor takes advantage of React Context to make applying a default style to al
 ```tsx
 import React from "react";
 import { View } from "react-native";
-import { IconContext, Horse, Heart, Cube } from "phosphor-react";
+import { IconContext, Horse, Heart, Cube } from "phosphor-react-native";
 
 const App = () => {
   return (
