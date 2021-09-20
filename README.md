@@ -86,6 +86,11 @@ import * as Icon from "phosphor-react-native";
 <Icon.BatteryHalf size="24px" />
 ```
 
+## To do
+
+- [ ] Make an example app using Expo.
+- [ ] Support `mirrored` prop.
+
 ## Related Projects
 
 - [phosphor-home](https://github.com/phosphor-icons/phosphor-home) ▲ Phosphor homepage and general info
