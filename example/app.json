@@ -1,0 +1,22 @@
+{
+  "name": "phosphor-react-native-example",
+  "displayName": "PhosphorReactNative Example",
+  "expo": {
+    "name": "phosphor-react-native-example",
+    "slug": "phosphor-react-native-example",
+    "description": "Example app for phosphor-react-native",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
