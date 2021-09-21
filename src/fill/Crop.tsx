@@ -11,6 +11,7 @@ function Crop(props: IconProps) {
       viewBox="0 0 255.99316 255.99316"
       width={props.size}
       height={props.size}
+      fill={props.color}
       {...props}
     >
       <Rect width={256} height={256} fill="none" />

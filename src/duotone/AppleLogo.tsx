@@ -11,6 +11,7 @@ function AppleLogo(props: IconProps) {
       viewBox="0 0 256.00004 255.99998"
       width={props.size}
       height={props.size}
+      fill={props.color}
       {...props}
     >
       <Rect width={256} height={256} fill="none" />

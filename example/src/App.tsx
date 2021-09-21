@@ -6,7 +6,7 @@ import {
   View,
   Text,
   SafeAreaView,
-  ScrollView,
+  FlatList,
   StatusBar,
   Image,
   TouchableOpacity,
@@ -61,7 +61,7 @@ export default function App() {
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-      <ScrollView style={styles.scrollView}>
+      <FlatList style={styles.scrollView}>
         <View style={styles.main}>
           {Object.entries(Icons)
             .filter(([, Icon]) => !!Icon)
@@ -72,7 +72,7 @@ export default function App() {
               </View>
             ))}
         </View>
-      </ScrollView>
+      </FlatList>
     </View>
   );
 }
