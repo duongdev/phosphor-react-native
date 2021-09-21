@@ -1,3 +1,4 @@
+/* GENERATED FILE */
 import React, { useContext, useMemo } from 'react';
 import { IconProps, IconContext } from '../lib';
 

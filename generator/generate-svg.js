@@ -26,6 +26,16 @@ const weights = {
   thin: 'thin',
 };
 
+const componentNameMap = {
+  Circle: 'CircleIcon',
+  Path: 'PathIcon',
+  Infinity: 'InfinityIcon',
+};
+
+const fileNameMap = {
+  Infinity: 'InfinityIcon',
+};
+
 const generateIconWithWeight = (icon, weight) => {
   const filePath =
     weight === 'regular'
@@ -36,11 +46,6 @@ const generateIconWithWeight = (icon, weight) => {
     encoding: 'utf-8',
   });
 
-  const nameMap = {
-    Circle: 'CircleIcon',
-    Path: 'PathIcon',
-  };
-
   const componentName = Case.pascal(
     filePath.replace(/^.*\//, '').replace(/\.svg$/, '')
   ).replace(RegExp(`${Case.capital(weight)}$`), '');
@@ -48,7 +53,7 @@ const generateIconWithWeight = (icon, weight) => {
   const srcDir = path.join(__dirname, '../src');
 
   svgr(svgCode, options, {
-    componentName: nameMap[componentName] || componentName,
+    componentName: componentNameMap[componentName] || componentName,
   }).then((tsCode) => {
     tsCode = tsCode
       .replace('SvgProps, ', '')
@@ -57,11 +62,14 @@ const generateIconWithWeight = (icon, weight) => {
       .replace(' xmlns="http://www.w3.org/2000/svg"', '');
 
     const outDir = path.join(srcDir, weight);
-    const fileName = `${componentName}.tsx`;
+    const fileName = `${fileNameMap[componentName] || componentName}.tsx`;
 
     fs.ensureDirSync(outDir);
 
-    fs.writeFileSync(path.join(outDir, fileName), tsCode);
+    fs.writeFileSync(
+      path.join(outDir, fileName),
+      `/* GENERATED FILE */\n${tsCode}`
+    );
 
     console.log(
       `Generated icon ${chalk.blue(icon)} with weight ${chalk.blue(
@@ -94,7 +102,9 @@ import light from '../light/${component}'
 import regular from '../regular/${component}'
 import thin from '../thin/${component}'
 
-function ${component}({ weight, color, size, style }: IconProps) {
+function ${
+    componentNameMap[component] || component
+  }({ weight, color, size, style }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
@@ -129,7 +139,7 @@ function ${component}({ weight, color, size, style }: IconProps) {
   )
 }
 
-export default ${component}
+export default ${componentNameMap[component] || component}
   `;
 
   const filePath = path.join(__dirname, '../src/icons', `${component}.tsx`);
@@ -137,7 +147,7 @@ export default ${component}
   fs.ensureDirSync(path.join(__dirname, '../src/icons'));
 
   // console.log(template)
-  fs.writeFileSync(filePath, componentCode);
+  fs.writeFileSync(filePath, `/* GENERATED FILE */\n${componentCode}`);
 };
 
 const generateAllIconsByWeight = () => {
