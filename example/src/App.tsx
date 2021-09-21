@@ -61,18 +61,19 @@ export default function App() {
           </TouchableOpacity>
         </View>
       </SafeAreaView>
-      <FlatList style={styles.scrollView}>
-        <View style={styles.main}>
-          {Object.entries(Icons)
-            .filter(([, Icon]) => !!Icon)
-            .map(([name, Icon]) => (
-              <View key={name} style={styles.iconItem}>
-                <Icon size={40} weight={weight} />
-                <Text style={styles.iconName}>{name}</Text>
-              </View>
-            ))}
-        </View>
-      </FlatList>
+      <FlatList
+        style={styles.scrollView}
+        contentContainerStyle={styles.main}
+        data={Object.entries(Icons).filter(([, Icon]) => !!Icon) as any[]}
+        keyExtractor={(item) => item[0]}
+        numColumns={3}
+        renderItem={({ item: [name, Icon] }) => (
+          <View style={styles.iconItem}>
+            <Icon size={40} weight={weight} />
+            <Text style={styles.iconName}>{name}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 }
@@ -108,13 +109,11 @@ const styles = StyleSheet.create({
   weightSelect: {
     width: 40,
   },
-  scrollView: {},
-  main: {
+  scrollView: {
     flex: 1,
+  },
+  main: {
     backgroundColor: 'white',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: '100%',
     paddingHorizontal: 8,
     paddingBottom: 16,
   },
