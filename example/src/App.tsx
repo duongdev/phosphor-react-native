@@ -68,7 +68,7 @@ export default function App() {
         keyExtractor={(item) => item[0]}
         numColumns={3}
         renderItem={({ item: [name, Icon] }) => (
-          <View key={name} style={styles.iconItem}>
+          <View style={styles.iconItem}>
             <Icon size={40} weight={weight} />
             <Text style={styles.iconName}>{name}</Text>
           </View>
