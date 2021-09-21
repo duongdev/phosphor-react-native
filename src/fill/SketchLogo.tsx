@@ -10,6 +10,7 @@ function SketchLogo(props: IconProps) {
       viewBox="0 0 256 256"
       width={props.size}
       height={props.size}
+      fill={props.color}
       {...props}
     >
       <G id="Raw">

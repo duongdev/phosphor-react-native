@@ -11,6 +11,7 @@ function ChatCentered(props: IconProps) {
       viewBox="0 0 256.00098 256.00098"
       width={props.size}
       height={props.size}
+      fill={props.color}
       {...props}
     >
       <Rect width={256} height={256} fill="none" />

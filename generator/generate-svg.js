@@ -61,6 +61,13 @@ const generateIconWithWeight = (icon, weight) => {
       .replace('props: SvgProps', 'props: IconProps')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '');
 
+    if (weight === 'fill' || weight === 'duotone') {
+      tsCode = tsCode.replace(
+        'height={props.size}',
+        'height={props.size}\nfill={props.color}'
+      );
+    }
+
     const outDir = path.join(srcDir, weight);
     const fileName = `${fileNameMap[componentName] || componentName}.tsx`;
 
