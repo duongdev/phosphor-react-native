@@ -1,3 +1,4 @@
+/* GENERATED FILE */
 import * as React from 'react';
 import Svg, { Rect, Polyline, Circle, Line } from 'react-native-svg';
 

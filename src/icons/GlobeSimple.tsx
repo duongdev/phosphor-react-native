@@ -1,0 +1,47 @@
+/* GENERATED FILE */
+import React, { useContext, useMemo } from 'react';
+import { IconProps, IconContext } from '../lib';
+
+import bold from '../bold/GlobeSimple';
+import duotone from '../duotone/GlobeSimple';
+import fill from '../fill/GlobeSimple';
+import light from '../light/GlobeSimple';
+import regular from '../regular/GlobeSimple';
+import thin from '../thin/GlobeSimple';
+
+function GlobeSimple({ weight, color, size, style }: IconProps) {
+  const {
+    color: contextColor = '#000',
+    size: contextSize = 24,
+    weight: contextWeight = 'regular',
+    style: contextStyle,
+  } = useContext(IconContext);
+
+  const IconComponent = useMemo(() => {
+    const iconWeight = weight ?? contextWeight;
+
+    const weightMap = {
+      bold,
+      duotone,
+      fill,
+      light,
+      regular,
+      thin,
+    };
+
+    return weightMap[iconWeight];
+  }, [weight, contextWeight]);
+
+  return (
+    <IconComponent
+      color={color ?? contextColor}
+      size={size ?? contextSize}
+      style={{
+        ...contextStyle,
+        ...style,
+      }}
+    />
+  );
+}
+
+export default GlobeSimple;

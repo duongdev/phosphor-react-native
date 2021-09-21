@@ -1,0 +1,47 @@
+/* GENERATED FILE */
+import React, { useContext, useMemo } from 'react';
+import { IconProps, IconContext } from '../lib';
+
+import bold from '../bold/PokerChip';
+import duotone from '../duotone/PokerChip';
+import fill from '../fill/PokerChip';
+import light from '../light/PokerChip';
+import regular from '../regular/PokerChip';
+import thin from '../thin/PokerChip';
+
+function PokerChip({ weight, color, size, style }: IconProps) {
+  const {
+    color: contextColor = '#000',
+    size: contextSize = 24,
+    weight: contextWeight = 'regular',
+    style: contextStyle,
+  } = useContext(IconContext);
+
+  const IconComponent = useMemo(() => {
+    const iconWeight = weight ?? contextWeight;
+
+    const weightMap = {
+      bold,
+      duotone,
+      fill,
+      light,
+      regular,
+      thin,
+    };
+
+    return weightMap[iconWeight];
+  }, [weight, contextWeight]);
+
+  return (
+    <IconComponent
+      color={color ?? contextColor}
+      size={size ?? contextSize}
+      style={{
+        ...contextStyle,
+        ...style,
+      }}
+    />
+  );
+}
+
+export default PokerChip;
