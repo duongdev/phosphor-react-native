@@ -22,7 +22,10 @@ const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
 export default function App() {
   const [weightIdx, setWeightIdx] = React.useState(2);
 
-  const weight = React.useMemo(() => weights[weightIdx], [weightIdx]);
+  const weight: IconPack.IconWeight = React.useMemo(
+    () => weights[weightIdx] as any,
+    [weightIdx]
+  );
 
   const handleChangeWeight = React.useCallback(() => {
     setWeightIdx((weightIdx + 1) % weights.length);
