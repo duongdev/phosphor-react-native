@@ -16,7 +16,6 @@ const PhosphorLogo = require('./phosphor-mark-tight-yellow.png');
 const { IconContext, ...Icons } = IconPack;
 
 export default function App() {
-  console.log(Icons);
   return (
     <View style={styles.rootView}>
       <StatusBar barStyle="light-content" />
@@ -26,7 +25,7 @@ export default function App() {
           <Image source={PhosphorLogo} style={styles.logoImage} />
           <Text style={styles.headerText}>Phosphor React Native</Text>
           <View style={styles.weightSelect}>
-            <IconPack.Airplane color="#FFF" />
+            <IconPack.PencilLine color="#FFF" />
           </View>
         </View>
       </SafeAreaView>
