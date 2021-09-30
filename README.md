@@ -5,6 +5,17 @@
 Phosphor is a flexible icon family for interfaces, diagrams, presentations — whatever, really. Explore all our icons at [phosphoricons.com](https://phosphoricons.com).
 Inspired by [phosphor-react](https://github.com/phosphor-icons/phosphor-react).
 
+<table>
+<tr>
+	<td><img src="/meta/example-regular.png" />
+	<td><img src="/meta/example-bold.png" />
+	<td><img src="/meta/example-fill.png" />
+<tr>
+	<td><img src="/meta/example-duotone.png" />
+	<td><img src="/meta/example-thin.png" />
+	<td><img src="/meta/example-light.png" />
+</table>
+
 ## Installation
 
 ```bash
