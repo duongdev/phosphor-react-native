@@ -15,7 +15,7 @@ function GlobeStand(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={95.99353} r={72} opacity={0.2} />
+      <Circle cx={128} cy={95.99353} r={72} opacity={0.2} fill={props.color} />
       <Circle
         cx={128}
         cy={95.99353}

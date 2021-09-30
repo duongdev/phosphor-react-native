@@ -32,8 +32,8 @@ function SmileyNervous(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={92} cy={108} r={10} />
-      <Circle cx={164} cy={108} r={10} />
+      <Circle cx={92} cy={108} r={10} fill={props.color} />
+      <Circle cx={164} cy={108} r={10} fill={props.color} />
     </Svg>
   );
 }

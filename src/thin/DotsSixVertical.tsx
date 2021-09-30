@@ -14,12 +14,12 @@ function DotsSixVertical(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={92} cy={60} r={8} />
-      <Circle cx={164} cy={60} r={8} />
-      <Circle cx={92} cy={128} r={8} />
-      <Circle cx={164} cy={128} r={8} />
-      <Circle cx={92} cy={196} r={8} />
-      <Circle cx={164} cy={196} r={8} />
+      <Circle cx={92} cy={60} r={8} fill={props.color} />
+      <Circle cx={164} cy={60} r={8} fill={props.color} />
+      <Circle cx={92} cy={128} r={8} fill={props.color} />
+      <Circle cx={164} cy={128} r={8} fill={props.color} />
+      <Circle cx={92} cy={196} r={8} fill={props.color} />
+      <Circle cx={164} cy={196} r={8} fill={props.color} />
     </Svg>
   );
 }

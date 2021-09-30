@@ -22,10 +22,10 @@ function PawPrint(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={208} cy={104} r={24} />
-      <Circle cx={48} cy={104} r={24} />
-      <Circle cx={96} cy={56} r={24} />
-      <Circle cx={160} cy={56} r={24} />
+      <Circle cx={208} cy={104} r={24} fill={props.color} />
+      <Circle cx={48} cy={104} r={24} fill={props.color} />
+      <Circle cx={96} cy={56} r={24} fill={props.color} />
+      <Circle cx={160} cy={56} r={24} fill={props.color} />
     </Svg>
   );
 }

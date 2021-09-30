@@ -17,7 +17,7 @@ function Info(props: IconProps) {
       <G opacity={0.1}>
         <Rect x={0.00244} width={256} height={256} fill="none" />
       </G>
-      <Circle cx={128.00244} cy={128} r={96} opacity={0.2} />
+      <Circle cx={128.00244} cy={128} r={96} opacity={0.2} fill={props.color} />
       <Circle
         cx={128.00244}
         cy={128}
@@ -36,7 +36,7 @@ function Info(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={126.00244} cy={84} r={12} />
+      <Circle cx={126.00244} cy={84} r={12} fill={props.color} />
     </Svg>
   );
 }

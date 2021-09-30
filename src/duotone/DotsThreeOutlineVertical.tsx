@@ -15,9 +15,9 @@ function DotsThreeOutlineVertical(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={128} r={24} opacity={0.1} />
-      <Circle cx={128} cy={48} r={24} opacity={0.1} />
-      <Circle cx={128} cy={208} r={24} opacity={0.1} />
+      <Circle cx={128} cy={128} r={24} opacity={0.1} fill={props.color} />
+      <Circle cx={128} cy={48} r={24} opacity={0.1} fill={props.color} />
+      <Circle cx={128} cy={208} r={24} opacity={0.1} fill={props.color} />
       <Circle
         cx={128}
         cy={128}

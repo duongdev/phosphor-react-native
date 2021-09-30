@@ -60,7 +60,7 @@ function WifiX(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={128} cy={200} r={16} />
+      <Circle cx={128} cy={200} r={16} fill={props.color} />
     </Svg>
   );
 }

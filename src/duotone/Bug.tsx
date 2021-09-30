@@ -16,8 +16,8 @@ function Bug(props: IconProps) {
     >
       <Rect width={256} height={256} fill="none" />
       <Path d="M208,128v16a80,80,0,0,1-160,0V128Z" opacity={0.2} />
-      <Circle cx={155.92969} cy={91.99998} r={12} />
-      <Circle cx={99.92969} cy={91.99998} r={12} />
+      <Circle cx={155.92969} cy={91.99998} r={12} fill={props.color} />
+      <Circle cx={99.92969} cy={91.99998} r={12} fill={props.color} />
       <Line
         x1={128}
         y1={128}

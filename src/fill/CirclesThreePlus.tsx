@@ -16,9 +16,9 @@ function CirclesThreePlus(props: IconProps) {
     >
       <Rect width={256} height={256} fill="none" />
       <G>
-        <Circle cx={76} cy={76} r={44} />
-        <Circle cx={180} cy={76} r={44} />
-        <Circle cx={76} cy={180} r={44} />
+        <Circle cx={76} cy={76} r={44} fill={props.color} />
+        <Circle cx={180} cy={76} r={44} fill={props.color} />
+        <Circle cx={76} cy={180} r={44} fill={props.color} />
         <Path d="M208,172H188V152a8,8,0,0,0-16,0v20H152a8,8,0,0,0,0,16h20v20a8,8,0,0,0,16,0V188h20a8,8,0,0,0,0-16Z" />
       </G>
     </Svg>

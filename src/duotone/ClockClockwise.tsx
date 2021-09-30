@@ -15,7 +15,7 @@ function ClockClockwise(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={128} r={88} opacity={0.2} />
+      <Circle cx={128} cy={128} r={88} opacity={0.2} fill={props.color} />
       <Line
         x1={128}
         y1={80}

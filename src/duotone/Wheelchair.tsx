@@ -15,7 +15,7 @@ function Wheelchair(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={95.88745} cy={40} r={20} opacity={0.2} />
+      <Circle cx={95.88745} cy={40} r={20} opacity={0.2} fill={props.color} />
       <Circle
         cx={95.88745}
         cy={40}

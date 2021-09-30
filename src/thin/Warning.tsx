@@ -33,7 +33,7 @@ function Warning(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={128} cy={180} r={8} />
+      <Circle cx={128} cy={180} r={8} fill={props.color} />
     </Svg>
   );
 }

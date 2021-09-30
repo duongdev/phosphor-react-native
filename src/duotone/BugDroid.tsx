@@ -35,8 +35,8 @@ function BugDroid(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={155.92969} cy={91.99998} r={12} />
-      <Circle cx={99.92969} cy={91.99998} r={12} />
+      <Circle cx={155.92969} cy={91.99998} r={12} fill={props.color} />
+      <Circle cx={99.92969} cy={91.99998} r={12} fill={props.color} />
       <Line
         x1={55.92969}
         y1={28}

@@ -22,8 +22,8 @@ function SmileySticker(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={92} cy={108} r={12} />
-      <Circle cx={164} cy={108} r={12} />
+      <Circle cx={92} cy={108} r={12} fill={props.color} />
+      <Circle cx={164} cy={108} r={12} fill={props.color} />
       <Path
         d="M169.58,151.99735a48.016,48.016,0,0,1-83.15966.00055"
         fill="none"

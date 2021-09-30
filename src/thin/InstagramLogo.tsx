@@ -36,7 +36,7 @@ function InstagramLogo(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={180} cy={75.99998} r={8} />
+      <Circle cx={180} cy={75.99998} r={8} fill={props.color} />
     </Svg>
   );
 }

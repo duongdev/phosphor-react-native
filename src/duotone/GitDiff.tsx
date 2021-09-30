@@ -15,8 +15,8 @@ function GitDiff(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={196.00244} cy={188} r={28} opacity={0.2} />
-      <Circle cx={60} cy={68} r={28} opacity={0.2} />
+      <Circle cx={196.00244} cy={188} r={28} opacity={0.2} fill={props.color} />
+      <Circle cx={60} cy={68} r={28} opacity={0.2} fill={props.color} />
       <Circle
         cx={196.00244}
         cy={188}

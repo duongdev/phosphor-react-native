@@ -56,7 +56,7 @@ function LinkedinLogo(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={84} cy={79.99998} r={16} />
+      <Circle cx={84} cy={79.99998} r={16} fill={props.color} />
     </Svg>
   );
 }

@@ -24,8 +24,8 @@ function SmileySad(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={92} cy={108} r={16} />
-      <Circle cx={164} cy={108} r={16} />
+      <Circle cx={92} cy={108} r={16} fill={props.color} />
+      <Circle cx={164} cy={108} r={16} fill={props.color} />
       <Path
         d="M165.27508,169.75305a48.0042,48.0042,0,0,0-74.5508.00079"
         fill="none"

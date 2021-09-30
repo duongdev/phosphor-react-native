@@ -24,9 +24,9 @@ function DotsThreeCircleVertical(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={128} cy={80} r={8} />
-      <Circle cx={128} cy={128} r={8} />
-      <Circle cx={128} cy={176} r={8} />
+      <Circle cx={128} cy={80} r={8} fill={props.color} />
+      <Circle cx={128} cy={128} r={8} fill={props.color} />
+      <Circle cx={128} cy={176} r={8} fill={props.color} />
     </Svg>
   );
 }

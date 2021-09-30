@@ -16,10 +16,10 @@ function CirclesFour(props: IconProps) {
     >
       <Rect width={256} height={256} fill="none" />
       <G>
-        <Circle cx={76} cy={76} r={44} />
-        <Circle cx={180} cy={76} r={44} />
-        <Circle cx={76} cy={180} r={44} />
-        <Circle cx={180} cy={180} r={44} />
+        <Circle cx={76} cy={76} r={44} fill={props.color} />
+        <Circle cx={180} cy={76} r={44} fill={props.color} />
+        <Circle cx={76} cy={180} r={44} fill={props.color} />
+        <Circle cx={180} cy={180} r={44} fill={props.color} />
       </G>
     </Svg>
   );

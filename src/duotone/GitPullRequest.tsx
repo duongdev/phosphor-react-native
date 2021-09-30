@@ -15,8 +15,8 @@ function GitPullRequest(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={68} cy={68} r={28} opacity={0.2} />
-      <Circle cx={188.00244} cy={188} r={28} opacity={0.2} />
+      <Circle cx={68} cy={68} r={28} opacity={0.2} fill={props.color} />
+      <Circle cx={188.00244} cy={188} r={28} opacity={0.2} fill={props.color} />
       <Circle
         cx={68}
         cy={188}

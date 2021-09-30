@@ -52,8 +52,8 @@ function BluetoothConnected(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={52} cy={128} r={12} />
-      <Circle cx={196} cy={128} r={12} />
+      <Circle cx={52} cy={128} r={12} fill={props.color} />
+      <Circle cx={196} cy={128} r={12} fill={props.color} />
     </Svg>
   );
 }

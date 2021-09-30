@@ -15,7 +15,7 @@ function UserFocus(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={112} r={32} opacity={0.2} />
+      <Circle cx={128} cy={112} r={32} opacity={0.2} fill={props.color} />
       <Path
         d="M180,40h28a8,8,0,0,1,8,8V75.99963"
         fill="none"

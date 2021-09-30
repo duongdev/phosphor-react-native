@@ -25,8 +25,8 @@ function Divide(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={128} cy={64} r={14} />
-      <Circle cx={128} cy={192} r={14} />
+      <Circle cx={128} cy={64} r={14} fill={props.color} />
+      <Circle cx={128} cy={192} r={14} fill={props.color} />
     </Svg>
   );
 }

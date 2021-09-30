@@ -23,8 +23,8 @@ function SmileyBlank(props: IconProps) {
         strokeMiterlimit={10}
         strokeWidth={16}
       />
-      <Circle cx={92} cy={108} r={12} />
-      <Circle cx={164} cy={108} r={12} />
+      <Circle cx={92} cy={108} r={12} fill={props.color} />
+      <Circle cx={164} cy={108} r={12} fill={props.color} />
     </Svg>
   );
 }

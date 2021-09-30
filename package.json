@@ -30,7 +30,7 @@
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
-    "generate": "node generator/generate-svg.js && yarn run lint --fix"
+    "generate": "node generator/generate-svg.js"
   },
   "keywords": [
     "react-native",

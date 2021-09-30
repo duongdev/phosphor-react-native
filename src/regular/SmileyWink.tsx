@@ -24,7 +24,7 @@ function SmileyWink(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={92} cy={108} r={12} />
+      <Circle cx={92} cy={108} r={12} fill={props.color} />
       <Line
         x1={152}
         y1={108}

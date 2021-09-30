@@ -34,8 +34,8 @@ function Television(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={188} cy={116} r={8} />
-      <Circle cx={188} cy={164} r={8} />
+      <Circle cx={188} cy={116} r={8} fill={props.color} />
+      <Circle cx={188} cy={164} r={8} fill={props.color} />
       <Line
         x1={152}
         y1={208}

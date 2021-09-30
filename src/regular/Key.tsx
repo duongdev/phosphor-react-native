@@ -33,7 +33,7 @@ function Key(props: IconProps) {
         strokeWidth={16}
         opacity={0.5}
       />
-      <Circle cx={180} cy={76} r={12} />
+      <Circle cx={180} cy={76} r={12} fill={props.color} />
     </Svg>
   );
 }

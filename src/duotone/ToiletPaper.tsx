@@ -16,7 +16,7 @@ function ToiletPaper(props: IconProps) {
     >
       <Rect width={256} height={256} fill="none" />
       <Ellipse cx={64} cy={120} rx={40} ry={80} opacity={0.2} />
-      <Circle cx={64} cy={120} r={12} />
+      <Circle cx={64} cy={120} r={12} fill={props.color} />
       <Ellipse
         cx={64}
         cy={120}

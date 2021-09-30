@@ -15,7 +15,7 @@ function PersonSimpleRun(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={152} cy={56} r={24} opacity={0.2} />
+      <Circle cx={152} cy={56} r={24} opacity={0.2} fill={props.color} />
       <Circle
         cx={152}
         cy={56}

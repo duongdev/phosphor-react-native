@@ -15,8 +15,8 @@ function MusicNotesSimple(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={180} cy={172} r={28} opacity={0.2} />
-      <Circle cx={52} cy={204} r={28} opacity={0.2} />
+      <Circle cx={180} cy={172} r={28} opacity={0.2} fill={props.color} />
+      <Circle cx={52} cy={204} r={28} opacity={0.2} fill={props.color} />
       <Circle
         cx={180}
         cy={172}

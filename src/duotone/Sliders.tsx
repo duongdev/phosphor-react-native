@@ -15,7 +15,7 @@ function Sliders(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={55.99609} cy={136} r={20} opacity={0.2} />
+      <Circle cx={55.99609} cy={136} r={20} opacity={0.2} fill={props.color} />
       <Line
         x1={127.99609}
         y1={108}

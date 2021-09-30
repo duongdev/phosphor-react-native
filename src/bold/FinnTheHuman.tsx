@@ -34,8 +34,8 @@ function FinnTheHuman(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={96} cy={140} r={16} />
-      <Circle cx={160} cy={140} r={16} />
+      <Circle cx={96} cy={140} r={16} fill={props.color} />
+      <Circle cx={160} cy={140} r={16} fill={props.color} />
     </Svg>
   );
 }

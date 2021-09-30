@@ -22,10 +22,10 @@ function Palette(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={128} cy={76} r={8} />
-      <Circle cx={82.9667} cy={102} r={7.99867} />
-      <Circle cx={82.9667} cy={154} r={7.99866} />
-      <Circle cx={173.0333} cy={102} r={7.99866} />
+      <Circle cx={128} cy={76} r={8} fill={props.color} />
+      <Circle cx={82.9667} cy={102} r={7.99867} fill={props.color} />
+      <Circle cx={82.9667} cy={154} r={7.99866} fill={props.color} />
+      <Circle cx={173.0333} cy={102} r={7.99866} fill={props.color} />
     </Svg>
   );
 }

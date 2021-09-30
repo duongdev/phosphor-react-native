@@ -14,8 +14,8 @@ function BugDroid(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={156} cy={84} r={8} />
-      <Circle cx={100} cy={84} r={8} />
+      <Circle cx={156} cy={84} r={8} fill={props.color} />
+      <Circle cx={100} cy={84} r={8} fill={props.color} />
       <Path
         d="M207.92969,148a80,80,0,0,1-160,0V108a80,80,0,0,1,160,0Z"
         fill="none"

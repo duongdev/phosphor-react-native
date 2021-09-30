@@ -26,11 +26,11 @@ function DiceFive(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={88} cy={88} r={16} />
-      <Circle cx={128} cy={128} r={16} />
-      <Circle cx={168} cy={88} r={16} />
-      <Circle cx={88} cy={168} r={16} />
-      <Circle cx={168} cy={168} r={16} />
+      <Circle cx={88} cy={88} r={16} fill={props.color} />
+      <Circle cx={128} cy={128} r={16} fill={props.color} />
+      <Circle cx={168} cy={88} r={16} fill={props.color} />
+      <Circle cx={88} cy={168} r={16} fill={props.color} />
+      <Circle cx={168} cy={168} r={16} fill={props.color} />
     </Svg>
   );
 }

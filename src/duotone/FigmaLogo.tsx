@@ -15,7 +15,7 @@ function FigmaLogo(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={162} cy={128} r={34} opacity={0.2} />
+      <Circle cx={162} cy={128} r={34} opacity={0.2} fill={props.color} />
       <Path d="M128,94V26.00089H94a34,34,0,0,0,0,68Z" opacity={0.2} />
       <Path d="M128,161.99911v34.00044A34,34,0,1,1,94,162Z" opacity={0.2} />
       <Circle

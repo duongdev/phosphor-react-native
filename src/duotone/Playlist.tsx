@@ -15,7 +15,7 @@ function Playlist(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={176} cy={192} r={24} opacity={0.2} />
+      <Circle cx={176} cy={192} r={24} opacity={0.2} fill={props.color} />
       <Line
         x1={40}
         y1={64}

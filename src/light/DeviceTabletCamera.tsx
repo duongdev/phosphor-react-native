@@ -27,7 +27,7 @@ function DeviceTabletCamera(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={128} cy={68} r={10} />
+      <Circle cx={128} cy={68} r={10} fill={props.color} />
     </Svg>
   );
 }

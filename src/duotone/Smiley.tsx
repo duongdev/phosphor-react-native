@@ -15,7 +15,7 @@ function Smiley(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={128} r={96} opacity={0.2} />
+      <Circle cx={128} cy={128} r={96} opacity={0.2} fill={props.color} />
       <Circle
         cx={128}
         cy={128}
@@ -25,8 +25,8 @@ function Smiley(props: IconProps) {
         strokeMiterlimit={10}
         strokeWidth={16}
       />
-      <Circle cx={92} cy={108} r={12} />
-      <Circle cx={164} cy={108} r={12} />
+      <Circle cx={92} cy={108} r={12} fill={props.color} />
+      <Circle cx={164} cy={108} r={12} fill={props.color} />
       <Path
         d="M169.58,151.99735a48.016,48.016,0,0,1-83.15966.00055"
         fill="none"

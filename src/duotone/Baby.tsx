@@ -15,7 +15,7 @@ function Baby(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={128} r={96} opacity={0.2} />
+      <Circle cx={128} cy={128} r={96} opacity={0.2} fill={props.color} />
       <Circle
         cx={128}
         cy={128}
@@ -26,8 +26,8 @@ function Baby(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={92} cy={128} r={12} />
-      <Circle cx={164} cy={128} r={12} />
+      <Circle cx={92} cy={128} r={12} fill={props.color} />
+      <Circle cx={164} cy={128} r={12} fill={props.color} />
       <Path
         d="M154.53832,168.00269a48.03112,48.03112,0,0,1-53.07491.00115"
         fill="none"

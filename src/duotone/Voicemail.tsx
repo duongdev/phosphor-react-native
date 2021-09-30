@@ -15,8 +15,8 @@ function Voicemail(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={56} cy={128} r={48} opacity={0.2} />
-      <Circle cx={200} cy={128} r={48} opacity={0.2} />
+      <Circle cx={56} cy={128} r={48} opacity={0.2} fill={props.color} />
+      <Circle cx={200} cy={128} r={48} opacity={0.2} fill={props.color} />
       <Circle
         cx={56}
         cy={128}

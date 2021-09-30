@@ -28,7 +28,7 @@ function HardDrive(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={188} cy={128} r={12} />
+      <Circle cx={188} cy={128} r={12} fill={props.color} />
     </Svg>
   );
 }

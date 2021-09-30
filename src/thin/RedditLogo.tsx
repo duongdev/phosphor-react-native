@@ -48,8 +48,8 @@ function RedditLogo(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={88} cy={132.00002} r={12} />
-      <Circle cx={168} cy={132.00002} r={12} />
+      <Circle cx={88} cy={132.00002} r={12} fill={props.color} />
+      <Circle cx={168} cy={132.00002} r={12} fill={props.color} />
     </Svg>
   );
 }

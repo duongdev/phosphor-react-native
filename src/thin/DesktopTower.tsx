@@ -78,7 +78,7 @@ function DesktopTower(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={192} cy={180} r={8} />
+      <Circle cx={192} cy={180} r={8} fill={props.color} />
     </Svg>
   );
 }

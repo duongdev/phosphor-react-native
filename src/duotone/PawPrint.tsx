@@ -15,10 +15,10 @@ function PawPrint(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={212} cy={108} r={20} opacity={0.2} />
-      <Circle cx={44} cy={108} r={20} opacity={0.2} />
-      <Circle cx={92} cy={60} r={20} opacity={0.2} />
-      <Circle cx={164} cy={60} r={20} opacity={0.2} />
+      <Circle cx={212} cy={108} r={20} opacity={0.2} fill={props.color} />
+      <Circle cx={44} cy={108} r={20} opacity={0.2} fill={props.color} />
+      <Circle cx={92} cy={60} r={20} opacity={0.2} fill={props.color} />
+      <Circle cx={164} cy={60} r={20} opacity={0.2} fill={props.color} />
       <Path
         d="M183.23572,155.85352a43.541,43.541,0,0,1-20.667-25.90381l-.00092.001a35.9985,35.9985,0,0,0-69.13562,0l-.00092-.001a43.541,43.541,0,0,1-20.667,25.90381,32.00736,32.00736,0,0,0,27.72266,57.61767,72.51938,72.51938,0,0,1,55.02612,0,32.00679,32.00679,0,0,0,27.72266-57.61767Z"
         opacity={0.2}

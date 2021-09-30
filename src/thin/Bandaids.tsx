@@ -41,7 +41,7 @@ function Bandaids(props: IconProps) {
         strokeWidth={8}
         opacity={0.5}
       />
-      <Circle cx={128} cy={128} r={8} />
+      <Circle cx={128} cy={128} r={8} fill={props.color} />
     </Svg>
   );
 }

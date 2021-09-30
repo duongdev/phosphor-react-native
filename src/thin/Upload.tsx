@@ -41,7 +41,7 @@ function Upload(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={188} cy={168} r={8} />
+      <Circle cx={188} cy={168} r={8} fill={props.color} />
     </Svg>
   );
 }

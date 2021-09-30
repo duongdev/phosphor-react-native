@@ -15,7 +15,13 @@ function SlidersHorizontal(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={103.99951} cy={83.99353} r={20} opacity={0.2} />
+      <Circle
+        cx={103.99951}
+        cy={83.99353}
+        r={20}
+        opacity={0.2}
+        fill={props.color}
+      />
       <Line
         x1={147.99951}
         y1={171.99353}

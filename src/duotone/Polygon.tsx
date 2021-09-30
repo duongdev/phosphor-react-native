@@ -15,10 +15,10 @@ function Polygon(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={120} cy={48} r={24} opacity={0.2} />
-      <Circle cx={40} cy={120} r={24} opacity={0.2} />
-      <Circle cx={160} cy={208} r={24} opacity={0.2} />
-      <Circle cx={208} cy={72} r={24} opacity={0.2} />
+      <Circle cx={120} cy={48} r={24} opacity={0.2} fill={props.color} />
+      <Circle cx={40} cy={120} r={24} opacity={0.2} fill={props.color} />
+      <Circle cx={160} cy={208} r={24} opacity={0.2} fill={props.color} />
+      <Circle cx={208} cy={72} r={24} opacity={0.2} fill={props.color} />
       <Circle
         cx={120}
         cy={48}

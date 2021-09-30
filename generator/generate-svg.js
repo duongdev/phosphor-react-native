@@ -68,6 +68,22 @@ const generateIconWithWeight = (icon, weight) => {
       );
     }
 
+    // fix icons with small dots (#4)
+    if (tsCode.match(/<Circle.*? \/>/g)) {
+      console.log(componentName, weight);
+
+      const circles = tsCode
+        .match(/<Circle.*? \/>/g)
+        .filter((circle) => !circle.includes('props.color'));
+
+      circles.forEach((circle) => {
+        tsCode = tsCode.replace(
+          circle,
+          circle.replace(/\s\/>$/, ' fill={props.color} />')
+        );
+      });
+    }
+
     const outDir = path.join(srcDir, weight);
     const fileName = `${fileNameMap[componentName] || componentName}.tsx`;
 

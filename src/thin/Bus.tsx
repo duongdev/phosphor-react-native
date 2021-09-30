@@ -60,8 +60,8 @@ function Bus(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={84} cy={156} r={8} />
-      <Circle cx={172} cy={156} r={8} />
+      <Circle cx={84} cy={156} r={8} fill={props.color} />
+      <Circle cx={172} cy={156} r={8} fill={props.color} />
     </Svg>
   );
 }

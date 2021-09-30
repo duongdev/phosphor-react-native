@@ -14,8 +14,8 @@ function DiscordLogo(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={96} cy={144.00002} r={12} />
-      <Circle cx={160} cy={144.00002} r={12} />
+      <Circle cx={96} cy={144.00002} r={12} fill={props.color} />
+      <Circle cx={160} cy={144.00002} r={12} fill={props.color} />
       <Path
         d="M74.4017,80A175.32467,175.32467,0,0,1,128,72a175.32507,175.32507,0,0,1,53.59754,7.99971"
         fill="none"
@@ -48,8 +48,8 @@ function DiscordLogo(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={96} cy={144.00002} r={12} />
-      <Circle cx={160} cy={144.00002} r={12} />
+      <Circle cx={96} cy={144.00002} r={12} fill={props.color} />
+      <Circle cx={160} cy={144.00002} r={12} fill={props.color} />
       <Path
         d="M74.4017,80A175.32467,175.32467,0,0,1,128,72a175.32507,175.32507,0,0,1,53.59754,7.99971"
         fill="none"

@@ -38,7 +38,7 @@ function Swatches(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={72} cy={180} r={10} />
+      <Circle cx={72} cy={180} r={10} fill={props.color} />
     </Svg>
   );
 }

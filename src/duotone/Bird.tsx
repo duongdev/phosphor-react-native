@@ -19,7 +19,7 @@ function Bird(props: IconProps) {
         d="M208,96v24a96,96,0,0,1-96,96H8L104,96V76A52.00738,52.00738,0,0,1,206.33275,62.88778L232,80Z"
         opacity={0.2}
       />
-      <Circle cx={164} cy={68} r={12} />
+      <Circle cx={164} cy={68} r={12} fill={props.color} />
       <Line
         x1={120}
         y1={136}

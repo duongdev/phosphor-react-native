@@ -15,7 +15,7 @@ function MagnifyingGlass(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={115.99512} cy={116} r={84} opacity={0.2} />
+      <Circle cx={115.99512} cy={116} r={84} opacity={0.2} fill={props.color} />
       <Circle
         cx={115.99512}
         cy={116}

@@ -14,8 +14,8 @@ function AndroidLogo(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={164} cy={156} r={16} />
-      <Circle cx={92.00001} cy={156.00002} r={16} />
+      <Circle cx={164} cy={156} r={16} fill={props.color} />
+      <Circle cx={92.00001} cy={156.00002} r={16} fill={props.color} />
       <Path
         d="M24,192V169.12886C24,111.65,70.15361,64.19953,127.63214,64.00066A104,104,0,0,1,232,168v24a8,8,0,0,1-8,8H32A8,8,0,0,1,24,192Z"
         fill="none"

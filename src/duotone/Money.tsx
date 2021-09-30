@@ -25,7 +25,7 @@ function Money(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={128} cy={128} r={32} opacity={0.2} />
+      <Circle cx={128} cy={128} r={32} opacity={0.2} fill={props.color} />
       <Path
         d="M232,64H176l64,56V72A7.99993,7.99993,0,0,0,232,64Z"
         opacity={0.2}

@@ -15,15 +15,15 @@ function DotsNine(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={60} cy={60} r={12} />
-      <Circle cx={128} cy={60} r={12} />
-      <Circle cx={196} cy={60} r={12} />
-      <Circle cx={60} cy={128} r={12} />
-      <Circle cx={128} cy={128} r={12} />
-      <Circle cx={196} cy={128} r={12} />
-      <Circle cx={60} cy={196} r={12} />
-      <Circle cx={128} cy={196} r={12} />
-      <Circle cx={196} cy={196} r={12} />
+      <Circle cx={60} cy={60} r={12} fill={props.color} />
+      <Circle cx={128} cy={60} r={12} fill={props.color} />
+      <Circle cx={196} cy={60} r={12} fill={props.color} />
+      <Circle cx={60} cy={128} r={12} fill={props.color} />
+      <Circle cx={128} cy={128} r={12} fill={props.color} />
+      <Circle cx={196} cy={128} r={12} fill={props.color} />
+      <Circle cx={60} cy={196} r={12} fill={props.color} />
+      <Circle cx={128} cy={196} r={12} fill={props.color} />
+      <Circle cx={196} cy={196} r={12} fill={props.color} />
     </Svg>
   );
 }

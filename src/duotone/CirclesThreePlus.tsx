@@ -15,9 +15,9 @@ function CirclesThreePlus(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={76} cy={76} r={36} opacity={0.2} />
-      <Circle cx={180} cy={76} r={36} opacity={0.2} />
-      <Circle cx={76} cy={180} r={36} opacity={0.2} />
+      <Circle cx={76} cy={76} r={36} opacity={0.2} fill={props.color} />
+      <Circle cx={180} cy={76} r={36} opacity={0.2} fill={props.color} />
+      <Circle cx={76} cy={180} r={36} opacity={0.2} fill={props.color} />
       <Circle
         cx={76}
         cy={76}

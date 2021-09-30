@@ -15,7 +15,7 @@ function PathIcon(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={200} cy={200} r={24} opacity={0.2} />
+      <Circle cx={200} cy={200} r={24} opacity={0.2} fill={props.color} />
       <Circle
         cx={200}
         cy={200}
