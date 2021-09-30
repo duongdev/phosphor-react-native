@@ -14,7 +14,7 @@ function Bird(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={160} cy={72} r={16} />
+      <Circle cx={160} cy={72} r={16} fill={props.color} />
       <Path
         d="M208,96v24a96,96,0,0,1-96,96H12L104,96V76A52.00738,52.00738,0,0,1,206.33275,62.88778L232,80Z"
         fill="none"

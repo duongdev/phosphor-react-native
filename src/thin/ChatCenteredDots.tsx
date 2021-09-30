@@ -22,9 +22,9 @@ function ChatCenteredDots(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={128} cy={120} r={8} />
-      <Circle cx={80} cy={120} r={8} />
-      <Circle cx={176} cy={120} r={8} />
+      <Circle cx={128} cy={120} r={8} fill={props.color} />
+      <Circle cx={80} cy={120} r={8} fill={props.color} />
+      <Circle cx={176} cy={120} r={8} fill={props.color} />
     </Svg>
   );
 }

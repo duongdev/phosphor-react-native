@@ -15,7 +15,7 @@ function Users(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={88.00033} cy={108} r={52} opacity={0.2} />
+      <Circle cx={88.00033} cy={108} r={52} opacity={0.2} fill={props.color} />
       <Circle
         cx={88.00033}
         cy={108}

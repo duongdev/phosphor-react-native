@@ -14,9 +14,9 @@ function DotsThree(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={128} r={16} />
-      <Circle cx={64} cy={128} r={16} />
-      <Circle cx={192} cy={128} r={16} />
+      <Circle cx={128} cy={128} r={16} fill={props.color} />
+      <Circle cx={64} cy={128} r={16} fill={props.color} />
+      <Circle cx={192} cy={128} r={16} fill={props.color} />
     </Svg>
   );
 }

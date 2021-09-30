@@ -22,7 +22,7 @@ function CircleWavyQuestion(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={127.99902} cy={180} r={10} />
+      <Circle cx={127.99902} cy={180} r={10} fill={props.color} />
       <Path
         d="M127.9995,144.0045v-8a28,28,0,1,0-28-28"
         fill="none"

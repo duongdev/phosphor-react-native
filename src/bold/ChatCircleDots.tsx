@@ -22,8 +22,8 @@ function ChatCircleDots(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={99.99951} cy={127.99902} r={16} />
-      <Circle cx={155.99951} cy={127.99902} r={16} />
+      <Circle cx={99.99951} cy={127.99902} r={16} fill={props.color} />
+      <Circle cx={155.99951} cy={127.99902} r={16} fill={props.color} />
     </Svg>
   );
 }

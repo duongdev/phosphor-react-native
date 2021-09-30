@@ -14,7 +14,7 @@ function Wallet(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={180} cy={144} r={16} />
+      <Circle cx={180} cy={144} r={16} fill={props.color} />
       <Path
         d="M40,68V192a16,16,0,0,0,16,16H216a8,8,0,0,0,8-8V96a8,8,0,0,0-8-8H60.47932c-10.84468,0-20.081-8.43286-20.46634-19.27069A20.00049,20.00049,0,0,1,60,48H192"
         fill="none"

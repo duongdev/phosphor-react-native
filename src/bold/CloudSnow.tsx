@@ -22,9 +22,9 @@ function CloudSnow(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={160} cy={216} r={16} />
-      <Circle cx={112} cy={216} r={16} />
-      <Circle cx={64} cy={216} r={16} />
+      <Circle cx={160} cy={216} r={16} fill={props.color} />
+      <Circle cx={112} cy={216} r={16} fill={props.color} />
+      <Circle cx={64} cy={216} r={16} fill={props.color} />
     </Svg>
   );
 }

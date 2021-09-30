@@ -15,9 +15,9 @@ function UsersThree(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={140} r={40} opacity={0.2} />
-      <Circle cx={60} cy={84} r={32} opacity={0.2} />
-      <Circle cx={196} cy={84} r={32} opacity={0.2} />
+      <Circle cx={128} cy={140} r={40} opacity={0.2} fill={props.color} />
+      <Circle cx={60} cy={84} r={32} opacity={0.2} fill={props.color} />
+      <Circle cx={196} cy={84} r={32} opacity={0.2} fill={props.color} />
       <Circle
         cx={128}
         cy={140}

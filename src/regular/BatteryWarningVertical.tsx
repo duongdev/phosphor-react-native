@@ -48,7 +48,7 @@ function BatteryWarningVertical(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={128} cy={168} r={12} />
+      <Circle cx={128} cy={168} r={12} fill={props.color} />
     </Svg>
   );
 }

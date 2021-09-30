@@ -22,7 +22,7 @@ function Wallet(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={180} cy={144} r={8} />
+      <Circle cx={180} cy={144} r={8} fill={props.color} />
     </Svg>
   );
 }

@@ -15,10 +15,10 @@ function LineSegments(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={40} cy={200} r={24} opacity={0.2} />
-      <Circle cx={96} cy={96} r={24} opacity={0.2} />
-      <Circle cx={160} cy={160} r={24} opacity={0.2} />
-      <Circle cx={216} cy={56} r={24} opacity={0.2} />
+      <Circle cx={40} cy={200} r={24} opacity={0.2} fill={props.color} />
+      <Circle cx={96} cy={96} r={24} opacity={0.2} fill={props.color} />
+      <Circle cx={160} cy={160} r={24} opacity={0.2} fill={props.color} />
+      <Circle cx={216} cy={56} r={24} opacity={0.2} fill={props.color} />
       <Circle
         cx={40}
         cy={200}

@@ -15,7 +15,7 @@ function CircleIcon(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={128} r={104} />
+      <Circle cx={128} cy={128} r={104} fill={props.color} />
     </Svg>
   );
 }

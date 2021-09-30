@@ -15,7 +15,7 @@ function GitBranch(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={188} cy={67.99756} r={28} opacity={0.2} />
+      <Circle cx={188} cy={67.99756} r={28} opacity={0.2} fill={props.color} />
       <Path
         d="M67.98779,160v-8.00018A23.99955,23.99955,0,0,1,91.9873,128.00073l72.001-.00146a23.99955,23.99955,0,0,0,23.99951-23.99909V96"
         fill="none"

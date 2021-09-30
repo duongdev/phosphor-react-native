@@ -72,7 +72,7 @@ export default function App() {
         numColumns={3}
         renderItem={({ item: [name, Icon] }) => (
           <View style={styles.iconItem}>
-            <Icon size={40} weight={weight} />
+            <Icon size={48} weight={weight} />
             <Text style={styles.iconName}>{name}</Text>
           </View>
         )}

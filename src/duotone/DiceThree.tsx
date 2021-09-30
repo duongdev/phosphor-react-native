@@ -28,9 +28,9 @@ function DiceThree(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={92} cy={92} r={12} />
-      <Circle cx={128} cy={128} r={12} />
-      <Circle cx={164} cy={164} r={12} />
+      <Circle cx={92} cy={92} r={12} fill={props.color} />
+      <Circle cx={128} cy={128} r={12} fill={props.color} />
+      <Circle cx={164} cy={164} r={12} fill={props.color} />
     </Svg>
   );
 }

@@ -14,7 +14,7 @@ function FishSimple(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={156} cy={76} r={10} />
+      <Circle cx={156} cy={76} r={10} fill={props.color} />
       <Path
         d="M16,183.96316C247.8414,234.71183,223.79084,75.46765,217.18687,44.9601a8.01954,8.01954,0,0,0-6.147-6.147C180.5321,32.20917,21.28468,8.15854,72,240"
         fill="none"

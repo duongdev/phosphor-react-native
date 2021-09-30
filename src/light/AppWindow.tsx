@@ -26,8 +26,8 @@ function AppWindow(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={68} cy={84.00586} r={10} />
-      <Circle cx={108} cy={84.00586} r={10} />
+      <Circle cx={68} cy={84.00586} r={10} fill={props.color} />
+      <Circle cx={108} cy={84.00586} r={10} fill={props.color} />
     </Svg>
   );
 }

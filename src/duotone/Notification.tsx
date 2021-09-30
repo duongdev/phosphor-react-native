@@ -15,7 +15,7 @@ function Notification(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={196} cy={60} r={28} opacity={0.2} />
+      <Circle cx={196} cy={60} r={28} opacity={0.2} fill={props.color} />
       <Path
         d="M208,128v80a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h80"
         fill="none"

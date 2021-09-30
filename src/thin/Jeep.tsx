@@ -71,8 +71,8 @@ function Jeep(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={72} cy={132} r={8} />
-      <Circle cx={184} cy={132} r={8} />
+      <Circle cx={72} cy={132} r={8} fill={props.color} />
+      <Circle cx={184} cy={132} r={8} fill={props.color} />
     </Svg>
   );
 }

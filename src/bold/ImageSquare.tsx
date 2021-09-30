@@ -34,7 +34,7 @@ function ImageSquare(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={100} cy={92} r={16} />
+      <Circle cx={100} cy={92} r={16} fill={props.color} />
     </Svg>
   );
 }

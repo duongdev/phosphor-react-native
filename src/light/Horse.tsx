@@ -30,7 +30,7 @@ function Horse(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={124} cy={100} r={10} />
+      <Circle cx={124} cy={100} r={10} fill={props.color} />
     </Svg>
   );
 }

@@ -27,7 +27,7 @@ function Tag(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={84} cy={84} r={12} />
+      <Circle cx={84} cy={84} r={12} fill={props.color} />
     </Svg>
   );
 }

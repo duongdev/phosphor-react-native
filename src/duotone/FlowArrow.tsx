@@ -15,7 +15,7 @@ function FlowArrow(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={44} cy={176} r={28} opacity={0.2} />
+      <Circle cx={44} cy={176} r={28} opacity={0.2} fill={props.color} />
       <Circle
         cx={44}
         cy={176}

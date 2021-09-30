@@ -71,8 +71,8 @@ function Robot(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={84} cy={104} r={16} />
-      <Circle cx={172} cy={104} r={16} />
+      <Circle cx={84} cy={104} r={16} fill={props.color} />
+      <Circle cx={172} cy={104} r={16} fill={props.color} />
     </Svg>
   );
 }

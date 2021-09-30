@@ -47,9 +47,9 @@ function ListBullets(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={44} cy={64} r={10} />
-      <Circle cx={44} cy={192} r={10} />
-      <Circle cx={44} cy={128} r={10} />
+      <Circle cx={44} cy={64} r={10} fill={props.color} />
+      <Circle cx={44} cy={192} r={10} fill={props.color} />
+      <Circle cx={44} cy={128} r={10} fill={props.color} />
     </Svg>
   );
 }

@@ -33,7 +33,7 @@ function WarningOctagon(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={128} cy={172} r={8} />
+      <Circle cx={128} cy={172} r={8} fill={props.color} />
     </Svg>
   );
 }

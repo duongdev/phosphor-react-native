@@ -25,8 +25,8 @@ function Cat(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={84} cy={140} r={16} />
-      <Circle cx={172} cy={140} r={16} />
+      <Circle cx={84} cy={140} r={16} fill={props.color} />
+      <Circle cx={172} cy={140} r={16} fill={props.color} />
       <Polyline
         points="144 176 128 192 112 176"
         fill="none"

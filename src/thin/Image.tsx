@@ -34,7 +34,7 @@ function Image(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={156} cy={100} r={8} />
+      <Circle cx={156} cy={100} r={8} fill={props.color} />
     </Svg>
   );
 }

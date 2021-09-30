@@ -15,7 +15,7 @@ function GenderMale(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={104} cy={152} r={72} opacity={0.2} />
+      <Circle cx={104} cy={152} r={72} opacity={0.2} fill={props.color} />
       <Circle
         cx={104}
         cy={152}

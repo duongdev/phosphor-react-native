@@ -38,7 +38,7 @@ function Atom(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={128} cy={128} r={8} />
+      <Circle cx={128} cy={128} r={8} fill={props.color} />
     </Svg>
   );
 }

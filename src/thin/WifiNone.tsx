@@ -14,7 +14,7 @@ function WifiNone(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128} cy={200} r={8} />
+      <Circle cx={128} cy={200} r={8} fill={props.color} />
     </Svg>
   );
 }

@@ -15,7 +15,7 @@ function UserPlus(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={108} cy={100} r={60} opacity={0.2} />
+      <Circle cx={108} cy={100} r={60} opacity={0.2} fill={props.color} />
       <Line
         x1={200}
         y1={136}

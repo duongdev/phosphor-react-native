@@ -81,8 +81,8 @@ function Train(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={88} cy={168} r={16} />
-      <Circle cx={168} cy={168} r={16} />
+      <Circle cx={88} cy={168} r={16} fill={props.color} />
+      <Circle cx={168} cy={168} r={16} fill={props.color} />
     </Svg>
   );
 }

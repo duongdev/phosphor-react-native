@@ -15,7 +15,7 @@ function UserList(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={80} cy={104} r={40} opacity={0.2} />
+      <Circle cx={80} cy={104} r={40} opacity={0.2} fill={props.color} />
       <Circle
         cx={80}
         cy={104}

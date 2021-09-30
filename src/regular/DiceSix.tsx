@@ -26,12 +26,12 @@ function DiceSix(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={92} cy={84} r={12} />
-      <Circle cx={164} cy={84} r={12} />
-      <Circle cx={92} cy={128} r={12} />
-      <Circle cx={164} cy={128} r={12} />
-      <Circle cx={92} cy={172} r={12} />
-      <Circle cx={164} cy={172} r={12} />
+      <Circle cx={92} cy={84} r={12} fill={props.color} />
+      <Circle cx={164} cy={84} r={12} fill={props.color} />
+      <Circle cx={92} cy={128} r={12} fill={props.color} />
+      <Circle cx={164} cy={128} r={12} fill={props.color} />
+      <Circle cx={92} cy={172} r={12} fill={props.color} />
+      <Circle cx={164} cy={172} r={12} fill={props.color} />
     </Svg>
   );
 }

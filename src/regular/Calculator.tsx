@@ -38,12 +38,12 @@ function Calculator(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={88} cy={148} r={12} />
-      <Circle cx={128} cy={148} r={12} />
-      <Circle cx={168} cy={148} r={12} />
-      <Circle cx={88} cy={188} r={12} />
-      <Circle cx={128} cy={188} r={12} />
-      <Circle cx={168} cy={188} r={12} />
+      <Circle cx={88} cy={148} r={12} fill={props.color} />
+      <Circle cx={128} cy={148} r={12} fill={props.color} />
+      <Circle cx={168} cy={148} r={12} fill={props.color} />
+      <Circle cx={88} cy={188} r={12} fill={props.color} />
+      <Circle cx={128} cy={188} r={12} fill={props.color} />
+      <Circle cx={168} cy={188} r={12} fill={props.color} />
     </Svg>
   );
 }

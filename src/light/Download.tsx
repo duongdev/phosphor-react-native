@@ -41,7 +41,7 @@ function Download(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={188} cy={168} r={10} />
+      <Circle cx={188} cy={168} r={10} fill={props.color} />
     </Svg>
   );
 }

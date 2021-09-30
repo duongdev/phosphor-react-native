@@ -24,8 +24,8 @@ function SmileyBlank(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={92} cy={108} r={8} />
-      <Circle cx={164} cy={108} r={8} />
+      <Circle cx={92} cy={108} r={8} fill={props.color} />
+      <Circle cx={164} cy={108} r={8} fill={props.color} />
     </Svg>
   );
 }

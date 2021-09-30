@@ -15,7 +15,7 @@ function GitCommit(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={128.00244} cy={128} r={52} opacity={0.2} />
+      <Circle cx={128.00244} cy={128} r={52} opacity={0.2} fill={props.color} />
       <Circle
         cx={128.00244}
         cy={128}

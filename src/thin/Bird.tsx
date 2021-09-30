@@ -14,7 +14,7 @@ function Bird(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={164} cy={68} r={8} />
+      <Circle cx={164} cy={68} r={8} fill={props.color} />
       <Line
         x1={120}
         y1={136}

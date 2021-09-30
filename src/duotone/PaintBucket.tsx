@@ -15,7 +15,7 @@ function PaintBucket(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={124} cy={116.00586} r={20} opacity={0.2} />
+      <Circle cx={124} cy={116.00586} r={20} opacity={0.2} fill={props.color} />
       <Path
         d="M208,204c0-19.99414,20-40,20-40s20,20.00586,20,40a20,20,0,0,1-40,0Z"
         opacity={0.2}

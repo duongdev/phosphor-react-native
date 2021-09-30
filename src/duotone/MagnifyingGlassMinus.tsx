@@ -15,7 +15,13 @@ function MagnifyingGlassMinus(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={115.99512} cy={115.99707} r={84} opacity={0.2} />
+      <Circle
+        cx={115.99512}
+        cy={115.99707}
+        r={84}
+        opacity={0.2}
+        fill={props.color}
+      />
       <Line
         x1={83.99512}
         y1={116}

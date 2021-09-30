@@ -30,7 +30,7 @@ function RssSimple(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={56} cy={200} r={12} />
+      <Circle cx={56} cy={200} r={12} fill={props.color} />
     </Svg>
   );
 }

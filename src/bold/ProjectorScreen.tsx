@@ -59,7 +59,7 @@ function ProjectorScreen(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={128} cy={232} r={24} />
+      <Circle cx={128} cy={232} r={24} fill={props.color} />
       <Line
         x1={32}
         y1={176}

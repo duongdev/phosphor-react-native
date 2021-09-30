@@ -26,8 +26,8 @@ function DiceTwo(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={104} cy={104} r={16} />
-      <Circle cx={152} cy={152} r={16} />
+      <Circle cx={104} cy={104} r={16} fill={props.color} />
+      <Circle cx={152} cy={152} r={16} fill={props.color} />
     </Svg>
   );
 }

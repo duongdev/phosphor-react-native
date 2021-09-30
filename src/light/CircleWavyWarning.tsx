@@ -33,7 +33,7 @@ function CircleWavyWarning(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={12}
       />
-      <Circle cx={127.99951} cy={172} r={10} />
+      <Circle cx={127.99951} cy={172} r={10} fill={props.color} />
     </Svg>
   );
 }

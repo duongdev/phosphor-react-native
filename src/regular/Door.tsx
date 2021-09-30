@@ -33,7 +33,7 @@ function Door(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={16}
       />
-      <Circle cx={156} cy={128} r={12} />
+      <Circle cx={156} cy={128} r={12} fill={props.color} />
     </Svg>
   );
 }

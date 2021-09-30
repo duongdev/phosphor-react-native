@@ -41,7 +41,7 @@ function Printer(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={188} cy={116} r={8} />
+      <Circle cx={188} cy={116} r={8} fill={props.color} />
     </Svg>
   );
 }

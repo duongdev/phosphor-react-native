@@ -14,12 +14,12 @@ function DotsSix(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={60} cy={92} r={8} />
-      <Circle cx={128} cy={92} r={8} />
-      <Circle cx={196} cy={92} r={8} />
-      <Circle cx={60} cy={164} r={8} />
-      <Circle cx={128} cy={164.0001} r={8} />
-      <Circle cx={196} cy={164} r={8} />
+      <Circle cx={60} cy={92} r={8} fill={props.color} />
+      <Circle cx={128} cy={92} r={8} fill={props.color} />
+      <Circle cx={196} cy={92} r={8} fill={props.color} />
+      <Circle cx={60} cy={164} r={8} fill={props.color} />
+      <Circle cx={128} cy={164.0001} r={8} fill={props.color} />
+      <Circle cx={196} cy={164} r={8} fill={props.color} />
     </Svg>
   );
 }

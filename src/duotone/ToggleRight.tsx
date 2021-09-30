@@ -15,7 +15,7 @@ function ToggleRight(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={176} cy={128} r={32} opacity={0.2} />
+      <Circle cx={176} cy={128} r={32} opacity={0.2} fill={props.color} />
       <Rect
         x={16.00006}
         y={64}

@@ -15,8 +15,8 @@ function Bicycle(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={208} cy={160} r={40} opacity={0.2} />
-      <Circle cx={48} cy={160} r={40} opacity={0.2} />
+      <Circle cx={208} cy={160} r={40} opacity={0.2} fill={props.color} />
+      <Circle cx={48} cy={160} r={40} opacity={0.2} fill={props.color} />
       <Path
         d="M208,80a16,16,0,0,0-16-16H152l56,96"
         fill="none"

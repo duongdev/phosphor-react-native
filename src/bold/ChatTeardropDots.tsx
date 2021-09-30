@@ -22,9 +22,9 @@ function ChatTeardropDots(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={132} cy={128} r={16} />
-      <Circle cx={180} cy={128} r={16} />
-      <Circle cx={84} cy={128} r={16} />
+      <Circle cx={132} cy={128} r={16} fill={props.color} />
+      <Circle cx={180} cy={128} r={16} fill={props.color} />
+      <Circle cx={84} cy={128} r={16} fill={props.color} />
     </Svg>
   );
 }

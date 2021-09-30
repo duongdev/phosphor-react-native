@@ -15,8 +15,8 @@ function GitFork(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={188} cy={67.99756} r={28} opacity={0.2} />
-      <Circle cx={68} cy={67.99756} r={28} opacity={0.2} />
+      <Circle cx={188} cy={67.99756} r={28} opacity={0.2} fill={props.color} />
+      <Circle cx={68} cy={67.99756} r={28} opacity={0.2} fill={props.color} />
       <Circle
         cx={128}
         cy={188}

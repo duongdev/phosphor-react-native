@@ -25,8 +25,8 @@ function Dog(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={92} cy={136} r={16} />
-      <Circle cx={164} cy={136} r={16} />
+      <Circle cx={92} cy={136} r={16} fill={props.color} />
+      <Circle cx={164} cy={136} r={16} fill={props.color} />
       <Polyline
         points="144 176 128 192 112 176"
         fill="none"

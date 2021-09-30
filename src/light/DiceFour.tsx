@@ -26,10 +26,10 @@ function DiceFour(props: IconProps) {
         strokeLinejoin="round"
         fill="none"
       />
-      <Circle cx={100} cy={100} r={10} />
-      <Circle cx={156} cy={100} r={10} />
-      <Circle cx={100} cy={156} r={10} />
-      <Circle cx={156} cy={156} r={10} />
+      <Circle cx={100} cy={100} r={10} fill={props.color} />
+      <Circle cx={156} cy={100} r={10} fill={props.color} />
+      <Circle cx={100} cy={156} r={10} fill={props.color} />
+      <Circle cx={156} cy={156} r={10} fill={props.color} />
     </Svg>
   );
 }

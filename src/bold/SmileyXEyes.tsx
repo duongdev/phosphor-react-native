@@ -68,7 +68,7 @@ function SmileyXEyes(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <Circle cx={128} cy={180} r={16} />
+      <Circle cx={128} cy={180} r={16} fill={props.color} />
     </Svg>
   );
 }

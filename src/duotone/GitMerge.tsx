@@ -15,7 +15,7 @@ function GitMerge(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={67.99023} cy={68} r={28} opacity={0.2} />
+      <Circle cx={67.99023} cy={68} r={28} opacity={0.2} fill={props.color} />
       <Circle
         cx={67.99023}
         cy={188}

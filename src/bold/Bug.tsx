@@ -14,8 +14,8 @@ function Bug(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={156} cy={88} r={16} />
-      <Circle cx={100} cy={88} r={16} />
+      <Circle cx={156} cy={88} r={16} fill={props.color} />
+      <Circle cx={100} cy={88} r={16} fill={props.color} />
       <Line
         x1={128}
         y1={128}

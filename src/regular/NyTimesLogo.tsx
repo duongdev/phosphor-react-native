@@ -14,7 +14,7 @@ function NyTimesLogo(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={171.92969} cy={148} r={12} />
+      <Circle cx={171.92969} cy={148} r={12} fill={props.color} />
       <Path
         d="M205.57177,163.35784A80.00853,80.00853,0,1,1,127.92969,64"
         fill="none"

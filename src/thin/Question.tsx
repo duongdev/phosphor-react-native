@@ -24,7 +24,7 @@ function Question(props: IconProps) {
         strokeLinejoin="round"
         strokeWidth={8}
       />
-      <Circle cx={128} cy={180} r={8} />
+      <Circle cx={128} cy={180} r={8} fill={props.color} />
       <Path
         d="M128,144.0045v-8a28,28,0,1,0-28-28"
         fill="none"

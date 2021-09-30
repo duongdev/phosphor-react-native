@@ -15,8 +15,8 @@ function ShareNetwork(props: IconProps) {
       {...props}
     >
       <Rect width={256} height={256} fill="none" />
-      <Circle cx={176} cy={200} r={32} opacity={0.2} />
-      <Circle cx={176} cy={56} r={32} opacity={0.2} />
+      <Circle cx={176} cy={200} r={32} opacity={0.2} fill={props.color} />
+      <Circle cx={176} cy={56} r={32} opacity={0.2} fill={props.color} />
       <Circle
         cx={64}
         cy={128}
