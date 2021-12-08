@@ -127,11 +127,12 @@ import thin from '../thin/${component}'
 
 function ${
     componentNameMap[component] || component
-  }({ weight, color, size, style }: IconProps) {
+  }({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
+    mirrored: contextMirrored = false, 
     style: contextStyle,
   } = useContext(IconContext)
 
@@ -150,6 +151,8 @@ function ${
     return weightMap[iconWeight]
   }, [weight, contextWeight])
 
+  const mirroredValue = mirrored ?? contextMirrored
+
   return (
     <IconComponent
       color={color ?? contextColor}
@@ -157,6 +160,9 @@ function ${
       style={{
         ...contextStyle,
         ...style,
+        ...(mirroredValue && {
+          transform: [{ scaleX: -1 }],
+        }),
       }}
     />
   )
