@@ -21,6 +21,7 @@ const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
 
 export default function App() {
   const [weightIdx, setWeightIdx] = React.useState(2);
+  const [mirrorActive, setMirrorActive] = React.useState(false);
 
   const weight: IconPack.IconWeight = React.useMemo(
     () => weights[weightIdx] as any,
@@ -30,6 +31,10 @@ export default function App() {
   const handleChangeWeight = React.useCallback(() => {
     setWeightIdx((weightIdx + 1) % weights.length);
   }, [weightIdx]);
+
+  const handleToggleMirror = React.useCallback(() => {
+    setMirrorActive(!mirrorActive);
+  }, [mirrorActive]);
 
   return (
     <View style={styles.rootView}>
@@ -62,6 +67,12 @@ export default function App() {
           >
             <IconPack.PencilLine color="#FFF" weight={weight} />
           </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.weightSelect}
+            onPress={handleToggleMirror}
+          >
+            <IconPack.Swap color="#FFF" weight={weight} />
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
       <FlatList
@@ -72,7 +83,7 @@ export default function App() {
         numColumns={3}
         renderItem={({ item: [name, Icon] }) => (
           <View style={styles.iconItem}>
-            <Icon size={48} weight={weight} />
+            <Icon size={48} weight={weight} mirrored={mirrorActive} />
             <Text style={styles.iconName}>{name}</Text>
           </View>
         )}
