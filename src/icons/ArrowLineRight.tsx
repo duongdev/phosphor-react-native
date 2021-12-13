@@ -9,11 +9,12 @@ import light from '../light/ArrowLineRight';
 import regular from '../regular/ArrowLineRight';
 import thin from '../thin/ArrowLineRight';
 
-function ArrowLineRight({ weight, color, size, style }: IconProps) {
+function ArrowLineRight({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
+    mirrored: contextMirrored = false,
     style: contextStyle,
   } = useContext(IconContext);
 
@@ -32,6 +33,8 @@ function ArrowLineRight({ weight, color, size, style }: IconProps) {
     return weightMap[iconWeight];
   }, [weight, contextWeight]);
 
+  const mirroredValue = mirrored ?? contextMirrored;
+
   return (
     <IconComponent
       color={color ?? contextColor}
@@ -39,6 +42,9 @@ function ArrowLineRight({ weight, color, size, style }: IconProps) {
       style={{
         ...contextStyle,
         ...style,
+        ...(mirroredValue && {
+          transform: [{ scaleX: -1 }],
+        }),
       }}
     />
   );

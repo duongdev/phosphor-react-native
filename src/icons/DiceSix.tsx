@@ -9,11 +9,12 @@ import light from '../light/DiceSix';
 import regular from '../regular/DiceSix';
 import thin from '../thin/DiceSix';
 
-function DiceSix({ weight, color, size, style }: IconProps) {
+function DiceSix({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
+    mirrored: contextMirrored = false,
     style: contextStyle,
   } = useContext(IconContext);
 
@@ -32,6 +33,8 @@ function DiceSix({ weight, color, size, style }: IconProps) {
     return weightMap[iconWeight];
   }, [weight, contextWeight]);
 
+  const mirroredValue = mirrored ?? contextMirrored;
+
   return (
     <IconComponent
       color={color ?? contextColor}
@@ -39,6 +42,9 @@ function DiceSix({ weight, color, size, style }: IconProps) {
       style={{
         ...contextStyle,
         ...style,
+        ...(mirroredValue && {
+          transform: [{ scaleX: -1 }],
+        }),
       }}
     />
   );

@@ -9,11 +9,18 @@ import light from '../light/DotsThreeVertical';
 import regular from '../regular/DotsThreeVertical';
 import thin from '../thin/DotsThreeVertical';
 
-function DotsThreeVertical({ weight, color, size, style }: IconProps) {
+function DotsThreeVertical({
+  weight,
+  color,
+  size,
+  style,
+  mirrored,
+}: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
+    mirrored: contextMirrored = false,
     style: contextStyle,
   } = useContext(IconContext);
 
@@ -32,6 +39,8 @@ function DotsThreeVertical({ weight, color, size, style }: IconProps) {
     return weightMap[iconWeight];
   }, [weight, contextWeight]);
 
+  const mirroredValue = mirrored ?? contextMirrored;
+
   return (
     <IconComponent
       color={color ?? contextColor}
@@ -39,6 +48,9 @@ function DotsThreeVertical({ weight, color, size, style }: IconProps) {
       style={{
         ...contextStyle,
         ...style,
+        ...(mirroredValue && {
+          transform: [{ scaleX: -1 }],
+        }),
       }}
     />
   );

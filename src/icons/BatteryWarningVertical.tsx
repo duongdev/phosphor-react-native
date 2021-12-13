@@ -9,11 +9,18 @@ import light from '../light/BatteryWarningVertical';
 import regular from '../regular/BatteryWarningVertical';
 import thin from '../thin/BatteryWarningVertical';
 
-function BatteryWarningVertical({ weight, color, size, style }: IconProps) {
+function BatteryWarningVertical({
+  weight,
+  color,
+  size,
+  style,
+  mirrored,
+}: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
+    mirrored: contextMirrored = false,
     style: contextStyle,
   } = useContext(IconContext);
 
@@ -32,6 +39,8 @@ function BatteryWarningVertical({ weight, color, size, style }: IconProps) {
     return weightMap[iconWeight];
   }, [weight, contextWeight]);
 
+  const mirroredValue = mirrored ?? contextMirrored;
+
   return (
     <IconComponent
       color={color ?? contextColor}
@@ -39,6 +48,9 @@ function BatteryWarningVertical({ weight, color, size, style }: IconProps) {
       style={{
         ...contextStyle,
         ...style,
+        ...(mirroredValue && {
+          transform: [{ scaleX: -1 }],
+        }),
       }}
     />
   );
