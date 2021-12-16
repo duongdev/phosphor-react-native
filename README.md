@@ -33,9 +33,9 @@ npm install --save phosphor-react-native
 Simply import the icons you need, and add them anywhere in your render method. Phosphor supports tree-shaking, so your bundle only includes code for the icons you use.
 
 ```tsx
-import React from "react";
-import { View } from "react-native";
-import { Horse, Heart, Cube } from "phosphor-react-native";
+import React from 'react';
+import { View } from 'react-native';
+import { Horse, Heart, Cube } from 'phosphor-react-native';
 
 const App = () => {
   return (
@@ -61,23 +61,23 @@ Icon components accept all props that you can pass to a normal SVG element, incl
 Phosphor takes advantage of React Context to make applying a default style to all icons simple. Create an `IconContext.Provider` at the root of the app (or anywhere above the icons in the tree) and pass in a configuration object with props to be applied by default to all icons:
 
 ```tsx
-import React from "react";
-import { View } from "react-native";
-import { IconContext, Horse, Heart, Cube } from "phosphor-react-native";
+import React from 'react';
+import { View } from 'react-native';
+import { IconContext, Horse, Heart, Cube } from 'phosphor-react-native';
 
 const App = () => {
   return (
     <IconContext.Provider
       value={{
-        color: "limegreen",
+        color: 'limegreen',
         size: 32,
-        weight: "bold",
+        weight: 'bold',
       }}
     >
       <View>
         <Horse /> {/* I'm lime-green, 32px, and bold! */}
         <Heart /> {/* Me too! */}
-        <Cube />  {/* Me three :) */}
+        <Cube /> {/* Me three :) */}
       </View>
     </IconContext.Provider>
   );
@@ -96,12 +96,13 @@ import * as Icon from "phosphor-react-native";
 <Icon.Smiley />
 <Icon.Folder weight="thin" />
 <Icon.BatteryHalf size="24px" />
+<Icon.AirplaneTakeoff size="24px" mirrored={true} />
 ```
 
 ## To do
 
 - [x] Make an example app using Expo.
-- [ ] Support `mirrored` prop.
+- [x] Support `mirrored` prop.
 
 ## Related Projects
 

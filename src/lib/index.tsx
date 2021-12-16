@@ -16,7 +16,7 @@ export interface IconProps {
   size?: string | number;
   weight?: IconWeight;
   style?: ViewStyle;
-  // mirrored?: boolean
+  mirrored?: boolean;
 }
 
 export type Icon = React.FC<IconProps>;
@@ -25,4 +25,5 @@ export const IconContext = createContext<IconProps>({
   color: '#000',
   size: 24,
   weight: 'regular',
+  mirrored: false,
 });
