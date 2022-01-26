@@ -1,37 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Fire(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path
-        d="M179.3884,148.00007a52.03842,52.03842,0,0,1-43.388,43.38828"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Path
-        d="M72.03592,65.35733C56.59774,88.63059,44,115.21513,44,140a84,84,0,0,0,168,0c0-52-36-92-65.17642-121.12849l-.00087.00081L112,92,72.037,65.358Z"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Path d="M179.4,148A52.2,52.2,0,0,1,136,191.4" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Path d="M72,65.4C56.6,88.6,44,115.2,44,140a84,84,0,0,0,168,0c0-52-36-92-65.2-121.1h0L112,92,72,65.4Z" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /></Svg>;
 }
 
 export default Fire;

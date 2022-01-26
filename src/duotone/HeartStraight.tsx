@@ -1,34 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function HeartStraight(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path
-        d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
-        opacity={0.2}
-      />
-      <Path
-        d="M133.65683,211.88227l81.0323-81.0322c19.9104-19.91038,22.84784-52.666,4.00583-73.59029a52.0026,52.0026,0,0,0-75.46451-2.02934L127.99994,70.46082,114.85007,57.3109C94.93972,37.40047,62.18409,34.463,41.25979,53.305a52.00261,52.00261,0,0,0-2.02934,75.46452l83.11268,83.11272A8,8,0,0,0,133.65683,211.88227Z"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M133.7,211.9l81-81c19.9-20,22.8-52.7,4-73.6a52,52,0,0,0-75.5-2.1L128,70.5,114.9,57.3c-20-19.9-52.7-22.8-73.6-4a52,52,0,0,0-2.1,75.5l83.1,83.1A8.1,8.1,0,0,0,133.7,211.9Z" opacity={0.2} /><Path d="M133.7,211.9l81-81c19.9-20,22.8-52.7,4-73.6a52,52,0,0,0-75.5-2.1L128,70.5,114.9,57.3c-20-19.9-52.7-22.8-73.6-4a52,52,0,0,0-2.1,75.5l83.1,83.1A8.1,8.1,0,0,0,133.7,211.9Z" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /></Svg>;
 }
 
 export default HeartStraight;

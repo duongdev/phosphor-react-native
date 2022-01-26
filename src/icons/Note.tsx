@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/Note';
-import duotone from '../duotone/Note';
-import fill from '../fill/Note';
-import light from '../light/Note';
-import regular from '../regular/Note';
-import thin from '../thin/Note';
+import bold from '../bold/Note'
+import duotone from '../duotone/Note'
+import fill from '../fill/Note'
+import light from '../light/Note'
+import regular from '../regular/Note'
+import thin from '../thin/Note'
 
 function Note({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function Note({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function Note({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default Note;
+export default Note
+  

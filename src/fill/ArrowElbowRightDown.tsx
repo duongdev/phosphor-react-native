@@ -1,23 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function ArrowElbowRightDown(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path d="M229.65723,165.65674l-48,48a8.00063,8.00063,0,0,1-11.31446,0l-48-48A8.00037,8.00037,0,0,1,128,152h40V72H32a8,8,0,0,1,0-16H176a8.00008,8.00008,0,0,1,8,8v88h40a8.00038,8.00038,0,0,1,5.65723,13.65674Z" />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M229.7,165.7l-48,48a8.2,8.2,0,0,1-11.4,0l-48-48a8.4,8.4,0,0,1-1.7-8.8A8,8,0,0,1,128,152h40V72H32a8,8,0,0,1,0-16H176a8,8,0,0,1,8,8v88h40a8,8,0,0,1,7.4,4.9A8.4,8.4,0,0,1,229.7,165.7Z" /></Svg>;
 }
 
 export default ArrowElbowRightDown;

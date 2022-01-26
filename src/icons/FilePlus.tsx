@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/FilePlus';
-import duotone from '../duotone/FilePlus';
-import fill from '../fill/FilePlus';
-import light from '../light/FilePlus';
-import regular from '../regular/FilePlus';
-import thin from '../thin/FilePlus';
+import bold from '../bold/FilePlus'
+import duotone from '../duotone/FilePlus'
+import fill from '../fill/FilePlus'
+import light from '../light/FilePlus'
+import regular from '../regular/FilePlus'
+import thin from '../thin/FilePlus'
 
 function FilePlus({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function FilePlus({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function FilePlus({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default FilePlus;
+export default FilePlus
+  

@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/HourglassSimpleLow';
-import duotone from '../duotone/HourglassSimpleLow';
-import fill from '../fill/HourglassSimpleLow';
-import light from '../light/HourglassSimpleLow';
-import regular from '../regular/HourglassSimpleLow';
-import thin from '../thin/HourglassSimpleLow';
+import bold from '../bold/HourglassSimpleLow'
+import duotone from '../duotone/HourglassSimpleLow'
+import fill from '../fill/HourglassSimpleLow'
+import light from '../light/HourglassSimpleLow'
+import regular from '../regular/HourglassSimpleLow'
+import thin from '../thin/HourglassSimpleLow'
 
-function HourglassSimpleLow({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function HourglassSimpleLow({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function HourglassSimpleLow({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function HourglassSimpleLow({
         }),
       }}
     />
-  );
+  )
 }
 
-export default HourglassSimpleLow;
+export default HourglassSimpleLow
+  

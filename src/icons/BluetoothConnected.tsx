@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/BluetoothConnected';
-import duotone from '../duotone/BluetoothConnected';
-import fill from '../fill/BluetoothConnected';
-import light from '../light/BluetoothConnected';
-import regular from '../regular/BluetoothConnected';
-import thin from '../thin/BluetoothConnected';
+import bold from '../bold/BluetoothConnected'
+import duotone from '../duotone/BluetoothConnected'
+import fill from '../fill/BluetoothConnected'
+import light from '../light/BluetoothConnected'
+import regular from '../regular/BluetoothConnected'
+import thin from '../thin/BluetoothConnected'
 
-function BluetoothConnected({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function BluetoothConnected({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function BluetoothConnected({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function BluetoothConnected({
         }),
       }}
     />
-  );
+  )
 }
 
-export default BluetoothConnected;
+export default BluetoothConnected
+  

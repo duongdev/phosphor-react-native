@@ -1,40 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Polyline } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Polyline } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Copy(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 255.99316 255.99316"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Polyline
-        points="168 167.993 216 167.993 216 39.993 88 39.993 88 87.993"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={8}
-      />
-      <Rect
-        x={39.99902}
-        y={87.99414}
-        width={128}
-        height={128}
-        strokeWidth={8}
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Polyline points="168 168 216 168 216 40 88 40 88 88" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /><Rect x={40} y={88} width={128} height={128} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /></Svg>;
 }
 
 export default Copy;

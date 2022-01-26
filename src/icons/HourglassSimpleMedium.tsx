@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/HourglassSimpleMedium';
-import duotone from '../duotone/HourglassSimpleMedium';
-import fill from '../fill/HourglassSimpleMedium';
-import light from '../light/HourglassSimpleMedium';
-import regular from '../regular/HourglassSimpleMedium';
-import thin from '../thin/HourglassSimpleMedium';
+import bold from '../bold/HourglassSimpleMedium'
+import duotone from '../duotone/HourglassSimpleMedium'
+import fill from '../fill/HourglassSimpleMedium'
+import light from '../light/HourglassSimpleMedium'
+import regular from '../regular/HourglassSimpleMedium'
+import thin from '../thin/HourglassSimpleMedium'
 
-function HourglassSimpleMedium({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function HourglassSimpleMedium({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function HourglassSimpleMedium({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function HourglassSimpleMedium({
         }),
       }}
     />
-  );
+  )
 }
 
-export default HourglassSimpleMedium;
+export default HourglassSimpleMedium
+  

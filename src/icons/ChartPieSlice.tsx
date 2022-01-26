@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ChartPieSlice';
-import duotone from '../duotone/ChartPieSlice';
-import fill from '../fill/ChartPieSlice';
-import light from '../light/ChartPieSlice';
-import regular from '../regular/ChartPieSlice';
-import thin from '../thin/ChartPieSlice';
+import bold from '../bold/ChartPieSlice'
+import duotone from '../duotone/ChartPieSlice'
+import fill from '../fill/ChartPieSlice'
+import light from '../light/ChartPieSlice'
+import regular from '../regular/ChartPieSlice'
+import thin from '../thin/ChartPieSlice'
 
 function ChartPieSlice({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function ChartPieSlice({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function ChartPieSlice({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default ChartPieSlice;
+export default ChartPieSlice
+  

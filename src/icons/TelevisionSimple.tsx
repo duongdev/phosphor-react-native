@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/TelevisionSimple';
-import duotone from '../duotone/TelevisionSimple';
-import fill from '../fill/TelevisionSimple';
-import light from '../light/TelevisionSimple';
-import regular from '../regular/TelevisionSimple';
-import thin from '../thin/TelevisionSimple';
+import bold from '../bold/TelevisionSimple'
+import duotone from '../duotone/TelevisionSimple'
+import fill from '../fill/TelevisionSimple'
+import light from '../light/TelevisionSimple'
+import regular from '../regular/TelevisionSimple'
+import thin from '../thin/TelevisionSimple'
 
 function TelevisionSimple({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function TelevisionSimple({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function TelevisionSimple({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default TelevisionSimple;
+export default TelevisionSimple
+  

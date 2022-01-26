@@ -1,23 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Copy(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 255.99316 255.99316"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path d="M215.99414,31.99316h-128a8.0004,8.0004,0,0,0-8,8v40.001h-40.001a8.0004,8.0004,0,0,0-8,8v128a8.0004,8.0004,0,0,0,8,8h128a8.00039,8.00039,0,0,0,8-8v-40.001h40.001a8.00039,8.00039,0,0,0,8-8v-128A8.0004,8.0004,0,0,0,215.99414,31.99316Zm-8,128h-32.001v-71.999a8.00039,8.00039,0,0,0-8-8h-71.999v-32.001h112Z" />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32Zm-8,128H176V88a8,8,0,0,0-8-8H96V48H208Z" /></Svg>;
 }
 
 export default Copy;

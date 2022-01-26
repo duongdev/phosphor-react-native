@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/DeviceTabletCamera';
-import duotone from '../duotone/DeviceTabletCamera';
-import fill from '../fill/DeviceTabletCamera';
-import light from '../light/DeviceTabletCamera';
-import regular from '../regular/DeviceTabletCamera';
-import thin from '../thin/DeviceTabletCamera';
+import bold from '../bold/DeviceTabletCamera'
+import duotone from '../duotone/DeviceTabletCamera'
+import fill from '../fill/DeviceTabletCamera'
+import light from '../light/DeviceTabletCamera'
+import regular from '../regular/DeviceTabletCamera'
+import thin from '../thin/DeviceTabletCamera'
 
-function DeviceTabletCamera({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function DeviceTabletCamera({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function DeviceTabletCamera({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function DeviceTabletCamera({
         }),
       }}
     />
-  );
+  )
 }
 
-export default DeviceTabletCamera;
+export default DeviceTabletCamera
+  

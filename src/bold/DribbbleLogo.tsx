@@ -1,55 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Circle, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Circle, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function DribbbleLogo(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Circle
-        cx={128}
-        cy={128.0009}
-        r={96}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Path
-        d="M71.0247,205.27206A159.91145,159.91145,0,0,1,208.00586,127.999q8.09514,0,15.99054.78906"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Path
-        d="M188.0294,53.09173A159.68573,159.68573,0,0,1,64.00586,111.999a160.8502,160.8502,0,0,1-30.15138-2.83671"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Path
-        d="M85.93041,41.686a159.92755,159.92755,0,0,1,78.99267,138.00723,160.35189,160.35189,0,0,1-4.73107,38.77687"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Circle cx={128} cy={128} r={96} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Path d="M71,205.3A160.1,160.1,0,0,1,208,128c5.4,0,10.7.3,16,.8" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Path d="M188,53.1A159.8,159.8,0,0,1,64,112a165.2,165.2,0,0,1-30.1-2.8" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Path d="M85.9,41.7a160.5,160.5,0,0,1,74.3,176.8" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /></Svg>;
 }
 
 export default DribbbleLogo;

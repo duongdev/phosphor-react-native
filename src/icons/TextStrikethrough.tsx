@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/TextStrikethrough';
-import duotone from '../duotone/TextStrikethrough';
-import fill from '../fill/TextStrikethrough';
-import light from '../light/TextStrikethrough';
-import regular from '../regular/TextStrikethrough';
-import thin from '../thin/TextStrikethrough';
+import bold from '../bold/TextStrikethrough'
+import duotone from '../duotone/TextStrikethrough'
+import fill from '../fill/TextStrikethrough'
+import light from '../light/TextStrikethrough'
+import regular from '../regular/TextStrikethrough'
+import thin from '../thin/TextStrikethrough'
 
-function TextStrikethrough({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function TextStrikethrough({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function TextStrikethrough({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function TextStrikethrough({
         }),
       }}
     />
-  );
+  )
 }
 
-export default TextStrikethrough;
+export default TextStrikethrough
+  

@@ -1,41 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Tray(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Rect
-        x={40}
-        y={40}
-        width={176}
-        height={176}
-        rx={8}
-        strokeWidth={12}
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-      <Path
-        d="M39.99414,160H76.68043a8,8,0,0,1,5.65686,2.34315l19.3137,19.3137A8,8,0,0,0,107.30785,184h41.37258a8,8,0,0,0,5.65686-2.34315l19.3137-19.3137A8,8,0,0,1,179.30785,160h36.68629"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Rect x={40} y={40} width={176} height={176} rx={8} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Path d="M40,160H76.7a7.9,7.9,0,0,1,5.6,2.3l19.4,19.4a7.9,7.9,0,0,0,5.6,2.3h41.4a7.9,7.9,0,0,0,5.6-2.3l19.4-19.4a7.9,7.9,0,0,1,5.6-2.3H216" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /></Svg>;
 }
 
 export default Tray;

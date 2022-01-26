@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ChartLineUp';
-import duotone from '../duotone/ChartLineUp';
-import fill from '../fill/ChartLineUp';
-import light from '../light/ChartLineUp';
-import regular from '../regular/ChartLineUp';
-import thin from '../thin/ChartLineUp';
+import bold from '../bold/ChartLineUp'
+import duotone from '../duotone/ChartLineUp'
+import fill from '../fill/ChartLineUp'
+import light from '../light/ChartLineUp'
+import regular from '../regular/ChartLineUp'
+import thin from '../thin/ChartLineUp'
 
 function ChartLineUp({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function ChartLineUp({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function ChartLineUp({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default ChartLineUp;
+export default ChartLineUp
+  

@@ -1,73 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Polyline, Line } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Polyline, Line } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function SortDescending(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Polyline
-        points="144 87.994 184 47.994 223.999 87.987"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Line
-        x1={184}
-        y1={143.99359}
-        x2={184}
-        y2={47.99359}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Line
-        x1={48}
-        y1={127.99353}
-        x2={119.99902}
-        y2={127.99353}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Line
-        x1={48}
-        y1={63.99353}
-        x2={103.99902}
-        y2={63.99353}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Line
-        x1={48}
-        y1={191.99353}
-        x2={183.99902}
-        y2={191.99353}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Polyline points="144 88 184 48 224 88" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Line x1={184} y1={144} x2={184} y2={48} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Line x1={48} y1={128} x2={120} y2={128} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Line x1={48} y1={64} x2={104} y2={64} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Line x1={48} y1={192} x2={184} y2={192} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /></Svg>;
 }
 
 export default SortDescending;

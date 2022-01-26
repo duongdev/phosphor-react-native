@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ArrowUDownLeft';
-import duotone from '../duotone/ArrowUDownLeft';
-import fill from '../fill/ArrowUDownLeft';
-import light from '../light/ArrowUDownLeft';
-import regular from '../regular/ArrowUDownLeft';
-import thin from '../thin/ArrowUDownLeft';
+import bold from '../bold/ArrowUDownLeft'
+import duotone from '../duotone/ArrowUDownLeft'
+import fill from '../fill/ArrowUDownLeft'
+import light from '../light/ArrowUDownLeft'
+import regular from '../regular/ArrowUDownLeft'
+import thin from '../thin/ArrowUDownLeft'
 
 function ArrowUDownLeft({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function ArrowUDownLeft({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function ArrowUDownLeft({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default ArrowUDownLeft;
+export default ArrowUDownLeft
+  

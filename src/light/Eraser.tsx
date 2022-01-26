@@ -1,40 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Line, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Line, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Eraser(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256.00098 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Line
-        x1={91.55018}
-        y1={99.54921}
-        x2={159.43243}
-        y2={167.43146}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Path
-        d="M216.00049,215.83348H72.07L34.98164,178.74517a16,16,0,0,1,0-22.62742L148.11873,42.98066a16,16,0,0,1,22.62741,0L216.001,88.2355a16,16,0,0,1,0,22.62742L111.03042,215.83347"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Line x1={91.5} y1={99.5} x2={159.4} y2={167.4} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Path d="M216,215.8H72.1L35,178.7a15.9,15.9,0,0,1,0-22.6L148.1,43a15.9,15.9,0,0,1,22.6,0L216,88.2a16.2,16.2,0,0,1,0,22.7L111,215.8" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /></Svg>;
 }
 
 export default Eraser;
