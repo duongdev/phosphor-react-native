@@ -115,24 +115,24 @@ const getIconList = () => {
 
 const generateMainIconFile = (icon) => {
   const component = Case.pascal(icon);
+  const componentFileName = fileNameMap[component] || component;
+  const componentName = componentNameMap[component] || component;
   const componentCode = `import React, { useContext, useMemo } from 'react'
 import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/${component}'
-import duotone from '../duotone/${component}'
-import fill from '../fill/${component}'
-import light from '../light/${component}'
-import regular from '../regular/${component}'
-import thin from '../thin/${component}'
+import bold from '../bold/${componentFileName}'
+import duotone from '../duotone/${componentFileName}'
+import fill from '../fill/${componentFileName}'
+import light from '../light/${componentFileName}'
+import regular from '../regular/${componentFileName}'
+import thin from '../thin/${componentFileName}'
 
-function ${
-    componentNameMap[component] || component
-  }({ weight, color, size, style, mirrored }: IconProps) {
+function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false, 
+    mirrored: contextMirrored = false,
     style: contextStyle,
   } = useContext(IconContext)
 
@@ -168,7 +168,7 @@ function ${
   )
 }
 
-export default ${componentNameMap[component] || component}
+export default ${componentName}
   `;
 
   const filePath = path.join(__dirname, '../src/icons', `${component}.tsx`);

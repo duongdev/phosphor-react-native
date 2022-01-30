@@ -30,7 +30,7 @@
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
-    "format": "prettier --write --fix src/**/*",
+    "format": "prettier --write src/**/* src/index.tsx",
     "generate": "node generator/generate-svg.js"
   },
   "keywords": [
