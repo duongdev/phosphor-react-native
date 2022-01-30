@@ -1,56 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path, Line } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path, Line } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Backspace(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path
-        d="M61.66958,204.116,16,128l45.66958-76.116a8,8,0,0,1,6.85994-3.884H216a8,8,0,0,1,8,8V200a8,8,0,0,1-8,8H68.52952A8,8,0,0,1,61.66958,204.116Z"
-        opacity={0.2}
-      />
-      <Path
-        d="M61.66958,204.116,16,128l45.66958-76.116a8,8,0,0,1,6.85994-3.884H216a8,8,0,0,1,8,8V200a8,8,0,0,1-8,8H68.52952A8,8,0,0,1,61.66958,204.116Z"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-      <Line
-        x1={160}
-        y1={104.00005}
-        x2={112}
-        y2={152.00005}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-      <Line
-        x1={160}
-        y1={152.00005}
-        x2={112}
-        y2={104.00005}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M61.7,204.1,16,128,61.7,51.9A7.9,7.9,0,0,1,68.5,48H216a8,8,0,0,1,8,8V200a8,8,0,0,1-8,8H68.5A7.9,7.9,0,0,1,61.7,204.1Z" opacity={0.2} /><Path d="M61.7,204.1,16,128,61.7,51.9A7.9,7.9,0,0,1,68.5,48H216a8,8,0,0,1,8,8V200a8,8,0,0,1-8,8H68.5A7.9,7.9,0,0,1,61.7,204.1Z" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /><Line x1={160} y1={104} x2={112} y2={152} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /><Line x1={160} y1={152} x2={112} y2={104} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /></Svg>;
 }
 
 export default Backspace;

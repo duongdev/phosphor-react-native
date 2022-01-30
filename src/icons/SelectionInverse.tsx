@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/SelectionInverse';
-import duotone from '../duotone/SelectionInverse';
-import fill from '../fill/SelectionInverse';
-import light from '../light/SelectionInverse';
-import regular from '../regular/SelectionInverse';
-import thin from '../thin/SelectionInverse';
+import bold from '../bold/SelectionInverse'
+import duotone from '../duotone/SelectionInverse'
+import fill from '../fill/SelectionInverse'
+import light from '../light/SelectionInverse'
+import regular from '../regular/SelectionInverse'
+import thin from '../thin/SelectionInverse'
 
 function SelectionInverse({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function SelectionInverse({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function SelectionInverse({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default SelectionInverse;
+export default SelectionInverse
+  

@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/MagnifyingGlass';
-import duotone from '../duotone/MagnifyingGlass';
-import fill from '../fill/MagnifyingGlass';
-import light from '../light/MagnifyingGlass';
-import regular from '../regular/MagnifyingGlass';
-import thin from '../thin/MagnifyingGlass';
+import bold from '../bold/MagnifyingGlass'
+import duotone from '../duotone/MagnifyingGlass'
+import fill from '../fill/MagnifyingGlass'
+import light from '../light/MagnifyingGlass'
+import regular from '../regular/MagnifyingGlass'
+import thin from '../thin/MagnifyingGlass'
 
 function MagnifyingGlass({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function MagnifyingGlass({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function MagnifyingGlass({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default MagnifyingGlass;
+export default MagnifyingGlass
+  

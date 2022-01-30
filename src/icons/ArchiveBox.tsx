@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ArchiveBox';
-import duotone from '../duotone/ArchiveBox';
-import fill from '../fill/ArchiveBox';
-import light from '../light/ArchiveBox';
-import regular from '../regular/ArchiveBox';
-import thin from '../thin/ArchiveBox';
+import bold from '../bold/ArchiveBox'
+import duotone from '../duotone/ArchiveBox'
+import fill from '../fill/ArchiveBox'
+import light from '../light/ArchiveBox'
+import regular from '../regular/ArchiveBox'
+import thin from '../thin/ArchiveBox'
 
 function ArchiveBox({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function ArchiveBox({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function ArchiveBox({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default ArchiveBox;
+export default ArchiveBox
+  

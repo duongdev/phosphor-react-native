@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ChartBarHorizontal';
-import duotone from '../duotone/ChartBarHorizontal';
-import fill from '../fill/ChartBarHorizontal';
-import light from '../light/ChartBarHorizontal';
-import regular from '../regular/ChartBarHorizontal';
-import thin from '../thin/ChartBarHorizontal';
+import bold from '../bold/ChartBarHorizontal'
+import duotone from '../duotone/ChartBarHorizontal'
+import fill from '../fill/ChartBarHorizontal'
+import light from '../light/ChartBarHorizontal'
+import regular from '../regular/ChartBarHorizontal'
+import thin from '../thin/ChartBarHorizontal'
 
-function ChartBarHorizontal({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function ChartBarHorizontal({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function ChartBarHorizontal({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function ChartBarHorizontal({
         }),
       }}
     />
-  );
+  )
 }
 
-export default ChartBarHorizontal;
+export default ChartBarHorizontal
+  

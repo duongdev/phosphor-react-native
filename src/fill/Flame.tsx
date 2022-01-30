@@ -1,23 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Flame(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path d="M173.793,51.48242a220.94852,220.94852,0,0,0-41.67676-34.34277,8.00334,8.00334,0,0,0-8.23242,0A220.94852,220.94852,0,0,0,82.207,51.48242C54.59473,80.47559,40,112.4668,40,144a88,88,0,0,0,176,0C216,112.4668,201.40527,80.47559,173.793,51.48242ZM96,184c0-27.67285,22.52637-47.27734,31.999-54.29688C137.48193,136.72949,160,156.332,160,184a32,32,0,0,1-64,0Z" />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M173.8,51.5a221.5,221.5,0,0,0-41.7-34.4,8,8,0,0,0-8.2,0A221.5,221.5,0,0,0,82.2,51.5C54.6,80.5,40,112.5,40,144a88,88,0,0,0,176,0C216,112.5,201.4,80.5,173.8,51.5ZM96,184c0-27.7,22.5-47.3,32-54.3,9.5,7,32,26.6,32,54.3a32,32,0,0,1-64,0Z" /></Svg>;
 }
 
 export default Flame;

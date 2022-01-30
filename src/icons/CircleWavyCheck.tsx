@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/CircleWavyCheck';
-import duotone from '../duotone/CircleWavyCheck';
-import fill from '../fill/CircleWavyCheck';
-import light from '../light/CircleWavyCheck';
-import regular from '../regular/CircleWavyCheck';
-import thin from '../thin/CircleWavyCheck';
+import bold from '../bold/CircleWavyCheck'
+import duotone from '../duotone/CircleWavyCheck'
+import fill from '../fill/CircleWavyCheck'
+import light from '../light/CircleWavyCheck'
+import regular from '../regular/CircleWavyCheck'
+import thin from '../thin/CircleWavyCheck'
 
 function CircleWavyCheck({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function CircleWavyCheck({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function CircleWavyCheck({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default CircleWavyCheck;
+export default CircleWavyCheck
+  

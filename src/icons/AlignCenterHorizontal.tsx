@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/AlignCenterHorizontal';
-import duotone from '../duotone/AlignCenterHorizontal';
-import fill from '../fill/AlignCenterHorizontal';
-import light from '../light/AlignCenterHorizontal';
-import regular from '../regular/AlignCenterHorizontal';
-import thin from '../thin/AlignCenterHorizontal';
+import bold from '../bold/AlignCenterHorizontal'
+import duotone from '../duotone/AlignCenterHorizontal'
+import fill from '../fill/AlignCenterHorizontal'
+import light from '../light/AlignCenterHorizontal'
+import regular from '../regular/AlignCenterHorizontal'
+import thin from '../thin/AlignCenterHorizontal'
 
-function AlignCenterHorizontal({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function AlignCenterHorizontal({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function AlignCenterHorizontal({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function AlignCenterHorizontal({
         }),
       }}
     />
-  );
+  )
 }
 
-export default AlignCenterHorizontal;
+export default AlignCenterHorizontal
+  

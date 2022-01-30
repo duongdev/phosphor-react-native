@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/SpeakerSimpleLow';
-import duotone from '../duotone/SpeakerSimpleLow';
-import fill from '../fill/SpeakerSimpleLow';
-import light from '../light/SpeakerSimpleLow';
-import regular from '../regular/SpeakerSimpleLow';
-import thin from '../thin/SpeakerSimpleLow';
+import bold from '../bold/SpeakerSimpleLow'
+import duotone from '../duotone/SpeakerSimpleLow'
+import fill from '../fill/SpeakerSimpleLow'
+import light from '../light/SpeakerSimpleLow'
+import regular from '../regular/SpeakerSimpleLow'
+import thin from '../thin/SpeakerSimpleLow'
 
 function SpeakerSimpleLow({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function SpeakerSimpleLow({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function SpeakerSimpleLow({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default SpeakerSimpleLow;
+export default SpeakerSimpleLow
+  

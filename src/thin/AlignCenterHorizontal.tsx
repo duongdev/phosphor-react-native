@@ -1,78 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Line } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Line } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function AlignCenterHorizontal(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Line
-        x1={128}
-        y1={31.99512}
-        x2={128}
-        y2={55.99512}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={8}
-      />
-      <Line
-        x1={128}
-        y1={199.99512}
-        x2={128}
-        y2={223.99512}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={8}
-      />
-      <Line
-        x1={128}
-        y1={111.99512}
-        x2={128}
-        y2={143.99512}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={8}
-      />
-      <Rect
-        x={64}
-        y={56}
-        width={128}
-        height={56}
-        rx={8}
-        strokeWidth={8}
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-      <Rect
-        x={40}
-        y={144}
-        width={176}
-        height={56}
-        rx={8}
-        strokeWidth={8}
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Line x1={128} y1={32} x2={128} y2={56} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /><Line x1={128} y1={200} x2={128} y2={224} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /><Line x1={128} y1={112} x2={128} y2={144} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /><Rect x={64} y={56} width={128} height={56} rx={8} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /><Rect x={40} y={144} width={176} height={56} rx={8} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={8} /></Svg>;
 }
 
 export default AlignCenterHorizontal;

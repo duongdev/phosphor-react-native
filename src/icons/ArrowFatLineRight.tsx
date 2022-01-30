@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ArrowFatLineRight';
-import duotone from '../duotone/ArrowFatLineRight';
-import fill from '../fill/ArrowFatLineRight';
-import light from '../light/ArrowFatLineRight';
-import regular from '../regular/ArrowFatLineRight';
-import thin from '../thin/ArrowFatLineRight';
+import bold from '../bold/ArrowFatLineRight'
+import duotone from '../duotone/ArrowFatLineRight'
+import fill from '../fill/ArrowFatLineRight'
+import light from '../light/ArrowFatLineRight'
+import regular from '../regular/ArrowFatLineRight'
+import thin from '../thin/ArrowFatLineRight'
 
-function ArrowFatLineRight({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function ArrowFatLineRight({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function ArrowFatLineRight({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function ArrowFatLineRight({
         }),
       }}
     />
-  );
+  )
 }
 
-export default ArrowFatLineRight;
+export default ArrowFatLineRight
+  

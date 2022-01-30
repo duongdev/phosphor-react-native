@@ -1,58 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Circle, Line, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Circle, Line, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function PenNib(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Circle
-        cx={116}
-        cy={140}
-        r={20}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Line
-        x1={32.00586}
-        y1={224.00342}
-        x2={101.85786}
-        y2={154.14214}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Path
-        d="M32.00586,224.00342l139.44573-23.241a8,8,0,0,0,6.17544-5.08216l22.37883-59.67688-80-80L60.329,78.38225a8,8,0,0,0-5.08217,6.17544Z"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-      <Path
-        d="M200.00586,136.00342,226.349,109.66027a8,8,0,0,0,0-11.31371l-68.6863-68.68629a8,8,0,0,0-11.3137,0L120.00586,56.00342"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={12}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Circle cx={116} cy={140} r={20} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Line x1={32} y1={224} x2={101.9} y2={154.1} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Path d="M32,224l139.5-23.2a7.9,7.9,0,0,0,6.1-5.1L200,136,120,56,60.3,78.4a8.1,8.1,0,0,0-5.1,6.2Z" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /><Path d="M200,136l26.3-26.3a8,8,0,0,0,0-11.4L157.7,29.7a8,8,0,0,0-11.4,0L120,56" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={12} /></Svg>;
 }
 
 export default PenNib;

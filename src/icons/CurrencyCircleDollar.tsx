@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/CurrencyCircleDollar';
-import duotone from '../duotone/CurrencyCircleDollar';
-import fill from '../fill/CurrencyCircleDollar';
-import light from '../light/CurrencyCircleDollar';
-import regular from '../regular/CurrencyCircleDollar';
-import thin from '../thin/CurrencyCircleDollar';
+import bold from '../bold/CurrencyCircleDollar'
+import duotone from '../duotone/CurrencyCircleDollar'
+import fill from '../fill/CurrencyCircleDollar'
+import light from '../light/CurrencyCircleDollar'
+import regular from '../regular/CurrencyCircleDollar'
+import thin from '../thin/CurrencyCircleDollar'
 
-function CurrencyCircleDollar({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function CurrencyCircleDollar({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function CurrencyCircleDollar({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function CurrencyCircleDollar({
         }),
       }}
     />
-  );
+  )
 }
 
-export default CurrencyCircleDollar;
+export default CurrencyCircleDollar
+  

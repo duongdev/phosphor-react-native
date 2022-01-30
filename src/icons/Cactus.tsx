@@ -1,0 +1,54 @@
+/* GENERATED FILE */
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
+
+import bold from '../bold/Cactus'
+import duotone from '../duotone/Cactus'
+import fill from '../fill/Cactus'
+import light from '../light/Cactus'
+import regular from '../regular/Cactus'
+import thin from '../thin/Cactus'
+
+function Cactus({ weight, color, size, style, mirrored }: IconProps) {
+  const {
+    color: contextColor = '#000',
+    size: contextSize = 24,
+    weight: contextWeight = 'regular',
+    mirrored: contextMirrored = false, 
+    style: contextStyle,
+  } = useContext(IconContext)
+
+  const IconComponent = useMemo(() => {
+    const iconWeight = weight ?? contextWeight
+
+    const weightMap = {
+      bold,
+      duotone,
+      fill,
+      light,
+      regular,
+      thin,
+    }
+
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
+
+  const mirroredValue = mirrored ?? contextMirrored
+
+  return (
+    <IconComponent
+      color={color ?? contextColor}
+      size={size ?? contextSize}
+      style={{
+        ...contextStyle,
+        ...style,
+        ...(mirroredValue && {
+          transform: [{ scaleX: -1 }],
+        }),
+      }}
+    />
+  )
+}
+
+export default Cactus
+  

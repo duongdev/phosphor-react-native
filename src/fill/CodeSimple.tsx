@@ -1,26 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, G, Path } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function CodeSimple(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <G>
-        <Path d="M93.97949,58.68555a7.99976,7.99976,0,0,0-11.29443-.665l-72,64a8.00054,8.00054,0,0,0,0,11.959l72,64a8.00018,8.00018,0,0,0,10.62988-11.959L28.0415,128,93.31494,69.97949A8,8,0,0,0,93.97949,58.68555Z" />
-        <Path d="M245.31494,122.02051l-72-64a8.00018,8.00018,0,0,0-10.62988,11.959L227.9585,128l-65.27344,58.02051a8.00018,8.00018,0,0,0,10.62988,11.959l72-64a8.00054,8.00054,0,0,0,0-11.959Z" />
-      </G>
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M94,58.7A8,8,0,0,0,82.7,58l-72,64a8,8,0,0,0,0,12l72,64a8.1,8.1,0,0,0,5.3,2,8,8,0,0,0,5.3-14L28,128,93.3,70A8,8,0,0,0,94,58.7Z" /><Path d="M245.3,122l-72-64a8,8,0,0,0-10.6,12L228,128l-65.3,58a8,8,0,0,0,5.3,14,8.1,8.1,0,0,0,5.3-2l72-64a8,8,0,0,0,0-12Z" /></Svg>;
 }
 
 export default CodeSimple;

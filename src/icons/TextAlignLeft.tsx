@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/TextAlignLeft';
-import duotone from '../duotone/TextAlignLeft';
-import fill from '../fill/TextAlignLeft';
-import light from '../light/TextAlignLeft';
-import regular from '../regular/TextAlignLeft';
-import thin from '../thin/TextAlignLeft';
+import bold from '../bold/TextAlignLeft'
+import duotone from '../duotone/TextAlignLeft'
+import fill from '../fill/TextAlignLeft'
+import light from '../light/TextAlignLeft'
+import regular from '../regular/TextAlignLeft'
+import thin from '../thin/TextAlignLeft'
 
 function TextAlignLeft({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function TextAlignLeft({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function TextAlignLeft({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default TextAlignLeft;
+export default TextAlignLeft
+  

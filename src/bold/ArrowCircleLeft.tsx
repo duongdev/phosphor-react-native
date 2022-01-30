@@ -1,50 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Circle, Polyline, Line } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Circle, Polyline, Line } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function ArrowCircleLeft(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Circle
-        cx={128}
-        cy={128}
-        r={96}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Polyline
-        points="121.941 161.941 88 128 121.941 94.059"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Line
-        x1={168}
-        y1={128}
-        x2={88}
-        y2={128}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Circle cx={128} cy={128} r={96} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Polyline points="121.9 161.9 88 128 121.9 94.1" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Line x1={168} y1={128} x2={88} y2={128} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /></Svg>;
 }
 
 export default ArrowCircleLeft;

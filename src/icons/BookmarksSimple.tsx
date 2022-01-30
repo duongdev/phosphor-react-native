@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/BookmarksSimple';
-import duotone from '../duotone/BookmarksSimple';
-import fill from '../fill/BookmarksSimple';
-import light from '../light/BookmarksSimple';
-import regular from '../regular/BookmarksSimple';
-import thin from '../thin/BookmarksSimple';
+import bold from '../bold/BookmarksSimple'
+import duotone from '../duotone/BookmarksSimple'
+import fill from '../fill/BookmarksSimple'
+import light from '../light/BookmarksSimple'
+import regular from '../regular/BookmarksSimple'
+import thin from '../thin/BookmarksSimple'
 
 function BookmarksSimple({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function BookmarksSimple({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function BookmarksSimple({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default BookmarksSimple;
+export default BookmarksSimple
+  

@@ -1,25 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/CurrencyRub';
-import duotone from '../duotone/CurrencyRub';
-import fill from '../fill/CurrencyRub';
-import light from '../light/CurrencyRub';
-import regular from '../regular/CurrencyRub';
-import thin from '../thin/CurrencyRub';
+import bold from '../bold/CurrencyRub'
+import duotone from '../duotone/CurrencyRub'
+import fill from '../fill/CurrencyRub'
+import light from '../light/CurrencyRub'
+import regular from '../regular/CurrencyRub'
+import thin from '../thin/CurrencyRub'
 
 function CurrencyRub({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -28,12 +28,12 @@ function CurrencyRub({ weight, color, size, style, mirrored }: IconProps) {
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -47,7 +47,8 @@ function CurrencyRub({ weight, color, size, style, mirrored }: IconProps) {
         }),
       }}
     />
-  );
+  )
 }
 
-export default CurrencyRub;
+export default CurrencyRub
+  

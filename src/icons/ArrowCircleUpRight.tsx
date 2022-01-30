@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ArrowCircleUpRight';
-import duotone from '../duotone/ArrowCircleUpRight';
-import fill from '../fill/ArrowCircleUpRight';
-import light from '../light/ArrowCircleUpRight';
-import regular from '../regular/ArrowCircleUpRight';
-import thin from '../thin/ArrowCircleUpRight';
+import bold from '../bold/ArrowCircleUpRight'
+import duotone from '../duotone/ArrowCircleUpRight'
+import fill from '../fill/ArrowCircleUpRight'
+import light from '../light/ArrowCircleUpRight'
+import regular from '../regular/ArrowCircleUpRight'
+import thin from '../thin/ArrowCircleUpRight'
 
-function ArrowCircleUpRight({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function ArrowCircleUpRight({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function ArrowCircleUpRight({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function ArrowCircleUpRight({
         }),
       }}
     />
-  );
+  )
 }
 
-export default ArrowCircleUpRight;
+export default ArrowCircleUpRight
+  

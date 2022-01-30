@@ -1,72 +1,11 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path, Polyline, Line } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Polyline, Line, Path } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function FilePdf(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path
-        d="M124,216c13.25483,0,24-12,24-28s-10.74517-28-24-28H112v56Z"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Polyline
-        points="216 160 184 160 184 216"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Line
-        x1={212}
-        y1={196}
-        x2={184}
-        y2={196}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Path
-        d="M47.99219,124.00005V48a8,8,0,0,1,8-8L152,40l56,56v28.00005"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Polyline
-        points="148 40 148 100 208.008 100"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-      <Path
-        d="M40,200H56a20,20,0,0,0,0-40H40v56"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size} {...props}><Rect width={256} height={256} fill="none" /><Polyline points="228 164 196 164 196 220" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Line x1={224} y1={196} x2={196} y2={196} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Polyline points="148 36 148 100 212 100" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Path d="M44,124V44a8,8,0,0,1,8-8H156l56,56v32" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Path d="M112,220V164h16a28,28,0,0,1,0,56Z" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /><Path d="M36,204H52a20,20,0,0,0,0-40H36v56" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={24} /></Svg>;
 }
 
 export default FilePdf;

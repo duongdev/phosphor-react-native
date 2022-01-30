@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/FastForwardCircle';
-import duotone from '../duotone/FastForwardCircle';
-import fill from '../fill/FastForwardCircle';
-import light from '../light/FastForwardCircle';
-import regular from '../regular/FastForwardCircle';
-import thin from '../thin/FastForwardCircle';
+import bold from '../bold/FastForwardCircle'
+import duotone from '../duotone/FastForwardCircle'
+import fill from '../fill/FastForwardCircle'
+import light from '../light/FastForwardCircle'
+import regular from '../regular/FastForwardCircle'
+import thin from '../thin/FastForwardCircle'
 
-function FastForwardCircle({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function FastForwardCircle({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function FastForwardCircle({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function FastForwardCircle({
         }),
       }}
     />
-  );
+  )
 }
 
-export default FastForwardCircle;
+export default FastForwardCircle
+  

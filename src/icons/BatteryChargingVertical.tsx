@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/BatteryChargingVertical';
-import duotone from '../duotone/BatteryChargingVertical';
-import fill from '../fill/BatteryChargingVertical';
-import light from '../light/BatteryChargingVertical';
-import regular from '../regular/BatteryChargingVertical';
-import thin from '../thin/BatteryChargingVertical';
+import bold from '../bold/BatteryChargingVertical'
+import duotone from '../duotone/BatteryChargingVertical'
+import fill from '../fill/BatteryChargingVertical'
+import light from '../light/BatteryChargingVertical'
+import regular from '../regular/BatteryChargingVertical'
+import thin from '../thin/BatteryChargingVertical'
 
-function BatteryChargingVertical({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function BatteryChargingVertical({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function BatteryChargingVertical({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function BatteryChargingVertical({
         }),
       }}
     />
-  );
+  )
 }
 
-export default BatteryChargingVertical;
+export default BatteryChargingVertical
+  

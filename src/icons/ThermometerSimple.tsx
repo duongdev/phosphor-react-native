@@ -1,31 +1,25 @@
 /* GENERATED FILE */
-import React, { useContext, useMemo } from 'react';
-import { IconProps, IconContext } from '../lib';
+import React, { useContext, useMemo } from 'react'
+import { IconProps, IconContext } from '../lib'
 
-import bold from '../bold/ThermometerSimple';
-import duotone from '../duotone/ThermometerSimple';
-import fill from '../fill/ThermometerSimple';
-import light from '../light/ThermometerSimple';
-import regular from '../regular/ThermometerSimple';
-import thin from '../thin/ThermometerSimple';
+import bold from '../bold/ThermometerSimple'
+import duotone from '../duotone/ThermometerSimple'
+import fill from '../fill/ThermometerSimple'
+import light from '../light/ThermometerSimple'
+import regular from '../regular/ThermometerSimple'
+import thin from '../thin/ThermometerSimple'
 
-function ThermometerSimple({
-  weight,
-  color,
-  size,
-  style,
-  mirrored,
-}: IconProps) {
+function ThermometerSimple({ weight, color, size, style, mirrored }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
-    mirrored: contextMirrored = false,
+    mirrored: contextMirrored = false, 
     style: contextStyle,
-  } = useContext(IconContext);
+  } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
-    const iconWeight = weight ?? contextWeight;
+    const iconWeight = weight ?? contextWeight
 
     const weightMap = {
       bold,
@@ -34,12 +28,12 @@ function ThermometerSimple({
       light,
       regular,
       thin,
-    };
+    }
 
-    return weightMap[iconWeight];
-  }, [weight, contextWeight]);
+    return weightMap[iconWeight]
+  }, [weight, contextWeight])
 
-  const mirroredValue = mirrored ?? contextMirrored;
+  const mirroredValue = mirrored ?? contextMirrored
 
   return (
     <IconComponent
@@ -53,7 +47,8 @@ function ThermometerSimple({
         }),
       }}
     />
-  );
+  )
 }
 
-export default ThermometerSimple;
+export default ThermometerSimple
+  

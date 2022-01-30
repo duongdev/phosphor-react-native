@@ -1,53 +1,12 @@
 /* GENERATED FILE */
-import * as React from 'react';
-import Svg, { Rect, Path, Line } from 'react-native-svg';
+import * as React from "react";
+import Svg, { Rect, Path, Line } from "react-native-svg";
 
-import { IconProps } from '../lib';
+import { IconProps } from '../lib'
 
 function Laptop(props: IconProps) {
-  return (
-    <Svg
-      id="Raw"
-      viewBox="0 0 256 256"
-      width={props.size}
-      height={props.size}
-      fill={props.color}
-      {...props}
-    >
-      <Rect width={256} height={256} fill="none" />
-      <Path
-        d="M40,176V72A16,16,0,0,1,56,56H200a16,16,0,0,1,16,16V176Z"
-        opacity={0.2}
-      />
-      <Path
-        d="M40,176V72A16,16,0,0,1,56,56H200a16,16,0,0,1,16,16V176"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-      <Path
-        d="M24,176H232a0,0,0,0,1,0,0v16a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V176A0,0,0,0,1,24,176Z"
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-      <Line
-        x1={144}
-        y1={88}
-        x2={112}
-        y2={88}
-        fill="none"
-        stroke={props.color}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={16}
-      />
-    </Svg>
-  );
+  return <Svg viewBox="0 0 256 256" width={props.size} height={props.size}
+fill={props.color} {...props}><Rect width={256} height={256} fill="none" /><Path d="M40,176V72A16,16,0,0,1,56,56H200a16,16,0,0,1,16,16V176Z" opacity={0.2} /><Path d="M40,176V72A16,16,0,0,1,56,56H200a16,16,0,0,1,16,16V176" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /><Path d="M24,176H232a0,0,0,0,1,0,0v16a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V176A0,0,0,0,1,24,176Z" fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /><Line x1={144} y1={88} x2={112} y2={88} fill="none" stroke={props.color} strokeLinecap="round" strokeLinejoin="round" strokeWidth={16} /></Svg>;
 }
 
 export default Laptop;
