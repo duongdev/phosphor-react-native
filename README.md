@@ -103,7 +103,7 @@ import * as Icon from "phosphor-react-native";
 ## To do
 
 - [x] Make an example app using Expo.
-- [x] Support `mirrored` prop.
+- [x] Support `mirrored` prop ([#6](https://github.com/duongdev/phosphor-react-native/pull/6)).
 
 ## Related Projects
 
