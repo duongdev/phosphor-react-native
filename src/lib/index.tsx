@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export type IconWeight =
   | 'thin'
@@ -15,7 +15,7 @@ export interface IconProps {
   color?: string;
   size?: string | number;
   weight?: IconWeight;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   mirrored?: boolean;
 }
 
