@@ -157,13 +157,15 @@ function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
     <IconComponent
       color={color ?? contextColor}
       size={size ?? contextSize}
-      style={{
-        ...contextStyle,
-        ...style,
-        ...(mirroredValue && {
-          transform: [{ scaleX: -1 }],
-        }),
-      }}
+      style={[
+        contextStyle,
+        style,
+        {
+          ...(mirroredValue && {
+            transform: [{ scaleX: -1 }],
+          }),
+        },
+      ]}
     />
   )
 }
