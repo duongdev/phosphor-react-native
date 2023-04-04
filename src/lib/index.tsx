@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle, ColorValue } from 'react-native';
 
 export type IconWeight =
   | 'thin'
@@ -12,7 +12,7 @@ export type IconWeight =
 export type PaintFunction = (color: string) => React.ReactNode | null;
 
 export interface IconProps {
-  color?: string;
+  color?: ColorValue;
   size?: string | number;
   weight?: IconWeight;
   style?: StyleProp<ViewStyle>;
