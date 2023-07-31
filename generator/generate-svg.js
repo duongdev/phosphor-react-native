@@ -65,7 +65,7 @@ const generateIconWithWeight = (icon, weight) => {
       .replace('SvgProps, ', '')
       .replace('const', "import { IconProps } from '../lib'\n\nconst")
       .replace('props: SvgProps', 'props: IconProps')
-      .replace('\nimport type { Svg, Path } from "react-native-svg";', '')
+      .replace(/import type .*;\n/g, '')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',

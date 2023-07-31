@@ -1,5 +1,5 @@
 {
-  "name": "@mrkpatchaa/phosphor-react-native",
+  "name": "phosphor-react-native",
   "version": "2.0.0",
   "description": "Flexible icons for React Native",
   "main": "lib/commonjs/index",
@@ -74,14 +74,12 @@
     "react": "18.2.0",
     "react-native": "0.72.3",
     "react-native-builder-bob": "^0.21.3",
-    "react-native-svg": "^13.10.0",
     "release-it": "^16.1.3",
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*",
-    "react-native-svg": "*"
+    "react-native": "*"
   },
   "jest": {
     "preset": "react-native",
