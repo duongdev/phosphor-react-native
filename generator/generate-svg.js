@@ -1,4 +1,4 @@
-const svgr = require('@svgr/core').default;
+const { transform } = require('@svgr/core');
 const path = require('path');
 const fs = require('fs-extra');
 const Case = require('case');
@@ -13,6 +13,7 @@ const options = {
     width: '{props.size}',
     height: '{props.size}',
   },
+  plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
 };
 
 const svgsDir = path.join(
@@ -39,11 +40,15 @@ const fileNameMap = {
   Infinity: 'InfinityIcon',
 };
 
+const srcDir = path.join(__dirname, '../src');
+
 const generateIconWithWeight = (icon, weight) => {
-  const filePath =
-    weight === 'regular'
-      ? path.join(svgsDir, `${Case.capital(weight)}/${icon}.svg`)
-      : path.join(svgsDir, `${Case.capital(weight)}/${icon}-${weight}.svg`);
+  const iconName = weight === 'regular' ? `${icon}` : `${icon}-${weight}`;
+
+  const filePath = path.join(
+    svgsDir,
+    `${Case.capital(weight)}/${iconName}.svg`
+  );
 
   const svgCode = fs.readFileSync(filePath, {
     encoding: 'utf-8',
@@ -53,16 +58,19 @@ const generateIconWithWeight = (icon, weight) => {
     filePath.replace(/^.*\//, '').replace(/\.svg$/, '')
   ).replace(RegExp(`${Case.capital(weight)}$`), '');
 
-  const srcDir = path.join(__dirname, '../src');
-
-  svgr(svgCode, options, {
+  transform(svgCode, options, {
     componentName: componentNameMap[componentName] || componentName,
   }).then((tsCode) => {
     tsCode = tsCode
       .replace('SvgProps, ', '')
-      .replace('function', "import { IconProps } from '../lib'\n\nfunction")
+      .replace('const', "import { IconProps } from '../lib'\n\nconst")
       .replace('props: SvgProps', 'props: IconProps')
-      .replace(' xmlns="http://www.w3.org/2000/svg"', '');
+      .replace('\nimport type { Svg, Path } from "react-native-svg";', '')
+      .replace(' xmlns="http://www.w3.org/2000/svg"', '')
+      .replace(
+        '<Svg ',
+        '<Svg className="' + iconName + '__svg-icon-phosphor" '
+      );
 
     if (weight === 'fill' || weight === 'duotone') {
       tsCode = tsCode.replace(
@@ -224,6 +232,21 @@ ${iconsExport}
   fs.writeFileSync(path.join(__dirname, '../src', 'index.tsx'), fileContent);
 };
 
+const cleanFolder = () => {
+  const folders = [...Object.keys(weights), 'icons'];
+  for (let index = 0; index < folders.length; index++) {
+    try {
+      fs.rmSync(srcDir + '/' + folders[index], {
+        recursive: true,
+        force: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
+cleanFolder();
 generateAllIconsByWeight();
 generateAllIconMainFile();
 generateIndexFile();
