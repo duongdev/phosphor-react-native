@@ -1,32 +1,25 @@
 {
   "name": "phosphor-react-native-example",
-  "description": "Example app for phosphor-react-native",
-  "version": "0.0.1",
-  "private": true,
-  "main": "index",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "start": "expo start",
-    "test": "jest"
+    "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^40.0.0",
-    "expo-splash-screen": "~0.8.1",
-    "phosphor-react-native": "file:../",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-native": "0.63.4",
-    "react-native-svg": "12.1.0",
-    "react-native-unimodules": "~0.12.0",
-    "react-native-web": "~0.14.9"
+    "expo": "~49.0.5",
+    "expo-status-bar": "~1.6.0",
+    "phosphor-react-native": "file:..",
+    "react": "18.2.0",
+    "react-native": "0.72.3",
+    "react-native-svg": "13.9.0"
   },
   "devDependencies": {
-    "@babel/core": "~7.12.10",
-    "@babel/runtime": "^7.9.6",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "babel-preset-expo": "8.3.0",
-    "expo-cli": "^4.0.13"
-  }
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.2.14",
+    "typescript": "^5.1.3"
+  },
+  "private": true
 }
