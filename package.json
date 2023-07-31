@@ -31,7 +31,8 @@
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
     "format": "prettier --write src/**/* src/index.tsx",
-    "generate": "node generator/generate-svg.js"
+    "generate": "node generator/generate-svg.js",
+    "prepare": "husky install"
   },
   "keywords": [
     "react-native",
@@ -88,11 +89,6 @@
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "commitlint": {
     "extends": [
