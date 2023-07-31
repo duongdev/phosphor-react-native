@@ -15,7 +15,10 @@ const options = {
   },
 };
 
-const svgsDir = path.join(__dirname, '../svgs');
+const svgsDir = path.join(
+  __dirname,
+  '../node_modules/@phosphor-icons/core/assets'
+);
 
 const weights = {
   bold: 'bold',
