@@ -229,7 +229,7 @@ ${iconsExport}
   fs.writeFileSync(path.join(__dirname, '../src', 'index.tsx'), fileContent);
 };
 
-const cleanFolder = () => {
+const cleanup = () => {
   const folders = [...Object.keys(weights), 'icons'];
   for (let index = 0; index < folders.length; index++) {
     try {
@@ -241,9 +241,16 @@ const cleanFolder = () => {
       console.log(error);
     }
   }
+  try {
+    fs.removeSync(srcDir + '/index.tsx', {
+      force: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-cleanFolder();
+cleanup();
 generateAllIconsByWeight();
 generateAllIconMainFile();
 generateIndexFile();
