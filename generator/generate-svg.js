@@ -73,10 +73,7 @@ const generateIconWithWeight = (icon, weight) => {
       );
 
     if (weight === 'fill' || weight === 'duotone') {
-      tsCode = tsCode.replace(
-        'height={props.size}',
-        'height={props.size}\nfill={props.color}'
-      );
+      tsCode = tsCode.replace('fill="currentColor"', 'fill={props.color}');
     }
 
     // fix icons with small dots (#4)
