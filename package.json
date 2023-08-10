@@ -148,14 +148,20 @@
     "useTabs": false
   },
   "react-native-builder-bob": {
-    "source": "src/lib",
+    "source": "src",
     "output": "lib",
     "targets": [
-      "commonjs",
+      [
+        "commonjs",
+        {
+          "sourceMaps": false
+        }
+      ],
       "module",
       [
         "typescript",
         {
+          "tsc": "./node_modules/typescript/bin/tsc",
           "project": "tsconfig.build.json"
         }
       ]
