@@ -79,7 +79,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-svg": "*"
   },
   "jest": {
     "preset": "react-native",
