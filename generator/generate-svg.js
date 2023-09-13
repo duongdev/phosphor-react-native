@@ -62,10 +62,9 @@ const generateIconWithWeight = (icon, weight) => {
     componentName: componentNameMap[componentName] || componentName,
   }).then((tsCode) => {
     tsCode = tsCode
-      .replace('SvgProps, ', '')
+      .replace(/import type .*;\n/g, '')
       .replace('const', "import { IconProps } from '../lib'\n\nconst")
       .replace('props: SvgProps', 'props: IconProps')
-      .replace(/import type .*;\n/g, '')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',
@@ -232,22 +231,9 @@ ${iconsExport}
 const cleanup = () => {
   const folders = [...Object.keys(weights), 'icons'];
   for (let index = 0; index < folders.length; index++) {
-    try {
-      fs.rmSync(srcDir + '/' + folders[index], {
-        recursive: true,
-        force: true,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    fs.removeSync(srcDir + '/' + folders[index]);
   }
-  try {
-    fs.removeSync(srcDir + '/index.tsx', {
-      force: true,
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  fs.removeSync(srcDir + '/index.tsx');
 };
 
 cleanup();
