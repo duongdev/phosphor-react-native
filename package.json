@@ -48,6 +48,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "dependencies": {
+    "@phosphor-icons/core": "^2.0.2",
+    "caniuse-lite": "^1.0.30001518"
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.7",
     "@react-native/eslint-config": "^0.72.2",
@@ -167,9 +171,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "@phosphor-icons/core": "^2.0.2",
-    "caniuse-lite": "^1.0.30001518"
   }
 }

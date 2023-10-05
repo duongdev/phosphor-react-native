@@ -45,10 +45,7 @@ const srcDir = path.join(__dirname, '../src');
 const generateIconWithWeight = (icon, weight) => {
   const iconName = weight === 'regular' ? `${icon}` : `${icon}-${weight}`;
 
-  const filePath = path.join(
-    svgsDir,
-    `${Case.capital(weight)}/${iconName}.svg`
-  );
+  const filePath = path.join(svgsDir, `${weight}/${iconName}.svg`);
 
   const svgCode = fs.readFileSync(filePath, {
     encoding: 'utf-8',
@@ -113,7 +110,7 @@ const generateIconWithWeight = (icon, weight) => {
 
 const getIconList = () => {
   const files = fs
-    .readdirSync(path.join(svgsDir, 'Regular'))
+    .readdirSync(path.join(svgsDir, 'regular'))
     .filter((file) => file.endsWith('.svg'))
     .map((file) => file.replace(/\.svg$/, ''));
 
