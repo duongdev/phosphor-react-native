@@ -29,7 +29,7 @@
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
-    "format": "prettier --write src/**/* src/index.tsx",
+    "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.js",
     "prepare": "husky install && bob build"
   },
