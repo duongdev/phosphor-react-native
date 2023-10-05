@@ -210,17 +210,17 @@ const generateIndexFile = () => {
   const iconsExport = icons
     .map(
       (icon) =>
-        `export { default as ${Case.pascal(icon)} } from "./icons/${Case.pascal(
+        `export { default as ${Case.pascal(icon)} } from './icons/${Case.pascal(
           icon
-        )}";`
+        )}';`
     )
     .join('\n');
 
   const fileContent = `/* GENERATED FILE */
-export { Icon, IconProps, IconContext, IconWeight } from './lib'
+export { Icon, IconProps, IconContext, IconWeight } from './lib';
 
 ${iconsExport}
-  `;
+`;
 
   fs.writeFileSync(path.join(__dirname, '../src', 'index.tsx'), fileContent);
 };
