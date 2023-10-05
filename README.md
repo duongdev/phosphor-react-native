@@ -48,6 +48,22 @@ const App = () => {
 };
 ```
 
+### Typescript support
+If you get this error...
+```
+Property 'className' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Svg> & Pick<Readonly<SvgProps>, "children" | "style" | ... 144 more ... | "fontVariationSettings"> & InexactPartial<...> & InexactPartial<...>'
+```
+Add this code to your `global.d.ts` file
+```ts
+import type { SvgProps as DefaultSvgProps } from 'react-native-svg';
+
+declare module 'react-native-svg' {
+  interface SvgProps extends DefaultSvgProps {
+    className?: string;
+  }
+}
+```
+
 ### Props
 
 Icon components accept all props that you can pass to a normal SVG element, including inline `style` objects, `onClick` handlers, and more. The main way of styling them will usually be with the following props:
@@ -98,6 +114,18 @@ import * as Icon from "phosphor-react-native";
 <Icon.Folder weight="thin" />
 <Icon.BatteryHalf size="24px" />
 <Icon.AirplaneTakeoff size="24px" mirrored={true} />
+```
+
+In cases where tree shaking does not work (resulting in large bundle size), you can import icons individually in this format:
+
+```tsx
+// Javascript
+import Star from "phosphor-react-native/lib/commonjs/icons/Star";
+
+// Typescript
+import Star from 'phosphor-react-native/src/icons/Star';
+
+<Star size="24px" />
 ```
 
 ## Related Projects
