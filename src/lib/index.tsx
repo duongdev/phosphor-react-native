@@ -1,5 +1,7 @@
-import React, { createContext } from 'react';
+import React, { ForwardRefExoticComponent, createContext } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
+import { SvgProps } from 'react-native-svg';
+
 
 export type IconWeight =
   | 'thin'
@@ -11,15 +13,17 @@ export type IconWeight =
 
 export type PaintFunction = (color: string) => React.ReactNode | null;
 
-export interface IconProps {
+export interface IconProps extends SvgProps {
   color?: string;
   size?: string | number;
   weight?: IconWeight;
   style?: StyleProp<ViewStyle>;
   mirrored?: boolean;
+  'data-testid'?: string;
 }
 
-export type Icon = React.FC<IconProps>;
+
+export type Icon = ForwardRefExoticComponent<IconProps>;
 
 export const IconContext = createContext<IconProps>({
   color: '#000',
