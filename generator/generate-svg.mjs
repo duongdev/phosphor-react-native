@@ -1,8 +1,14 @@
-const { transform } = require('@svgr/core');
-const path = require('path');
-const fs = require('fs-extra');
-const Case = require('case');
-const chalk = require('chalk');
+/* global process:readable */
+
+import { fileURLToPath } from 'url';
+import { transform } from '@svgr/core';
+import path from 'path';
+import fs from 'fs-extra';
+import Case from 'case';
+import chalk from 'chalk';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const options = {
   icon: true,
@@ -189,10 +195,6 @@ const generateAllIconsByWeight = () => {
   const icons = getIconList();
 
   console.log(`There are ${chalk.blue(icons.length)} icons`);
-
-  Object.values(weights).forEach((weight) => {
-    // fs.rmdirSync(path.join(__dirname, '../src', weight))
-  });
 
   Object.values(weights).forEach((weight) => {
     icons.forEach((icon) => generateIconWithWeight(icon, weight));
