@@ -21,7 +21,6 @@ export default [
       'src/thin/',
       'src/index.tsx',
       'example/',
-      'scripts/bootstrap.js',
     ],
   },
   eslintPluginPrettierRecommended,
