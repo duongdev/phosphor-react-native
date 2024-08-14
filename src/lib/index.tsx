@@ -11,14 +11,19 @@ export type IconWeight =
 
 export type PaintFunction = (color: string) => React.ReactNode | null;
 
-export interface IconProps {
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+}
+
+export type IconProps = {
   color?: string;
   size?: string | number;
   weight?: IconWeight;
   style?: StyleProp<ViewStyle>;
   mirrored?: boolean;
   testID?: string;
-}
+} & SVGRProps;
 
 export type Icon = React.FC<IconProps>;
 

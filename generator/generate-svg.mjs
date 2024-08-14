@@ -14,6 +14,7 @@ const options = {
   icon: true,
   native: true,
   typescript: true,
+  titleProp: true,
   replaceAttrValues: { '#000': '{props.color}' },
   svgProps: {
     width: '{props.size}',
@@ -137,7 +138,7 @@ import light from '../light/${componentFileName}'
 import regular from '../regular/${componentFileName}'
 import thin from '../thin/${componentFileName}'
 
-function ${componentName}({ weight, color, size, style, mirrored, testID }: IconProps) {
+function ${componentName}({ weight, color, size, style, mirrored, ...props }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
@@ -176,7 +177,7 @@ function ${componentName}({ weight, color, size, style, mirrored, testID }: Icon
           }),
         },
       ]}
-      testID={testID ?? 'phosphor-react-native-${icon}-' + weight}
+      {...props}
     />
   )
 }
