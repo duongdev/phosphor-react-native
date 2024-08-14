@@ -67,8 +67,8 @@ const generateIconWithWeight = (icon, weight) => {
   }).then((tsCode) => {
     tsCode = tsCode
       .replace(/import type .*;\n/g, '')
-      .replace('const', "import { IconProps } from '../lib'\n\nconst")
-      .replace('props: SvgProps', 'props: IconProps')
+      .replace('const', "import type { IconProps } from '../lib'\n\nconst")
+      .replace('SvgProps', 'IconProps')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',
@@ -129,7 +129,7 @@ const generateMainIconFile = (icon) => {
   const componentFileName = fileNameMap[component] || component;
   const componentName = componentNameMap[component] || component;
   const componentCode = `import React, { useContext, useMemo } from 'react'
-import { IconProps, IconContext } from '../lib'
+import { type IconProps, IconContext } from '../lib'
 
 import bold from '../bold/${componentFileName}'
 import duotone from '../duotone/${componentFileName}'
