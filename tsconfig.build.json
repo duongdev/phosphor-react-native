@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig",
   "exclude": [
-    "example"
+    "example",
+    "showcase"
   ]
 }

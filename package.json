@@ -26,9 +26,6 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint .",
     "release": "release-it",
-    "example": "yarn --cwd example",
-    "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods",
     "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.mjs",
     "prepare": "husky && bob build"
