@@ -71,7 +71,7 @@ const generateIconWithWeight = (icon, weight) => {
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',
-        '<Svg className="' + iconName + '__svg-icon-phosphor" '
+        `<Svg className="${iconName}__svg-icon-phosphor" testID={props.testID ?? 'phosphor-react-native-${iconName}'} `
       );
 
     if (weight === 'fill' || weight === 'duotone') {
@@ -137,7 +137,7 @@ import light from '../light/${componentFileName}'
 import regular from '../regular/${componentFileName}'
 import thin from '../thin/${componentFileName}'
 
-function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
+function ${componentName}({ weight, color, size, style, mirrored, testID }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
@@ -176,6 +176,7 @@ function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
           }),
         },
       ]}
+      testID={testID ?? 'phosphor-react-native-${icon}-' + weight}
     />
   )
 }

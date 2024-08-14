@@ -17,6 +17,7 @@ export interface IconProps {
   weight?: IconWeight;
   style?: StyleProp<ViewStyle>;
   mirrored?: boolean;
+  testID?: string;
 }
 
 export type Icon = React.FC<IconProps>;
