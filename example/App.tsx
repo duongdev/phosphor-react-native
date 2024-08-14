@@ -1,4 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 import * as React from 'react';
 
 import {
@@ -12,7 +14,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import * as IconPack from 'phosphor-react-native';
-const PhosphorLogo = require('./phosphor-mark-tight-yellow.png');
+import PhosphorLogo from './phosphor-mark-tight-yellow.png';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { IconContext, ...Icons } = IconPack;
