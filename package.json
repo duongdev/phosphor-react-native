@@ -1,9 +1,9 @@
 {
   "name": "phosphor-react-native",
-  "version": "2.0.0",
+  "version": "2.1.2",
   "description": "Flexible icons for React Native",
-  "main": "lib/commonjs/lib/index.js",
-  "module": "lib/module/lib/index.js",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index.tsx",
   "source": "src/index",
@@ -24,14 +24,11 @@
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint .",
     "release": "release-it",
-    "example": "yarn --cwd example",
-    "pods": "cd example && pod-install --quiet",
-    "bootstrap": "yarn example && yarn && yarn pods",
     "format": "prettier --write src/**/* src/lib/index.tsx",
-    "generate": "node generator/generate-svg.js",
-    "prepare": "husky install && bob build"
+    "generate": "node generator/generate-svg.mjs",
+    "prepare": "husky && touch src/index.tsx && bob build"
   },
   "keywords": [
     "react-native",
@@ -49,37 +46,42 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@phosphor-icons/core": "^2.0.2",
-    "caniuse-lite": "^1.0.30001518"
+    "@phosphor-icons/core": "^2.1.1"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.6.7",
-    "@react-native/eslint-config": "^0.72.2",
-    "@release-it/conventional-changelog": "^7.0.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.9.0",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@svgr/babel-plugin-add-jsx-attribute": "^8.0.0",
-    "@svgr/core": "^8.0.0",
-    "@svgr/plugin-jsx": "^8.0.1",
-    "@svgr/plugin-svgo": "^8.0.1",
-    "@types/jest": "^29.5.3",
-    "@types/react": "^18.2.18",
-    "@types/react-native": "0.72.3",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.3.3",
+    "@types/react-native": "0.72.8",
+    "caniuse-lite": "^1.0.30001651",
     "case": "^1.6.3",
-    "chalk": "^4",
-    "commitlint": "^17.6.7",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "fs-extra": "^11.1.1",
-    "husky": "^8.0.3",
-    "jest": "^29.6.2",
-    "pod-install": "^0.1.38",
-    "prettier": "^3.0.0",
-    "react": "18.2.0",
-    "react-native": "0.72.3",
-    "react-native-builder-bob": "^0.21.3",
-    "react-native-svg": "^13.10.0",
-    "release-it": "^16.1.3",
-    "typescript": "^5.1.6"
+    "chalk": "^5",
+    "commitlint": "^19.4.0",
+    "eslint": "9.x",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ft-flow": "^3.0.11",
+    "eslint-plugin-prettier": "^5.2.1",
+    "fs-extra": "^11.2.0",
+    "globals": "^15.9.0",
+    "husky": "^9.1.4",
+    "jest": "^29.7.0",
+    "pod-install": "^0.2.2",
+    "prettier": "^3.3.3",
+    "react": "18.3.1",
+    "react-native": "0.74.5",
+    "react-native-builder-bob": "^0.29.0",
+    "react-native-svg": "^15.5.0",
+    "release-it": "^17.6.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.1"
   },
   "peerDependencies": {
     "react": "*",
@@ -115,36 +117,6 @@
       }
     }
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native",
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/",
-    "src/bold",
-    "src/duotone",
-    "src/fill",
-    "src/icons",
-    "src/light",
-    "src/regular",
-    "src/thin"
-  ],
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,

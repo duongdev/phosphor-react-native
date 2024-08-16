@@ -1,13 +1,20 @@
-const { transform } = require('@svgr/core');
-const path = require('path');
-const fs = require('fs-extra');
-const Case = require('case');
-const chalk = require('chalk');
+/* global process:readable */
+
+import { fileURLToPath } from 'url';
+import { transform } from '@svgr/core';
+import path from 'path';
+import fs from 'fs-extra';
+import Case from 'case';
+import chalk from 'chalk';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const options = {
   icon: true,
   native: true,
   typescript: true,
+  titleProp: true,
   replaceAttrValues: { '#000': '{props.color}' },
   svgProps: {
     width: '{props.size}',
@@ -60,12 +67,12 @@ const generateIconWithWeight = (icon, weight) => {
   }).then((tsCode) => {
     tsCode = tsCode
       .replace(/import type .*;\n/g, '')
-      .replace('const', "import { IconProps } from '../lib'\n\nconst")
-      .replace('props: SvgProps', 'props: IconProps')
+      .replace('const', "import type { IconProps } from '../lib'\n\nconst")
+      .replace('SvgProps', 'IconProps')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',
-        '<Svg className="' + iconName + '__svg-icon-phosphor" '
+        `<Svg className="${iconName}__svg-icon-phosphor" testID={props.testID ?? 'phosphor-react-native-${iconName}'} `
       );
 
     if (weight === 'fill' || weight === 'duotone') {
@@ -122,7 +129,7 @@ const generateMainIconFile = (icon) => {
   const componentFileName = fileNameMap[component] || component;
   const componentName = componentNameMap[component] || component;
   const componentCode = `import React, { useContext, useMemo } from 'react'
-import { IconProps, IconContext } from '../lib'
+import { type IconProps, IconContext } from '../lib'
 
 import bold from '../bold/${componentFileName}'
 import duotone from '../duotone/${componentFileName}'
@@ -131,7 +138,7 @@ import light from '../light/${componentFileName}'
 import regular from '../regular/${componentFileName}'
 import thin from '../thin/${componentFileName}'
 
-function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
+function ${componentName}({ weight, color, size, style, mirrored, ...props }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
@@ -170,6 +177,7 @@ function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
           }),
         },
       ]}
+      {...props}
     />
   )
 }
@@ -189,10 +197,6 @@ const generateAllIconsByWeight = () => {
   const icons = getIconList();
 
   console.log(`There are ${chalk.blue(icons.length)} icons`);
-
-  Object.values(weights).forEach((weight) => {
-    // fs.rmdirSync(path.join(__dirname, '../src', weight))
-  });
 
   Object.values(weights).forEach((weight) => {
     icons.forEach((icon) => generateIconWithWeight(icon, weight));

@@ -1,4 +1,5 @@
 // Learn more https://docs.expo.io/guides/customizing-metro
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { getDefaultConfig } = require('expo/metro-config');
 const path = require('path');
 
