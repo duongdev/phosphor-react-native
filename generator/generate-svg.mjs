@@ -75,10 +75,6 @@ const generateIconWithWeight = (icon, weight) => {
         `<Svg className="${iconName}__svg-icon-phosphor" testID={props.testID ?? 'phosphor-react-native-${iconName}'} `
       );
 
-    if (weight === 'fill' || weight === 'duotone') {
-      tsCode = tsCode.replace('fill="currentColor"', 'fill={props.color}');
-    }
-
     // fix icons with small dots (#4)
     if (tsCode.match(/<Circle.*? \/>/g)) {
       console.log(componentName, weight);
