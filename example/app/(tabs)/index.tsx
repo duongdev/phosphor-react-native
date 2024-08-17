@@ -6,12 +6,12 @@ import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView,
   FlatList,
   StatusBar,
   Image,
   TouchableOpacity,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import * as IconPack from '@/components/icons';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 

@@ -6,12 +6,12 @@ import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView,
   StatusBar,
   Image,
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 import * as IconPack from '@/components/icons';
 
@@ -57,7 +57,9 @@ export default function TestLabScreen() {
       <FlatList
         style={styles.scrollView}
         contentContainerStyle={styles.main}
-        data={Object.entries(Icons).filter(([, Icon]) => !!Icon) as any[]}
+        data={Object.entries(Icons)
+          .filter(([, Icon]) => !!Icon)
+          .slice(0, 6)}
         keyExtractor={(item) => item[0]}
         numColumns={3}
         renderItem={({ item: [name, Icon] }) => (
