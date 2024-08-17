@@ -77,7 +77,7 @@ const generateIconWithWeight = (icon, weight) => {
     if (weight === 'duotone') {
       tsCode = tsCode.replace(
         'opacity={0.2}',
-        'opacity={props.duotoneOpacity ?? 0.2} fill={props.duotoneColor ?? props.color ?? "currentColor"}'
+        'opacity={props.duotoneOpacity ?? 0.2} fill={props.duotoneColor ?? "currentColor"}'
       );
     }
 
