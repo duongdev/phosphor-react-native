@@ -23,6 +23,8 @@ export type IconProps = {
   style?: StyleProp<ViewStyle>;
   mirrored?: boolean;
   testID?: string;
+  duotoneColor?: string;
+  duotoneOpacity?: number;
 } & SVGRProps;
 
 export type Icon = React.FC<IconProps>;
@@ -32,4 +34,6 @@ export const IconContext = createContext<IconProps>({
   size: 24,
   weight: 'regular',
   mirrored: false,
+  duotoneColor: '#000',
+  duotoneOpacity: 0.2,
 });

@@ -10,6 +10,9 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  { ignores: ['node_modules/'], rules: { 'react/react-in-jsx-scope': 'off' } },
+  {
+    ignores: ['node_modules/', 'components/icons/'],
+    rules: { 'react/react-in-jsx-scope': 'off' },
+  },
   eslintPluginPrettierRecommended,
 ];

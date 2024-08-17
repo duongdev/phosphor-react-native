@@ -74,6 +74,8 @@ Icon components accept all props that you can pass to a normal SVG element, incl
 - **mirrored?**: `boolean` – Flip the icon horizontally. Can be useful in RTL languages where normal icon orientation is not appropriate.
 - **title?**: `string` – Accessibility label
 - **titleId?**: `string` – Accessibility label ID
+- **duotoneColor?**: `string` – Duotone fill color. Can be any CSS color string, including `hex`, `rgb`, `rgba`, `hsl`, `hsla`, named colors. Default value to black.
+- **duotoneOpacity?**: `number` – The opacity of the duotoneColor. Default value to 0.2.
 
 ### Context
 

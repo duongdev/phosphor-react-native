@@ -1,8 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import List from 'phosphor-react-native/src/icons/List';
+import List from '@/components/icons/icons/List';
+import TestTube from '@/components/icons/icons/TestTube';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -26,14 +26,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="duotone"
+        name="test-lab"
         options={{
-          title: 'Duotone',
+          title: 'Test Lab',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? 'code-slash' : 'code-slash-outline'}
-              color={color}
-            />
+            <TestTube weight={focused ? 'fill' : 'light'} color={color} />
           ),
         }}
       />
