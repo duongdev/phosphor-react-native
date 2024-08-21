@@ -236,7 +236,7 @@ const generateIndexFile = () => {
     .join('\n');
 
   const fileContent = `/* GENERATED FILE */
-export { Icon, IconProps, IconContext, IconWeight } from './lib';
+export { type Icon, type IconProps, IconContext, type IconWeight } from './lib';
 
 ${iconsExport}
 `;
