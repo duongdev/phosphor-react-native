@@ -1,6 +1,6 @@
 {
   "name": "phosphor-react-native",
-  "version": "2.1.2",
+  "version": "2.2.1",
   "description": "Flexible icons for React Native",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -9,17 +9,7 @@
   "source": "src/index",
   "files": [
     "src",
-    "lib",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
-    "android",
-    "ios",
-    "cpp",
-    "phosphor-react-native.podspec",
-    "!lib/typescript/example",
-    "!android/build",
-    "!ios/build"
+    "lib"
   ],
   "scripts": {
     "test": "jest",

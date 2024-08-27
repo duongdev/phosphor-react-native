@@ -74,9 +74,11 @@ const generateIconWithWeight = (icon, weight) => {
         '<Svg ',
         `<Svg className="${iconName}__svg-icon-phosphor" testID={props.testID ?? 'phosphor-react-native-${iconName}'} `
       );
-
-    if (weight === 'fill' || weight === 'duotone') {
-      tsCode = tsCode.replace('fill="currentColor"', 'fill={props.color}');
+    if (weight === 'duotone') {
+      tsCode = tsCode.replace(
+        'opacity={0.2}',
+        'opacity={props.duotoneOpacity ?? 0.2} fill={props.duotoneColor ?? "currentColor"}'
+      );
     }
 
     // fix icons with small dots (#4)
@@ -121,6 +123,15 @@ const getIconList = () => {
     .filter((file) => file.endsWith('.svg'))
     .map((file) => file.replace(/\.svg$/, ''));
 
+  // We want to generate only a subset for the icons to test
+  // yarn generate true
+  if (process.argv[2] === 'true') {
+    return files.filter((file) =>
+      ['acorn', 'palette', 'pencil-line', 'swap', 'list', 'test-tube'].includes(
+        file
+      )
+    );
+  }
   return files;
 };
 
@@ -138,13 +149,15 @@ import light from '../light/${componentFileName}'
 import regular from '../regular/${componentFileName}'
 import thin from '../thin/${componentFileName}'
 
-function ${componentName}({ weight, color, size, style, mirrored, ...props }: IconProps) {
+function ${componentName}({ weight, color, size, style, mirrored, duotoneColor, duotoneOpacity, ...props }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
     mirrored: contextMirrored = false,
     style: contextStyle,
+    duotoneColor: contextDuotoneColor = '#000',
+    duotoneOpacity: contextDuotoneOpacity = 0.2,
   } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
@@ -177,6 +190,8 @@ function ${componentName}({ weight, color, size, style, mirrored, ...props }: Ic
           }),
         },
       ]}
+      duotoneColor={duotoneColor ?? contextDuotoneColor}
+      duotoneOpacity={duotoneOpacity ?? contextDuotoneOpacity}
       {...props}
     />
   )
@@ -221,7 +236,7 @@ const generateIndexFile = () => {
     .join('\n');
 
   const fileContent = `/* GENERATED FILE */
-export { Icon, IconProps, IconContext, IconWeight } from './lib';
+export { type Icon, type IconProps, IconContext, type IconWeight } from './lib';
 
 ${iconsExport}
 `;
