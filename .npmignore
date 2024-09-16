@@ -1,3 +1,4 @@
 /src
 lib/**/*.map
 /example
+/BareExample
