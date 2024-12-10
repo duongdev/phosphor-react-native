@@ -22,7 +22,7 @@ export interface IconProps {
   duotoneOpacity?: number;
   title?: string; // SVGRProps
   titleId?: string; // SVGRProps
-};
+}
 
 export type Icon = React.FC<IconProps>;
 
