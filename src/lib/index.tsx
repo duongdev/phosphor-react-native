@@ -11,12 +11,7 @@ export type IconWeight =
 
 export type PaintFunction = (color: string) => React.ReactNode | null;
 
-interface SVGRProps {
-  title?: string;
-  titleId?: string;
-}
-
-export type IconProps = {
+export interface IconProps {
   color?: string;
   size?: string | number;
   weight?: IconWeight;
@@ -25,7 +20,9 @@ export type IconProps = {
   testID?: string;
   duotoneColor?: string;
   duotoneOpacity?: number;
-} & SVGRProps;
+  title?: string; // SVGRProps
+  titleId?: string; // SVGRProps
+}
 
 export type Icon = React.FC<IconProps>;
 
