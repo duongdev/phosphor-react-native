@@ -13,10 +13,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
-import * as IconPack from '@/components/icons';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { IconContext, ...Icons } = IconPack;
+import { Icon, iconList } from 'phosphor-react-native/src';
 
 export default function TestLabScreen() {
   const [toggleActive, setToggleActive] = useState(false);
@@ -50,14 +48,14 @@ export default function TestLabScreen() {
             </Text>
           </View>
           <TouchableOpacity style={styles.weightSelect} onPress={handleToggle}>
-            <IconPack.Swap color="#FFF" weight={'regular'} />
+            <Icon name="Swap" color="#FFF" weight={'regular'} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
       <FlatList
         style={styles.scrollView}
         contentContainerStyle={styles.main}
-        data={Object.entries(Icons)
+        data={Object.entries(iconList)
           .filter(([, Icon]) => !!Icon)
           .slice(0, 6)}
         keyExtractor={(item) => item[0]}

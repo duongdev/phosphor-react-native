@@ -226,19 +226,49 @@ const generateAllIconMainFile = () => {
 
 const generateIndexFile = () => {
   const icons = getIconList();
-  const iconsExport = icons
+  const iconsImport = icons
     .map(
       (icon) =>
-        `export { default as ${Case.pascal(icon)} } from './icons/${Case.pascal(
-          icon
-        )}';`
+        `import ${Case.pascal(icon)} from './icons/${Case.pascal(icon)}'`
     )
     .join('\n');
+  const iconList = icons.map((icon) => `${Case.pascal(icon)},`).join('\n  ');
 
   const fileContent = `/* GENERATED FILE */
-export { type Icon, type IconProps, IconContext, type IconWeight } from './lib';
+import type { FC } from 'react'
+import type { IconProps as IconPropsBase } from './lib'
 
-${iconsExport}
+import { useEffect } from 'react'
+
+${iconsImport}
+
+export { IconContext } from './lib'
+
+export const iconList = {
+  ${iconList}
+} as const
+
+export type IconName = keyof typeof iconList
+
+export interface IconProps extends IconPropsBase {
+  name: IconName
+}
+
+export const Icon: FC<IconProps> = ({ name, ...rest }) => {
+  useEffect(() => {
+    if (!iconList[name]) {
+      throw new Error('[Phosphor] Icon not found: ' + name)
+    }
+  }, [name])
+
+  const IconComponent = iconList[name]
+
+  if (!IconComponent) {
+    return null
+  }
+
+  return <IconComponent {...rest} />
+}
 `;
 
   fs.writeFileSync(path.join(__dirname, '../src', 'index.tsx'), fileContent);
