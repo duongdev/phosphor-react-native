@@ -67,8 +67,13 @@ const generateIconWithWeight = (icon, weight) => {
   }).then((tsCode) => {
     tsCode = tsCode
       .replace(/import type .*;\n/g, '')
-      .replace('const', "import type { IconProps } from '../lib'\n\nconst")
-      .replace('SvgProps', 'IconProps')
+      .replace(
+        'const',
+        weight === 'duotone'
+          ? "import type { DuotoneProps } from '../lib'\n\nconst"
+          : "import type { IconProps } from '../lib'\n\nconst"
+      )
+      .replace('SvgProps', weight === 'duotone' ? 'DuotoneProps' : 'IconProps')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',
@@ -77,7 +82,7 @@ const generateIconWithWeight = (icon, weight) => {
     if (weight === 'duotone') {
       tsCode = tsCode.replace(
         'opacity={0.2}',
-        'opacity={props.duotoneOpacity ?? 0.2} fill={props.duotoneColor ?? "currentColor"}'
+        'opacity={props.duotoneopacity ?? 0.2} fill={props.duotonecolor ?? "currentColor"}'
       );
     }
 
@@ -190,8 +195,8 @@ function ${componentName}({ weight, color, size, style, mirrored, duotoneColor, 
           }),
         },
       ]}
-      duotoneColor={duotoneColor ?? contextDuotoneColor}
-      duotoneOpacity={duotoneOpacity ?? contextDuotoneOpacity}
+      duotonecolor={duotoneColor ?? contextDuotoneColor}
+      duotoneopacity={duotoneOpacity ?? contextDuotoneOpacity}
       {...props}
     />
   )

@@ -11,7 +11,7 @@ export type IconWeight =
 
 export type PaintFunction = (color: string) => React.ReactNode | null;
 
-export interface IconProps {
+interface IconPropsBase {
   color?: string;
   size?: string | number;
   weight?: IconWeight;
@@ -22,6 +22,16 @@ export interface IconProps {
   duotoneOpacity?: number;
   title?: string; // SVGRProps
   titleId?: string; // SVGRProps
+}
+export interface IconProps extends IconPropsBase {
+  duotoneColor?: string;
+  duotoneOpacity?: number;
+}
+
+// Warning: React does not recognize the duotoneColor prop on a DOM element.
+export interface DuotoneProps extends IconPropsBase {
+  duotonecolor?: string;
+  duotoneopacity?: number;
 }
 
 export type Icon = React.FC<IconProps>;
