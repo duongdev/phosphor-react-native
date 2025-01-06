@@ -67,12 +67,7 @@ const generateIconWithWeight = (icon, weight) => {
   }).then((tsCode) => {
     tsCode = tsCode
       .replace(/import type .*;\n/g, '')
-      .replace(
-        'const',
-        weight === 'duotone'
-          ? "import type { IconProps } from '../lib'\n\nconst"
-          : "import type { IconProps } from '../lib'\n\nconst"
-      )
+      .replace('const', "import type { IconProps } from '../lib'\n\nconst")
       .replace(
         'SvgProps',
         weight === 'duotone'
