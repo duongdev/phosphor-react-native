@@ -1,5 +1,5 @@
 {
-  "name": "phosphor-react-native",
+  "name": "@mrkpatchaa/phosphor-react-native",
   "version": "2.2.2",
   "description": "Flexible icons for React Native",
   "main": "lib/commonjs/index.js",
@@ -18,7 +18,7 @@
     "release": "release-it",
     "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.mjs",
-    "prepare": "husky && touch src/index.tsx && bob build"
+    "prepare": "husky && touch src/index.tsx && yarn generate && bob build"
   },
   "keywords": [
     "react-native",

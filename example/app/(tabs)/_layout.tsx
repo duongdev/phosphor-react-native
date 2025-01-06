@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-// import List from 'phosphor-react-native/src/icons/List';
+import List from '@mrkpatchaa/phosphor-react-native/src/icons/List';
 // import TestTube from '@/components/icons/icons/TestTube';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -20,9 +20,9 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'All icons',
-          // tabBarIcon: ({ color, focused }) => (
-          //   <List weight={focused ? 'fill' : 'light'} color={color} />
-          // ),
+          tabBarIcon: ({ color, focused }) => (
+            <List weight={focused ? 'fill' : 'light'} color={color} />
+          ),
         }}
       />
       {/* <Tabs.Screen

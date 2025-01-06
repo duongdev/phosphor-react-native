@@ -24,4 +24,10 @@ config.resolver.nodeModulesPaths = [
 // 3. Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
 config.resolver.disableHierarchicalLookup = true;
 
+// config.transformer.getTransformOptions = async () => ({
+//   transform: {
+//     experimentalImportSupport: true,
+//   },
+// });
+
 module.exports = config;

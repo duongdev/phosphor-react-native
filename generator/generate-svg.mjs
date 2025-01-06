@@ -232,10 +232,25 @@ const generateIndexFile = () => {
         `import ${Case.pascal(icon)} from './icons/${Case.pascal(icon)}'`
     )
     .join('\n');
-  const iconList = icons.map((icon) => `${Case.pascal(icon)},`).join('\n  ');
+  // const iconList = icons.map((icon) => `${Case.pascal(icon)},`).join('\n  ');
+  const iconList = icons.map((icon) => `'${Case.pascal(icon)}',`).join('\n  ');
+  const iconCase = icons
+    .map(
+      (icon) => `
+    case '${Case.pascal(icon)}':
+      return <${Case.pascal(icon)} {...rest} />`
+    )
+    .join('');
+  // const iconCase = icons
+  //   .map(
+  //     (icon) => `
+  //   case '${Case.pascal(icon)}':
+  //     return <Acorn {...rest} />`
+  //   )
+  //   .join('');
 
   const fileContent = `/* GENERATED FILE */
-import type { FC } from 'react'
+import * as React from "react";
 import type { IconProps as IconPropsBase } from './lib'
 
 import { useEffect } from 'react'
@@ -244,30 +259,21 @@ ${iconsImport}
 
 export { IconContext } from './lib'
 
-export const iconList = {
+export const iconList = [
   ${iconList}
-} as const
+] as const
 
-export type IconName = keyof typeof iconList
+export type IconName = typeof iconList[number]
 
 export interface IconProps extends IconPropsBase {
   name: IconName
 }
 
-export const Icon: FC<IconProps> = ({ name, ...rest }) => {
-  useEffect(() => {
-    if (!iconList[name]) {
-      throw new Error('[Phosphor] Icon not found: ' + name)
-    }
-  }, [name])
-
-  const IconComponent = iconList[name]
-
-  if (!IconComponent) {
-    return null
+export const Icon: React.FC<IconProps> = ({ name, ...rest }) => {
+  switch (name) {${iconCase}
+    default:
+      throw new Error('Unknown icon name: ' + name);
   }
-
-  return <IconComponent {...rest} />
 }
 `;
 

@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { IconWeight, Icon, iconList } from 'phosphor-react-native/src';
+import { IconWeight, Icon, iconList } from '@mrkpatchaa/phosphor-react-native/src';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 
 const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];

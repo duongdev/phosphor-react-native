@@ -13,7 +13,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import * as IconPack from 'phosphor-react-native';
+import * as IconPack from @mrkpatchaa/phosphor-react-native';
 import PhosphorLogo from './phosphor-mark-tight-yellow.png';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

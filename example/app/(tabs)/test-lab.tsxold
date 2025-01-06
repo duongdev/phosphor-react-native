@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 
-import { Icon, iconList } from 'phosphor-react-native/src';
+import { Icon, iconList } from '@mrkpatchaa/phosphor-react-native/src';
 
 export default function TestLabScreen() {
   const [toggleActive, setToggleActive] = useState(false);

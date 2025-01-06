@@ -12,7 +12,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { IconWeight, Icon } from 'phosphor-react-native/src';
+import { IconWeight, Icon } from '@mrkpatchaa/phosphor-react-native';
+import { Camera } from 'lucide-react-native';
+
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 
 const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
@@ -101,6 +103,7 @@ export default function HomeScreen() {
               mirrored={mirrorActive}
               color={iconColor}
             />
+            <Camera />
             <Text style={styles.iconName}>{name}</Text>
           </View>
         )}
