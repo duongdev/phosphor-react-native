@@ -75,8 +75,8 @@ Icon components accept all props that you can pass to a normal SVG element, incl
 - **title?**: `string` – Accessibility label
 - **titleId?**: `string` – Accessibility label ID
 - **testID?**: `string` – testID for tests
-- **duotoneColor?**: `string` – Duotone fill color. Can be any CSS color string, including `hex`, `rgb`, `rgba`, `hsl`, `hsla`, named colors. Default value to black. ⚠️ Use `duototocolor` when importing the weight icon directly, `import Star from 'phosphor-react-native/src/duotone/Star'`.;
-- **duotoneOpacity?**: `number` – The opacity of the duotoneColor. Default value to 0.2. ⚠️ Use `duotoneopacity` when importing the weight icon directly, `import Star from 'phosphor-react-native/src/duotone/Star'`.;
+- **duotoneColor?**: `string` – Duotone fill color. Can be any CSS color string, including `hex`, `rgb`, `rgba`, `hsl`, `hsla`, named colors. Default value to black.
+- **duotoneOpacity?**: `number` – The opacity of the duotoneColor. Default value to 0.2.
 
 ### Context
 

@@ -70,20 +70,30 @@ const generateIconWithWeight = (icon, weight) => {
       .replace(
         'const',
         weight === 'duotone'
-          ? "import type { DuotoneProps } from '../lib'\n\nconst"
+          ? "import type { IconProps } from '../lib'\n\nconst"
           : "import type { IconProps } from '../lib'\n\nconst"
       )
-      .replace('SvgProps', weight === 'duotone' ? 'DuotoneProps' : 'IconProps')
+      .replace(
+        'SvgProps',
+        weight === 'duotone'
+          ? 'IconProps'
+          : `Exclude<IconProps, 'duotoneColor' | 'duotoneOpacity'>`
+      )
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
       .replace(
         '<Svg ',
         `<Svg className="${iconName}__svg-icon-phosphor" testID={props.testID ?? 'phosphor-react-native-${iconName}'} `
       );
     if (weight === 'duotone') {
-      tsCode = tsCode.replace(
-        'opacity={0.2}',
-        'opacity={props.duotoneopacity ?? 0.2} fill={props.duotonecolor ?? "currentColor"}'
-      );
+      tsCode = tsCode
+        .replace(
+          'opacity={0.2}',
+          'opacity={duotoneOpacity} fill={duotoneColor}'
+        )
+        .replace(
+          '...props',
+          `duotoneColor="currentColor",\n  duotoneOpacity=0.2,\n  ...props`
+        );
     }
 
     // fix icons with small dots (#4)
@@ -182,6 +192,11 @@ function ${componentName}({ weight, color, size, style, mirrored, duotoneColor, 
 
   const mirroredValue = mirrored ?? contextMirrored
 
+  const duotoneProps =
+  (weight ?? contextWeight) === 'duotone'
+    ? { duotoneColor: duotoneColor ?? contextDuotoneColor, duotoneOpacity: duotoneOpacity ?? contextDuotoneOpacity }
+    : undefined
+
   return (
     <IconComponent
       color={color ?? contextColor}
@@ -195,15 +210,13 @@ function ${componentName}({ weight, color, size, style, mirrored, duotoneColor, 
           }),
         },
       ]}
-      duotonecolor={duotoneColor ?? contextDuotoneColor}
-      duotoneopacity={duotoneOpacity ?? contextDuotoneOpacity}
+      {...duotoneProps}
       {...props}
     />
   )
 }
 
-export default ${componentName}
-  `;
+export default ${componentName}`;
 
   const filePath = path.join(__dirname, '../src/icons', `${component}.tsx`);
 
