@@ -27,15 +27,9 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install --production=false
-
-      - name: Run code generator
-        run: yarn generate
+        run: yarn install --production=false # will run prepare, which generates icons
 
       - name: Run linter & formatter
         run: |
           yarn format
           yarn lint
-
-      - name: Run prepare
-        run: yarn prepare
