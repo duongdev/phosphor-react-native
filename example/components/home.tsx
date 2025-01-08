@@ -1,40 +1,44 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import * as React from 'react';
-
+import { useCallback, useState, useMemo } from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView,
   FlatList,
   StatusBar,
   Image,
   TouchableOpacity,
 } from 'react-native';
-import * as IconPack from 'phosphor-react-native';
-import PhosphorLogo from './phosphor-mark-tight-yellow.png';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import * as IconPack from '@/components/icons';
+import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { IconContext, ...Icons } = IconPack;
 
 const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
 
-export default function App() {
-  const [weightIdx, setWeightIdx] = React.useState(2);
-  const [mirrorActive, setMirrorActive] = React.useState(false);
+export default function HomeScreen() {
+  const [weightIdx, setWeightIdx] = useState(2);
+  const [iconColor, setIconColor] = useState(undefined);
+  const [mirrorActive, setMirrorActive] = useState(false);
 
-  const weight: IconPack.IconWeight = React.useMemo(
+  const weight: IconPack.IconWeight = useMemo(
     () => weights[weightIdx] as any,
     [weightIdx]
   );
 
-  const handleChangeWeight = React.useCallback(() => {
+  const handleChangeWeight = useCallback(() => {
     setWeightIdx((weightIdx + 1) % weights.length);
   }, [weightIdx]);
 
-  const handleToggleMirror = React.useCallback(() => {
+  const handleChangeIconColor = useCallback(() => {
+    setIconColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+  }, []);
+
+  const handleToggleMirror = useCallback(() => {
     setMirrorActive(!mirrorActive);
   }, [mirrorActive]);
 
@@ -48,8 +52,9 @@ export default function App() {
           <View
             style={{
               flex: 1,
-              alignItems: 'center',
+              alignItems: 'flex-start',
               justifyContent: 'center',
+              paddingStart: 10,
             }}
           >
             <Text style={styles.headerText}>Phosphor React Native</Text>
@@ -63,6 +68,12 @@ export default function App() {
               {weight}
             </Text>
           </View>
+          <TouchableOpacity
+            style={styles.weightSelect}
+            onPress={handleChangeIconColor}
+          >
+            <IconPack.Palette color="#FFF" weight={weight} />
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.weightSelect}
             onPress={handleChangeWeight}
@@ -85,7 +96,12 @@ export default function App() {
         numColumns={3}
         renderItem={({ item: [name, Icon] }) => (
           <View style={styles.iconItem}>
-            <Icon size={48} weight={weight} mirrored={mirrorActive} />
+            <Icon
+              size={48}
+              weight={weight}
+              mirrored={mirrorActive}
+              color={iconColor}
+            />
             <Text style={styles.iconName}>{name}</Text>
           </View>
         )}
@@ -123,7 +139,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   weightSelect: {
-    width: 40,
+    width: 35,
   },
   scrollView: {
     flex: 1,
