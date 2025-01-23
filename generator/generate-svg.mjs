@@ -147,7 +147,7 @@ import IconBase from "../lib/icon-base";
 import weights from '../defs/${component}'
 
 function ${componentName}({...props }: IconProps) {
-  return (<IconBase {...props} weights={weights} />)
+  return (<IconBase {...props} weights={weights} name="${icon}" />)
 }
 
 export default ${componentName}`;

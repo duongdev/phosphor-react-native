@@ -7,6 +7,7 @@ interface IconBaseProps extends IconProps {
     IconWeight,
     ReactElement | FC<{ duotoneColor?: string; duotoneOpacity?: number }>
   >;
+  name: string;
 }
 
 function IconBase({
@@ -19,6 +20,7 @@ function IconBase({
   duotoneOpacity,
   title,
   titleId,
+  name,
   weights,
   ...props
 }: IconBaseProps) {
@@ -43,8 +45,8 @@ function IconBase({
           }),
         },
       ]}
-      className={`acorn-${weight}__svg-icon-phosphor`}
-      testID={props.testID ?? 'phosphor-react-native-acorn-bold'}
+      className={`${name}-${weight}__svg-icon-phosphor`}
+      testID={props.testID ?? `phosphor-react-native-${name}-${weight}`}
       fill="currentColor"
       viewBox="0 0 256 256"
       width={size ?? contextSize}
