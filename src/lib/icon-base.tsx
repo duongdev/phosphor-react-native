@@ -30,7 +30,7 @@ function IconBase({
     weight: contextWeight = 'regular',
     mirrored: contextMirrored = false,
     style: contextStyle,
-    duotoneColor: contextDuotoneColor = '#000',
+    duotoneColor: contextDuotoneColor,
     duotoneOpacity: contextDuotoneOpacity = 0.2,
   } = useContext(IconContext);
 

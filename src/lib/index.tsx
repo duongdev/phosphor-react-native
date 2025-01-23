@@ -9,8 +9,6 @@ export type IconWeight =
   | 'fill'
   | 'duotone';
 
-export type PaintFunction = (color: string) => React.ReactNode | null;
-
 export interface IconProps {
   color?: string;
   size?: string | number;
