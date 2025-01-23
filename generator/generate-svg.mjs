@@ -6,7 +6,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import Case from 'case';
 import chalk from 'chalk';
-
+import * as prettier from 'prettier';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -39,6 +39,9 @@ const componentNameMap = {
   Path: 'PathIcon',
   Infinity: 'InfinityIcon',
 };
+
+// Some duotone colors do not have a color and opacity
+const duotoneEscape = ['cell-signal-none', 'wifi-none'];
 
 const srcDir = path.join(__dirname, '../src');
 
@@ -80,9 +83,15 @@ const getIconList = () => {
   // yarn generate true
   if (process.argv[2] === 'true') {
     return files.filter((file) =>
-      ['acorn', 'palette', 'pencil-line', 'swap', 'list', 'test-tube'].includes(
-        file
-      )
+      [
+        'acorn',
+        'palette',
+        'pencil-line',
+        'swap',
+        'list',
+        'test-tube',
+        '',
+      ].includes(file)
     );
   }
   return files;
@@ -101,21 +110,24 @@ const generateAllIconsDefs = () => {
       defs[weight] = await generateIconsDefs(icon, weight);
     }
 
-    let defString = `\
+    let defString = await prettier.format(
+      `\
 /* GENERATED FILE */
-import type { ReactElement, FC } from "react";
+import type { ReactElement, FC } from 'react';
 import { Path } from 'react-native-svg';
-import { type IconWeight } from "../lib";
+import { type IconWeight } from '../lib';
 
 export default new Map<IconWeight, ReactElement | FC<{ duotoneColor?: string; duotoneOpacity?: number }>>([
 ${Object.entries(defs)
   .map(
     ([weight, jsx]) =>
-      `["${weight}", ${weight === 'duotone' ? '({duotoneColor,duotoneOpacity}: {duotoneColor?: string;duotoneOpacity?: number;}) => ' : ''}(<>${jsx.trim()}</>)]`
+      `["${weight}", ${weight === 'duotone' ? (duotoneEscape.includes(icon) ? '() =>' : '({duotoneColor,duotoneOpacity}: {duotoneColor?: string;duotoneOpacity?: number;}) => ') : ''}(<>${jsx.trim()}</>)]`
   )
-  .join(',')}
+  .join(',\n')}
 ]);
-`;
+`,
+      { semi: true, parser: 'babel-ts', singleQuote: true }
+    );
     // console.log(defString);
     const outDir = path.join(srcDir, 'defs');
 

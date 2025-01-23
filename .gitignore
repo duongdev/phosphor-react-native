@@ -56,5 +56,5 @@ android/keystores/debug.keystore
 /lib/
 
 # ignore generated icon files
-/src/
+src/*
 !src/lib/
