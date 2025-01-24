@@ -1,41 +1,34 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import React, { useCallback, useState, useMemo } from 'react';
+import { useCallback, useState } from 'react';
+
 import {
   StyleSheet,
   View,
   Text,
   StatusBar,
   Image,
+  FlatList,
   TouchableOpacity,
 } from 'react-native';
-import { Palette, PencilLine, Swap } from '@/components/icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
-
+import Swap from '@/components/icons/icons/Swap';
+import Acorn from '@/components/icons/icons/Acorn';
+import Palette from '@/components/icons/icons/Palette';
 const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const singleIcons = [Acorn, Palette, Swap]
+export default function SingleImportsScreen() {
+  const [toggleActive, setToggleActive] = useState(false);
 
-export default function HomeScreen() {
-  const [weightIdx, setWeightIdx] = useState(2);
-
-  const weight: IconWeight = useMemo(
-    () => weights[weightIdx] as any,
-    [weightIdx]
-  );
-
-  const handleChangeWeight = useCallback(() => {
-    setWeightIdx((weightIdx + 1) % weights.length);
-  }, [weightIdx]);
-
-  const handleChangeIconColor = useCallback(() => {
-    setIconColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-  }, []);
-
+  const handleToggle = useCallback(() => {
+    setToggleActive(!toggleActive);
+  }, [toggleActive]);
   return (
     <View style={styles.rootView}>
       <StatusBar barStyle="light-content" />
-
-      <View style={styles.headerContainer}>
+      <SafeAreaView style={styles.headerContainer}>
         <View style={styles.header}>
           <Image source={PhosphorLogo} style={styles.logoImage} />
           <View
@@ -54,26 +47,32 @@ export default function HomeScreen() {
                 textTransform: 'capitalize',
               }}
             >
-              {weight}
+              Single imports
             </Text>
           </View>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleChangeIconColor}
-          >
-            <Palette color="#FFF" weight={weight} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleChangeWeight}
-          >
-            <PencilLine color="#FFF" weight={weight} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.weightSelect}>
-            <Swap color="#FFF" weight={weight} />
+          <TouchableOpacity style={styles.weightSelect} onPress={handleToggle}>
+            <Swap color="#FFF" weight={'regular'} />
           </TouchableOpacity>
         </View>
-      </View>
+      </SafeAreaView>
+      <FlatList
+        style={styles.scrollView}
+        contentContainerStyle={styles.main}
+        data={singleIcons}
+        keyExtractor={(item) => item}
+        numColumns={3}
+        renderItem={({ item: Icon }) => (
+          <View style={styles.iconItem}>
+            <Icon
+              size={48}
+              weight={weights[Math.floor(Math.random() * 6)]}
+              color={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
+              duotoneColor={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
+              duotoneOpacity={Math.random()}
+            />
+          </View>
+        )}
+      />
     </View>
   );
 }
