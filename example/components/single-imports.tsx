@@ -1,55 +1,42 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 
-import * as React from 'react';
+import { useCallback, useState } from 'react';
 
 import {
   StyleSheet,
   View,
   Text,
-  SafeAreaView,
-  FlatList,
   StatusBar,
   Image,
+  FlatList,
   TouchableOpacity,
 } from 'react-native';
-import * as IconPack from 'phosphor-react-native';
-import PhosphorLogo from './phosphor-mark-tight-yellow.png';
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const { IconContext, ...Icons } = IconPack;
-
+import { SafeAreaView } from 'react-native-safe-area-context';
+import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
+import Swap from '@/components/icons/icons/Swap';
+import Acorn from '@/components/icons/icons/Acorn';
+import Palette from '@/components/icons/icons/Palette';
 const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const singleIcons = [Acorn, Palette, Swap]
+export default function SingleImportsScreen() {
+  const [toggleActive, setToggleActive] = useState(false);
 
-export default function App() {
-  const [weightIdx, setWeightIdx] = React.useState(2);
-  const [mirrorActive, setMirrorActive] = React.useState(false);
-
-  const weight: IconPack.IconWeight = React.useMemo(
-    () => weights[weightIdx] as any,
-    [weightIdx]
-  );
-
-  const handleChangeWeight = React.useCallback(() => {
-    setWeightIdx((weightIdx + 1) % weights.length);
-  }, [weightIdx]);
-
-  const handleToggleMirror = React.useCallback(() => {
-    setMirrorActive(!mirrorActive);
-  }, [mirrorActive]);
-
+  const handleToggle = useCallback(() => {
+    setToggleActive(!toggleActive);
+  }, [toggleActive]);
   return (
     <View style={styles.rootView}>
       <StatusBar barStyle="light-content" />
-
       <SafeAreaView style={styles.headerContainer}>
         <View style={styles.header}>
           <Image source={PhosphorLogo} style={styles.logoImage} />
           <View
             style={{
               flex: 1,
-              alignItems: 'center',
+              alignItems: 'flex-start',
               justifyContent: 'center',
+              paddingStart: 10,
             }}
           >
             <Text style={styles.headerText}>Phosphor React Native</Text>
@@ -60,33 +47,29 @@ export default function App() {
                 textTransform: 'capitalize',
               }}
             >
-              {weight}
+              Single imports
             </Text>
           </View>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleChangeWeight}
-          >
-            <IconPack.PencilLine color="#FFF" weight={weight} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleToggleMirror}
-          >
-            <IconPack.Swap color="#FFF" weight={weight} />
+          <TouchableOpacity style={styles.weightSelect} onPress={handleToggle}>
+            <Swap color="#FFF" weight={'regular'} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
       <FlatList
         style={styles.scrollView}
         contentContainerStyle={styles.main}
-        data={Object.entries(Icons).filter(([, Icon]) => !!Icon) as any[]}
-        keyExtractor={(item) => item[0]}
+        data={singleIcons}
+        keyExtractor={(item) => item}
         numColumns={3}
-        renderItem={({ item: [name, Icon] }) => (
+        renderItem={({ item: Icon }) => (
           <View style={styles.iconItem}>
-            <Icon size={48} weight={weight} mirrored={mirrorActive} />
-            <Text style={styles.iconName}>{name}</Text>
+            <Icon
+              size={48}
+              weight={weights[Math.floor(Math.random() * 6)]}
+              color={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
+              duotoneColor={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
+              duotoneOpacity={Math.random()}
+            />
           </View>
         )}
       />
@@ -123,7 +106,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   weightSelect: {
-    width: 40,
+    width: 35,
   },
   scrollView: {
     flex: 1,

@@ -2,6 +2,7 @@
   "extends": "./tsconfig",
   "exclude": [
     "example",
-    "BareExample"
+    "BareExample",
+    "core"
   ]
 }

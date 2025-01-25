@@ -21,6 +21,7 @@ export default [
       'src/thin/',
       'src/index.tsx',
       'example/',
+      'core/',
     ],
   },
   eslintPluginPrettierRecommended,
