@@ -19,13 +19,13 @@ Inspired by [phosphor-react](https://github.com/phosphor-icons/phosphor-react).
 ## Installation
 
 ```bash
-yarn add phosphor-react-native
+yarn add phosphor-react-native react-native-svg
 ```
 
 or
 
 ```bash
-npm install --save phosphor-react-native
+npm install --save phosphor-react-native react-native-svg
 ```
 
 ## Usage
