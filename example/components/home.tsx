@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import { useCallback, useState, useMemo } from 'react';
@@ -14,6 +13,8 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as IconPack from '@/components/icons';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
+
+console.log(IconPack);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { IconContext, ...Icons } = IconPack;

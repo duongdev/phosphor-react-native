@@ -35,14 +35,14 @@ Simply import the icons you need, and add them anywhere in your render method. P
 ```tsx
 import React from 'react';
 import { View } from 'react-native';
-import { Horse, Heart, Cube } from 'phosphor-react-native';
+import { HorseIcon, HeartIcon, CubeIcon } from 'phosphor-react-native';
 
 const App = () => {
   return (
     <View>
-      <Horse />
-      <Heart color="#AE2983" weight="fill" size={32} />
-      <Cube color="teal" weight="duotone" />
+      <HorseIcon />
+      <HeartIcon color="#AE2983" weight="fill" size={32} />
+      <CubeIcon color="teal" weight="duotone" />
     </View>
   );
 };
@@ -85,7 +85,7 @@ Phosphor takes advantage of React Context to make applying a default style to al
 ```tsx
 import React from 'react';
 import { View } from 'react-native';
-import { IconContext, Horse, Heart, Cube } from 'phosphor-react-native';
+import { IconContext, HorseIcon, HeartIcon, CubeIcon } from 'phosphor-react-native';
 
 const App = () => {
   return (
@@ -97,9 +97,9 @@ const App = () => {
       }}
     >
       <View>
-        <Horse /> {/* I'm lime-green, 32px, and bold! */}
-        <Heart /> {/* Me too! */}
-        <Cube /> {/* Me three :) */}
+        <HorseIcon /> {/* I'm lime-green, 32px, and bold! */}
+        <HeartIcon /> {/* Me too! */}
+        <CubeIcon /> {/* Me three :) */}
       </View>
     </IconContext.Provider>
   );
@@ -115,22 +115,22 @@ You may wish to import all icons at once for use in your project, though dependi
 ```tsx
 import * as Icon from "phosphor-react-native";
 ...
-<Icon.Smiley />
-<Icon.Folder weight="thin" />
-<Icon.BatteryHalf size="24px" />
-<Icon.AirplaneTakeoff size="24px" mirrored={true} />
+<Icon.SmileyIcon />
+<Icon.FolderIcon weight="thin" />
+<Icon.BatteryHalfIcon size="24px" />
+<Icon.AirplaneTakeoffIcon size="24px" mirrored={true} />
 ```
 
 In cases where tree shaking does not work (resulting in large bundle size), you can import icons individually in this format:
 
 ```tsx
 // Javascript
-import Star from "phosphor-react-native/lib/commonjs/icons/Star";
+import { StarIcon } from "phosphor-react-native/lib/commonjs/icons/Star";
 
 // Typescript
-import Star from 'phosphor-react-native/src/icons/Star';
+import { StarIcon } from 'phosphor-react-native/src/icons/Star';
 
-<Star size="24px" />
+<StarIcon size="24px" />
 ```
 
 ## Related Projects
