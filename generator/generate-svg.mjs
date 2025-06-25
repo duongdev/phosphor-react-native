@@ -141,16 +141,18 @@ const generateMainIconFile = (icon) => {
   const component = Case.pascal(icon);
   // const componentFileName = fileNameMap[component] || component;
   const componentName = componentNameMap[component] || component;
-  const componentCode = `import { type IconProps } from 'phosphor-react-native'
+  const componentCode = `import { type Icon, type IconProps } from 'phosphor-react-native'
 
 import IconBase from "../lib/icon-base";
 import weights from '../defs/${component}'
 
-function ${componentName}({...props }: IconProps) {
-  return (<IconBase {...props} weights={weights} name="${icon}" />)
-}
+const I: Icon = ({...props }: IconProps) => (
+  <IconBase {...props} weights={weights} name="${icon}" />
+)
 
-export default ${componentName}`;
+/** @deprecated Use ${componentName}Icon */
+export const ${componentName} = I
+export { I as ${componentName}Icon }`;
 
   const filePath = path.join(__dirname, '../src/icons', `${component}.tsx`);
 
@@ -169,12 +171,7 @@ const generateAllIconMainFile = () => {
 const generateIndexFile = () => {
   const icons = getIconList();
   const iconsExport = icons
-    .map(
-      (icon) =>
-        `export { default as ${Case.pascal(icon)} } from './icons/${Case.pascal(
-          icon
-        )}';`
-    )
+    .map((icon) => `export * from './icons/${Case.pascal(icon)}';`)
     .join('\n');
 
   const fileContent = `/* GENERATED FILE */

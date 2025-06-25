@@ -1,5 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
-
 import { useCallback, useState } from 'react';
 
 import {

@@ -1,8 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import List from '@/components/icons/icons/List';
-import TestTube from '@/components/icons/icons/TestTube';
+import { ListIcon, TestTubeIcon } from '@/components/icons';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -21,7 +20,7 @@ export default function TabLayout() {
         options={{
           title: 'All icons',
           tabBarIcon: ({ color, focused }) => (
-            <List weight={focused ? 'fill' : 'light'} color={color} />
+            <ListIcon weight={focused ? 'fill' : 'light'} color={color} />
           ),
         }}
       />
@@ -30,7 +29,7 @@ export default function TabLayout() {
         options={{
           title: 'Test Lab',
           tabBarIcon: ({ color, focused }) => (
-            <TestTube weight={focused ? 'fill' : 'light'} color={color} />
+            <TestTubeIcon weight={focused ? 'fill' : 'light'} color={color} />
           ),
         }}
       />
@@ -39,7 +38,7 @@ export default function TabLayout() {
         options={{
           title: 'Single',
           tabBarIcon: ({ color, focused }) => (
-            <TestTube weight={focused ? 'fill' : 'light'} color={color} />
+            <TestTubeIcon weight={focused ? 'fill' : 'light'} color={color} />
           ),
         }}
       />

@@ -1,5 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
-
 import { useCallback, useState } from 'react';
 
 import {
@@ -13,12 +11,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
-import Swap from '@/components/icons/icons/Swap';
-import Acorn from '@/components/icons/icons/Acorn';
-import Palette from '@/components/icons/icons/Palette';
+import { SwapIcon } from '@/components/icons/icons/Swap';
+import { AcornIcon } from '@/components/icons/icons/Acorn';
+import { PaletteIcon } from '@/components/icons/icons/Palette';
 const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const singleIcons = [Acorn, Palette, Swap]
+
+const singleIcons = [AcornIcon, PaletteIcon, SwapIcon];
 export default function SingleImportsScreen() {
   const [toggleActive, setToggleActive] = useState(false);
 
@@ -51,7 +49,7 @@ export default function SingleImportsScreen() {
             </Text>
           </View>
           <TouchableOpacity style={styles.weightSelect} onPress={handleToggle}>
-            <Swap color="#FFF" weight={'regular'} />
+            <SwapIcon color="#FFF" weight={'regular'} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
