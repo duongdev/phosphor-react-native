@@ -35,9 +35,9 @@ const weights = {
 };
 
 const componentNameMap = {
-  Circle: 'CircleIcon',
-  Path: 'PathIcon',
-  Infinity: 'InfinityIcon',
+  Circle: 'Circle',
+  Path: 'Path',
+  Infinity: 'Infinity',
 };
 
 // Some duotone colors do not have a color and opacity
@@ -90,6 +90,7 @@ const getIconList = () => {
         'swap',
         'list',
         'test-tube',
+        'circle',
         '',
       ].includes(file)
     );
