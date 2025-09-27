@@ -35,9 +35,9 @@ const weights = {
 };
 
 const componentNameMap = {
-  Circle: 'Circle',
-  Path: 'Path',
-  Infinity: 'Infinity',
+  Circle: 'CircleIcon',
+  Path: 'PathIcon',
+  Infinity: 'InfinityIcon',
 };
 
 // Some duotone colors do not have a color and opacity
@@ -59,7 +59,7 @@ const generateIconsDefs = async (icon, weight) => {
   ).replace(RegExp(`${Case.capital(weight)}$`), '');
 
   const tsCode = await transform(svgCode, options, {
-    componentName: componentNameMap[componentName] || componentName,
+    componentName,
   });
 
   return [...tsCode.matchAll(/<Path.*? \/>/g)]
@@ -140,8 +140,6 @@ ${Object.entries(defs)
 
 const generateMainIconFile = (icon) => {
   const component = Case.pascal(icon);
-  // const componentFileName = fileNameMap[component] || component;
-  const componentName = componentNameMap[component] || component;
   const componentCode = `import { type Icon, type IconProps } from 'phosphor-react-native'
 
 import IconBase from "../lib/icon-base";
@@ -151,9 +149,9 @@ const I: Icon = ({...props }: IconProps) => (
   <IconBase {...props} weights={weights} name="${icon}" />
 )
 
-/** @deprecated Use ${componentName}Icon */
-export const ${componentName} = I
-export { I as ${componentName}Icon }`;
+/** @deprecated Use ${component}Icon */
+export const ${componentNameMap[component] || component} = I
+export { I as ${component}Icon }`;
 
   const filePath = path.join(__dirname, '../src/icons', `${component}.tsx`);
 
