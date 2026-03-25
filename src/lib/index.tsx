@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import type { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
 export type IconWeight =
   | 'thin'
