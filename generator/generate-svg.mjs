@@ -141,7 +141,7 @@ const generateMainIconFile = (icon) => {
   const component = Case.pascal(icon);
   const componentCode = `import { type Icon, type IconProps } from 'phosphor-react-native'
 
-import IconBase from "../lib/icon-base";
+import IconBase from '../lib/icon-base'
 import weights from '../defs/${component}'
 
 const I: Icon = ({...props }: IconProps) => (
