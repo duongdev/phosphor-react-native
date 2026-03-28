@@ -1,6 +1,6 @@
 {
   "name": "phosphor-react-native",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Flexible icons for React Native",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
