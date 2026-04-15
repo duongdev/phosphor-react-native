@@ -36,7 +36,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="single-imports"
         options={{
-          title: 'Single',
+          title: 'Perf',
           tabBarIcon: ({ color, focused }) => (
             <TestTubeIcon weight={focused ? 'fill' : 'light'} color={color} />
           ),
