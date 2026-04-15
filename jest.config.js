@@ -2,10 +2,14 @@
 module.exports = {
   projects: [
     {
-      // Node-only tests: package metadata, file structure, build output checks
+      // Node-only tests: package metadata, file structure, build output checks, memoization
       displayName: 'node',
       testEnvironment: 'node',
-      testMatch: ['<rootDir>/__tests__/package-*.test.ts', '<rootDir>/__tests__/lib-*.test.ts'],
+      testMatch: [
+        '<rootDir>/__tests__/package-*.test.ts',
+        '<rootDir>/__tests__/lib-*.test.ts',
+        '<rootDir>/__tests__/icon-*.test.ts',
+      ],
       transform: {
         '^.+\\.tsx?$': [
           'babel-jest',
@@ -13,19 +17,15 @@ module.exports = {
             presets: [
               ['@babel/preset-env', { targets: { node: 'current' } }],
               '@babel/preset-typescript',
+              ['@babel/preset-react', { runtime: 'automatic' }],
             ],
           },
         ],
       },
-    },
-    {
-      // React Native component tests
-      displayName: 'react-native',
-      preset: 'react-native',
-      testMatch: ['<rootDir>/__tests__/icon-*.test.ts'],
-      transformIgnorePatterns: [
-        'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|react-native-svg/)',
-      ],
+      moduleNameMapper: {
+        'react-native-svg': '<rootDir>/__mocks__/react-native-svg.js',
+        'react-native': '<rootDir>/__mocks__/react-native.js',
+      },
     },
   ],
 };
