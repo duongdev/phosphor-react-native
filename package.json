@@ -2,11 +2,49 @@
   "name": "phosphor-react-native",
   "version": "3.0.4",
   "description": "Flexible icons for React Native",
+  "sideEffects": false,
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index.tsx",
   "source": "src/index",
+  "exports": {
+    ".": {
+      "import": "./lib/module/index.js",
+      "require": "./lib/commonjs/index.js",
+      "types": "./lib/typescript/index.d.ts"
+    },
+    "./regular": {
+      "import": "./lib/module/regular/index.js",
+      "require": "./lib/commonjs/regular/index.js",
+      "types": "./lib/typescript/regular/index.d.ts"
+    },
+    "./bold": {
+      "import": "./lib/module/bold/index.js",
+      "require": "./lib/commonjs/bold/index.js",
+      "types": "./lib/typescript/bold/index.d.ts"
+    },
+    "./thin": {
+      "import": "./lib/module/thin/index.js",
+      "require": "./lib/commonjs/thin/index.js",
+      "types": "./lib/typescript/thin/index.d.ts"
+    },
+    "./light": {
+      "import": "./lib/module/light/index.js",
+      "require": "./lib/commonjs/light/index.js",
+      "types": "./lib/typescript/light/index.d.ts"
+    },
+    "./fill": {
+      "import": "./lib/module/fill/index.js",
+      "require": "./lib/commonjs/fill/index.js",
+      "types": "./lib/typescript/fill/index.d.ts"
+    },
+    "./duotone": {
+      "import": "./lib/module/duotone/index.js",
+      "require": "./lib/commonjs/duotone/index.js",
+      "types": "./lib/typescript/duotone/index.d.ts"
+    }
+  },
   "files": [
     "src",
     "lib"
@@ -59,6 +97,7 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
+    "metro-react-native-babel-preset": "^0.77.0",
     "pod-install": "^1.0.13",
     "prettier": "^3.8.1",
     "react": "19.2.4",
@@ -74,13 +113,7 @@
     "react-native": "*",
     "react-native-svg": "*"
   },
-  "jest": {
-    "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
-      "<rootDir>/lib/"
-    ]
-  },
+
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
