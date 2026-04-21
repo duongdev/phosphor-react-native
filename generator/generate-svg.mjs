@@ -267,8 +267,13 @@ const generateSingleWeightIcon = (icon, weight) => {
   const component = Case.pascal(icon);
   const isDuotone = weight === 'duotone';
 
+  // For duotone icons whose def exports a plain ReactElement (no duotone
+  // layer), TypeScript narrows `paths` to `never` inside the true branch of
+  // `typeof paths === 'function'`.  The double cast `as unknown as FnType`
+  // bypasses that narrowing without touching the runtime behaviour.
+  const duotoneFnType = `(p: { duotoneColor?: string; duotoneOpacity?: number }) => import('react').ReactElement`;
   const pathsExpr = isDuotone
-    ? `(typeof paths === 'function' ? paths({ duotoneColor: props.duotoneColor, duotoneOpacity: props.duotoneOpacity ?? 0.2 }) : paths) as import('react').ReactElement`
+    ? `(typeof paths === 'function' ? (paths as unknown as ${duotoneFnType})({ duotoneColor: props.duotoneColor, duotoneOpacity: props.duotoneOpacity ?? 0.2 }) : paths) as import('react').ReactElement`
     : `paths`;
   const exports = componentNameMap[component]
     ? `export { I as ${component}Icon };`
@@ -315,7 +320,10 @@ const generateAllSingleWeightDirs = () => {
 
     for (const icon of icons) {
       const defContent = await generateSingleWeightDef(icon, weight);
-      fs.writeFileSync(path.join(defsDir, `${Case.pascal(icon)}.tsx`), defContent);
+      fs.writeFileSync(
+        path.join(defsDir, `${Case.pascal(icon)}.tsx`),
+        defContent
+      );
 
       const iconContent = generateSingleWeightIcon(icon, weight);
       fs.writeFileSync(
@@ -344,4 +352,3 @@ generateAllIconsDefs();
 generateAllIconMainFile();
 generateIndexFile();
 generateAllSingleWeightDirs();
-
