@@ -153,21 +153,6 @@ if (needsCreate) {
     );
   }
 
-  // Patch metro.config.js — enable package.json "exports" field so
-  // 'phosphor-react-native/regular' resolves via the subpath exports map.
-  step('patch metro.config.js for package exports');
-  fs.writeFileSync(
-    path.join(benchDir, 'metro.config.js'),
-    `const { getDefaultConfig } = require('expo/metro-config');
-const config = getDefaultConfig(__dirname);
-// Enable package.json "exports" field resolution (needed for per-weight
-// subpath imports like 'phosphor-react-native/regular')
-config.resolver.unstable_enablePackageExports = true;
-module.exports = config;
-`
-  );
-  ok();
-
   // Install react-native-svg using expo's version resolver so it picks
   // the version compatible with the installed Expo SDK.
   step('expo install react-native-svg');
@@ -178,6 +163,44 @@ module.exports = config;
     die(`expo install react-native-svg failed: ${e.stderr || e.message}`);
   }
 }
+
+// Always (re-)write metro.config.js so changes to the resolver polyfill
+// take effect even when running with --no-pack against an existing bench dir.
+// Patch metro.config.js — enable package.json "exports" field so
+// 'phosphor-react-native/regular' resolves via the subpath exports map.
+// Also add a custom resolver to polyfill wildcard subpath patterns
+// (e.g. "./regular/icons/*") which Metro does not yet support natively.
+step('patch metro.config.js for package exports');
+fs.writeFileSync(
+  path.join(benchDir, 'metro.config.js'),
+  `const { getDefaultConfig } = require('expo/metro-config');
+const path = require('path');
+const fs = require('fs');
+const config = getDefaultConfig(__dirname);
+// Enable package.json "exports" field resolution (needed for per-weight
+// subpath imports like 'phosphor-react-native/regular')
+config.resolver.unstable_enablePackageExports = true;
+// Metro does not support wildcard subpath patterns in "exports" maps
+// (e.g. "./regular/icons/*"). Polyfill: intercept deep icon imports and
+// resolve them directly to lib/module/<weight>/icons/<Icon>.js.
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  const m = moduleName.match(/^phosphor-react-native\\/([a-z]+)\\/icons\\/(.+)$/);
+  if (m) {
+    const [, weight, icon] = m;
+    const candidate = path.join(
+      __dirname, 'node_modules', 'phosphor-react-native',
+      'lib', 'module', weight, 'icons', icon + '.js'
+    );
+    if (fs.existsSync(candidate)) {
+      return { type: 'sourceFile', filePath: candidate };
+    }
+  }
+  return context.resolveRequest(context, moduleName, platform);
+};
+module.exports = config;
+`
+);
+ok();
 
 // Reinstall the tarball — skip only when --no-pack is set (implies reuse).
 if (!NO_PACK) {
