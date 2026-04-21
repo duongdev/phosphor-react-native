@@ -46,6 +46,7 @@ const FORCE_SETUP = argv.includes('--setup');
 const SETUP_ONLY = argv.includes('--setup-only');
 const NO_PACK = argv.includes('--no-pack');
 const NO_MINIFY = argv.includes('--no-minify');
+const TREE_SHAKE = argv.includes('--tree-shake');
 const wi = argv.indexOf('--weight');
 const TARGET_WEIGHT = wi !== -1 ? argv[wi + 1] : 'regular';
 
@@ -180,6 +181,12 @@ const config = getDefaultConfig(__dirname);
 // Enable package.json "exports" field resolution (needed for per-weight
 // subpath imports like 'phosphor-react-native/regular')
 config.resolver.unstable_enablePackageExports = true;
+// Experimental tree shaking (SDK 52+): keep full graph, then dead-code-eliminate.
+if (${TREE_SHAKE}) {
+  config.transformer.getTransformOptions = async () => ({
+    transform: { experimentalImportSupport: true, inlineRequires: true },
+  });
+}
 // Metro does not support wildcard subpath patterns in "exports" maps.
 // Polyfill: intercept all deep icon imports before Metro touches the
 // exports map, resolving them directly to the correct file on disk.
@@ -388,8 +395,13 @@ function findBundle(dir) {
 }
 
 const minifyArg = NO_MINIFY ? '--no-minify' : '';
+// Experimental tree shaking env vars (must be set on the CLI process; they
+// are ignored in development mode and only apply to production exports).
+const treeShakeEnv = TREE_SHAKE
+  ? 'EXPO_UNSTABLE_METRO_OPTIMIZE_GRAPH=1 EXPO_UNSTABLE_TREE_SHAKING=1 '
+  : '';
 const exportCmd =
-  `npx expo export --platform ios --output-dir .bench-dist --clear ${minifyArg}`.trimEnd();
+  `${treeShakeEnv}npx expo export --platform ios --output-dir .bench-dist --clear ${minifyArg}`.trimEnd();
 
 header('Benchmark');
 console.log(`  │  ${exportCmd}`);
@@ -452,7 +464,7 @@ console.log(`
   ║     Phosphor React Native — Metro Bundle Size Report            ║
   ╚══════════════════════════════════════════════════════════════════╝
 
-  Platform : iOS   Minified: ${NO_MINIFY ? 'no ' : 'yes'}   Weight subpath: ${W}
+  Platform : iOS   Minified: ${NO_MINIFY ? 'no ' : 'yes'}   Weight: ${W}   Tree-shake: ${TREE_SHAKE ? 'yes (experimental)' : 'no'}
   Tarball  : ${tarball}
   Measured : real Metro bundles via \`expo export --platform ios\`
 ${HR}
@@ -484,4 +496,8 @@ console.log(`${HR}
     --weight     change the per-weight subpath (default: regular)
     --no-pack    skip npm pack + install (reuse existing tarball + node_modules)
     --setup      force-recreate the bench Expo app
-`);
+    --tree-shake enable Expo experimental tree shaking
+               (experimentalImportSupport + inlineRequires in metro config,
+                EXPO_UNSTABLE_METRO_OPTIMIZE_GRAPH=1 EXPO_UNSTABLE_TREE_SHAKING=1)
+`
+);
