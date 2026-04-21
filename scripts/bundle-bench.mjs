@@ -11,6 +11,7 @@
  *   node scripts/bundle-bench.mjs                 # full run (setup + benchmark)
  *   node scripts/bundle-bench.mjs --setup         # force-recreate the bench app
  *   node scripts/bundle-bench.mjs --setup-only    # create app, install, stop
+ *   node scripts/bundle-bench.mjs --no-pack       # skip npm pack + install (reuse existing tarball)
  *   node scripts/bundle-bench.mjs --no-minify     # disable Metro minification
  *   node scripts/bundle-bench.mjs --weight bold   # test a different weight subpath
  *   node scripts/bundle-bench.mjs --verbose       # show Metro / expo output
@@ -43,6 +44,7 @@ const argv = process.argv.slice(2);
 const VERBOSE = argv.includes('--verbose');
 const FORCE_SETUP = argv.includes('--setup');
 const SETUP_ONLY = argv.includes('--setup-only');
+const NO_PACK = argv.includes('--no-pack');
 const NO_MINIFY = argv.includes('--no-minify');
 const wi = argv.indexOf('--weight');
 const TARGET_WEIGHT = wi !== -1 ? argv[wi + 1] : 'regular';
@@ -83,29 +85,41 @@ function die(msg) {
 
 header('Pack');
 
-// Remove stale tarballs from previous runs
-fs.readdirSync(root)
-  .filter((f) => /^phosphor-react-native[^/]*\.tgz$/.test(f))
-  .forEach((f) => fs.removeSync(path.join(root, f)));
+let tarball, tarballPath;
 
-step('npm pack');
-try {
-  // --ignore-scripts: skip the prepare/build lifecycle so we pack the
-  // already-built lib/ without re-running bob build (which is slow and
-  // requires dev tooling not present in CI).  The library must be built
-  // before running this script.
-  run('npm pack --ignore-scripts');
-} catch (e) {
-  die(`npm pack failed: ${e.stderr || e.message}`);
+if (NO_PACK) {
+  tarball = fs
+    .readdirSync(root)
+    .find((f) => /^phosphor-react-native[^/]*\.tgz$/.test(f));
+  if (!tarball) die('--no-pack: no existing tarball found. Run without --no-pack first.');
+  tarballPath = path.join(root, tarball);
+  console.log(`  │  skipping pack (--no-pack)`);
+  console.log(`  └─ reusing ${tarball}`);
+} else {
+  // Remove stale tarballs from previous runs
+  fs.readdirSync(root)
+    .filter((f) => /^phosphor-react-native[^/]*\.tgz$/.test(f))
+    .forEach((f) => fs.removeSync(path.join(root, f)));
+
+  step('npm pack');
+  try {
+    // --ignore-scripts: skip the prepare/build lifecycle so we pack the
+    // already-built lib/ without re-running bob build (which is slow and
+    // requires dev tooling not present in CI).  The library must be built
+    // before running this script.
+    run('npm pack --ignore-scripts --quiet');
+  } catch (e) {
+    die(`npm pack failed: ${e.stderr || e.message}`);
+  }
+  ok();
+
+  tarball = fs
+    .readdirSync(root)
+    .find((f) => /^phosphor-react-native[^/]*\.tgz$/.test(f));
+  if (!tarball) die('Tarball not found after npm pack');
+  tarballPath = path.join(root, tarball);
+  console.log(`  └─ ${tarball}`);
 }
-ok();
-
-const tarball = fs
-  .readdirSync(root)
-  .find((f) => /^phosphor-react-native[^/]*\.tgz$/.test(f));
-if (!tarball) die('Tarball not found after npm pack');
-const tarballPath = path.join(root, tarball);
-console.log(`  └─ ${tarball}`);
 
 // ── Phase 2: setup bench app ──────────────────────────────────────────────────
 
@@ -164,13 +178,17 @@ module.exports = config;
   }
 }
 
-// Always reinstall the fresh tarball so we measure the current source tree.
-step('install phosphor-react-native from tarball');
-try {
-  run(`npm install --legacy-peer-deps "${tarballPath}"`, benchDir, !VERBOSE);
-  ok();
-} catch (e) {
-  die(`tarball install failed: ${e.stderr || e.message}`);
+// Reinstall the tarball — skip only when --no-pack is set (implies reuse).
+if (!NO_PACK) {
+  step('install phosphor-react-native from tarball');
+  try {
+    run(`npm install --legacy-peer-deps "${tarballPath}"`, benchDir, !VERBOSE);
+    ok();
+  } catch (e) {
+    die(`tarball install failed: ${e.stderr || e.message}`);
+  }
+} else {
+  console.log(`  │  skipping install (--no-pack)`);
 }
 
 if (SETUP_ONLY) {
@@ -247,6 +265,29 @@ const scenarios = [
     label: `Main barrel, 3 icons  (${I1}, ${I2}, ${I3})`,
     app: makeApp(
       `import { ${I1}Icon, ${I2}Icon, ${I3}Icon } from 'phosphor-react-native';`,
+      `<${I1}Icon size={24} color="black" /><${I2}Icon size={24} color="black" /><${I3}Icon size={24} color="black" />`
+    ),
+  },
+
+  // ── Src deep import (react-native field → src/icons/<Icon>.tsx) ──────────
+  // Metro follows the "react-native" field to src/index.tsx, but a user can
+  // also import directly from the per-icon source file.  This path skips the
+  // barrel entirely and lets Metro tree-shake at the file level.
+  {
+    id: 'src-deep-1',
+    label: `Src deep import, 1 icon  (${I1}Icon)`,
+    app: makeApp(
+      `import { ${I1}Icon } from 'phosphor-react-native/src/icons/${I1}';`,
+      `<${I1}Icon size={24} color="black" />`
+    ),
+  },
+  {
+    id: 'src-deep-3',
+    label: `Src deep import, 3 icons  (${I1}, ${I2}, ${I3})`,
+    app: makeApp(
+      `import { ${I1}Icon } from 'phosphor-react-native/src/icons/${I1}';
+import { ${I2}Icon } from 'phosphor-react-native/src/icons/${I2}';
+import { ${I3}Icon } from 'phosphor-react-native/src/icons/${I3}';`,
       `<${I1}Icon size={24} color="black" /><${I2}Icon size={24} color="black" /><${I3}Icon size={24} color="black" />`
     ),
   },
@@ -392,5 +433,6 @@ console.log(`${HR}
     --verbose    show Metro output for each export
     --no-minify  compare unminified sizes
     --weight     change the per-weight subpath (default: regular)
+    --no-pack    skip npm pack + install (reuse existing tarball + node_modules)
     --setup      force-recreate the bench Expo app
 `);
