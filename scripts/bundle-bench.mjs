@@ -91,7 +91,8 @@ if (NO_PACK) {
   tarball = fs
     .readdirSync(root)
     .find((f) => /^phosphor-react-native[^/]*\.tgz$/.test(f));
-  if (!tarball) die('--no-pack: no existing tarball found. Run without --no-pack first.');
+  if (!tarball)
+    die('--no-pack: no existing tarball found. Run without --no-pack first.');
   tarballPath = path.join(root, tarball);
   console.log(`  │  skipping pack (--no-pack)`);
   console.log(`  └─ reusing ${tarball}`);
@@ -308,6 +309,28 @@ import { ${I3}Icon } from 'phosphor-react-native/src/icons/${I3}';`,
     label: `Subpath /${W}, 3 icons  (${I1}, ${I2}, ${I3})`,
     app: makeApp(
       `import { ${I1}Icon, ${I2}Icon, ${I3}Icon } from 'phosphor-react-native/${W}';`,
+      `<${I1}Icon size={24} color="black" /><${I2}Icon size={24} color="black" /><${I3}Icon size={24} color="black" />`
+    ),
+  },
+
+  // ── Subpath deep import (per-weight compiled file, no barrel at all) ────────
+  // Goes directly to lib/module/<weight>/icons/<Icon>.js — the deepest
+  // possible import, one file per icon, zero barrel overhead.
+  {
+    id: 'subpath-deep-1',
+    label: `Subpath deep /${W}/icons, 1 icon  (${I1}Icon)`,
+    app: makeApp(
+      `import { ${I1}Icon } from 'phosphor-react-native/${W}/icons/${I1}';`,
+      `<${I1}Icon size={24} color="black" />`
+    ),
+  },
+  {
+    id: 'subpath-deep-3',
+    label: `Subpath deep /${W}/icons, 3 icons  (${I1}, ${I2}, ${I3})`,
+    app: makeApp(
+      `import { ${I1}Icon } from 'phosphor-react-native/${W}/icons/${I1}';
+import { ${I2}Icon } from 'phosphor-react-native/${W}/icons/${I2}';
+import { ${I3}Icon } from 'phosphor-react-native/${W}/icons/${I3}';`,
       `<${I1}Icon size={24} color="black" /><${I2}Icon size={24} color="black" /><${I3}Icon size={24} color="black" />`
     ),
   },

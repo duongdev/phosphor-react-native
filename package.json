@@ -43,6 +43,41 @@
       "import": "./lib/module/duotone/index.js",
       "require": "./lib/commonjs/duotone/index.js",
       "types": "./lib/typescript/duotone/index.d.ts"
+    },
+    "./regular/icons/*": {
+      "import": "./lib/module/regular/icons/*.js",
+      "require": "./lib/commonjs/regular/icons/*.js",
+      "types": "./lib/typescript/regular/icons/*.d.ts"
+    },
+    "./bold/icons/*": {
+      "import": "./lib/module/bold/icons/*.js",
+      "require": "./lib/commonjs/bold/icons/*.js",
+      "types": "./lib/typescript/bold/icons/*.d.ts"
+    },
+    "./thin/icons/*": {
+      "import": "./lib/module/thin/icons/*.js",
+      "require": "./lib/commonjs/thin/icons/*.js",
+      "types": "./lib/typescript/thin/icons/*.d.ts"
+    },
+    "./light/icons/*": {
+      "import": "./lib/module/light/icons/*.js",
+      "require": "./lib/commonjs/light/icons/*.js",
+      "types": "./lib/typescript/light/icons/*.d.ts"
+    },
+    "./fill/icons/*": {
+      "import": "./lib/module/fill/icons/*.js",
+      "require": "./lib/commonjs/fill/icons/*.js",
+      "types": "./lib/typescript/fill/icons/*.d.ts"
+    },
+    "./duotone/icons/*": {
+      "import": "./lib/module/duotone/icons/*.js",
+      "require": "./lib/commonjs/duotone/icons/*.js",
+      "types": "./lib/typescript/duotone/icons/*.d.ts"
+    },
+    "./src/icons/*": {
+      "react-native": "./src/icons/*.tsx",
+      "import": "./src/icons/*.tsx",
+      "require": "./src/icons/*.tsx"
     }
   },
   "files": [
@@ -57,7 +92,7 @@
     "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.mjs",
     "build:weights": "node scripts/build-weights.mjs",
-    "bundle-bench": "node scripts/bundle-bench.mjs",
+    "bundle-bench": "node scripts/bundle-bench.mjs --no-pack",
     "postbuild": "node -e \"require('fs').writeFileSync('lib/module/package.json', JSON.stringify({type:'module'}, null, 2) + '\\n')\" && node scripts/build-weights.mjs",
     "prepare": "husky && touch src/index.tsx && bob build"
   },
