@@ -180,17 +180,20 @@ const config = getDefaultConfig(__dirname);
 // Enable package.json "exports" field resolution (needed for per-weight
 // subpath imports like 'phosphor-react-native/regular')
 config.resolver.unstable_enablePackageExports = true;
-// Metro does not support wildcard subpath patterns in "exports" maps
-// (e.g. "./regular/icons/*"). Polyfill: intercept deep icon imports and
-// resolve them directly to lib/module/<weight>/icons/<Icon>.js.
+// Metro does not support wildcard subpath patterns in "exports" maps.
+// Polyfill: intercept all deep icon imports before Metro touches the
+// exports map, resolving them directly to the correct file on disk.
+//   phosphor-react-native/src/icons/<Icon>       → src/icons/<Icon>.tsx
+//   phosphor-react-native/<weight>/icons/<Icon>  → lib/module/<weight>/icons/<Icon>.js
 config.resolver.resolveRequest = (context, moduleName, platform) => {
   const m = moduleName.match(/^phosphor-react-native\\/([a-z]+)\\/icons\\/(.+)$/);
   if (m) {
     const [, weight, icon] = m;
-    const candidate = path.join(
-      __dirname, 'node_modules', 'phosphor-react-native',
-      'lib', 'module', weight, 'icons', icon + '.js'
-    );
+    const candidate = weight === 'src'
+      ? path.join(__dirname, 'node_modules', 'phosphor-react-native',
+          'src', 'icons', icon + '.tsx')
+      : path.join(__dirname, 'node_modules', 'phosphor-react-native',
+          'lib', 'module', weight, 'icons', icon + '.js');
     if (fs.existsSync(candidate)) {
       return { type: 'sourceFile', filePath: candidate };
     }
