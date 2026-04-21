@@ -301,10 +301,10 @@ const generateAllSingleWeightDirs = () => {
       path.join(weightLibDir, 'icon-base-single.tsx'),
       { overwrite: true }
     );
-    // index.tsx for the lib re-exports from parent
+    // index.tsx for the lib re-exports from parent (no IconWeight — fixed-weight subpath)
     fs.writeFileSync(
       path.join(weightLibDir, 'index.tsx'),
-      `export { type Icon, type IconProps, IconContext, type IconWeight } from '../../lib';\n`
+      `export { type Icon, type IconProps, IconContext } from '../../lib';\n`
     );
 
     // Generate defs + icons
@@ -330,7 +330,7 @@ const generateAllSingleWeightDirs = () => {
       .join('\n');
 
     const indexContent = `/* GENERATED FILE */
-export { type Icon, type IconProps, IconContext, type IconWeight } from '../lib';
+export { type Icon, type IconProps, IconContext } from './lib';
 
 ${iconsExport}
 `;
