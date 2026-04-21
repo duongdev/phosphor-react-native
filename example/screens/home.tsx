@@ -34,7 +34,7 @@ export default function HomeScreen() {
   }, [weightIdx]);
 
   const handleChangeIconColor = useCallback(() => {
-    setIconColor(`#${Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0')}`);
+    setIconColor(`#${Array.from({ length: 3 }, () => Math.floor(Math.random() * 256).toString(16).padStart(2, '0')).join('')}`);
   }, []);
 
   const handleToggleMirror = useCallback(() => {
