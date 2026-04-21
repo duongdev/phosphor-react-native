@@ -10,12 +10,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
+import PhosphorLogo from '@/assets/phosphor-mark-tight-yellow.png';
 
 // ─── Multi-weight import (loads all 6 weight variants) ───────────────────────
-import { AcornIcon } from 'phosphor-react-native/icons/Acorn';
-import { PaletteIcon } from 'phosphor-react-native/icons/Palette';
-import { SwapIcon } from 'phosphor-react-native/icons/Swap';
+import { AcornIcon } from 'phosphor-react-native/src/icons/Acorn';
+import { PaletteIcon } from 'phosphor-react-native/src/icons/Palette';
+import { SwapIcon } from 'phosphor-react-native/src/icons/Swap';
 
 // ─── Per-weight imports (loads only the needed weight) ───────────────────────
 // Equivalent to: import { AcornIcon } from 'phosphor-react-native/regular'

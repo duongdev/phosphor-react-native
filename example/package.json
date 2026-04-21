@@ -1,46 +1,37 @@
 {
   "name": "phosphor-react-native-example",
-  "version": "1.0.0",
   "main": "expo-router/entry",
+  "version": "1.0.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "lint": "eslint . --fix"
+    "web": "expo start --web"
   },
   "dependencies": {
-    "@react-navigation/bottom-tabs": "^7.4.0",
-    "@react-navigation/native": "^7.1.8",
-    "@react-navigation/native-stack": "^7.3.16",
-    "expo": "^55.0.0",
+    "phosphor-react-native": "file:../phosphor-react-native-3.0.4.tgz",
+    "@react-navigation/native": "^7.1.33",
+    "expo": "~55.0.16",
+    "expo-symbols": "~55.0.7",
     "expo-constants": "~55.0.15",
+    "expo-font": "~55.0.6",
     "expo-linking": "~55.0.14",
     "expo-router": "~55.0.13",
     "expo-splash-screen": "~55.0.19",
     "expo-status-bar": "~55.0.5",
-    "expo-system-ui": "~55.0.16",
-    "phosphor-react-native": "file:../phosphor-react-native-3.0.4.tgz",
+    "expo-web-browser": "~55.0.14",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.6",
-    "react-native-gesture-handler": "~2.30.0",
+    "react-native-worklets": "0.7.4",
     "react-native-reanimated": "4.2.1",
     "react-native-safe-area-context": "~5.6.2",
     "react-native-screens": "~4.23.0",
-    "react-native-svg": "15.15.3",
-    "react-native-web": "^0.21.2",
-    "react-native-worklets": "0.7.4"
+    "react-native-web": "~0.21.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@eslint/js": "^9.39.2",
-    "@types/react": "~19.1.10",
-    "eslint": "9.x",
-    "eslint-plugin-react": "^7.37.5",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.54.0"
+    "@types/react": "~19.2.2",
+    "typescript": "~5.9.2"
   },
   "private": true
 }

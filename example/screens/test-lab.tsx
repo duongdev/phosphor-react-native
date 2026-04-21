@@ -1,52 +1,30 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+import { useCallback, useState } from 'react';
 
-import { useCallback, useState, useMemo } from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  FlatList,
   StatusBar,
   Image,
+  FlatList,
   TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import PhosphorLogo from '@/assets/phosphor-mark-tight-yellow.png';
 import * as IconPack from 'phosphor-react-native';
-import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
-
-console.log(IconPack);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { IconContext, ...Icons } = IconPack;
 
-const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
+export default function TestLabScreen() {
+  const [toggleActive, setToggleActive] = useState(false);
 
-export default function HomeScreen() {
-  const [weightIdx, setWeightIdx] = useState(2);
-  const [iconColor, setIconColor] = useState(undefined);
-  const [mirrorActive, setMirrorActive] = useState(false);
-
-  const weight: IconPack.IconWeight = useMemo(
-    () => weights[weightIdx] as any,
-    [weightIdx]
-  );
-
-  const handleChangeWeight = useCallback(() => {
-    setWeightIdx((weightIdx + 1) % weights.length);
-  }, [weightIdx]);
-
-  const handleChangeIconColor = useCallback(() => {
-    setIconColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-  }, []);
-
-  const handleToggleMirror = useCallback(() => {
-    setMirrorActive(!mirrorActive);
-  }, [mirrorActive]);
-
+  const handleToggle = useCallback(() => {
+    setToggleActive(!toggleActive);
+  }, [toggleActive]);
   return (
     <View style={styles.rootView}>
       <StatusBar barStyle="light-content" />
-
       <SafeAreaView style={styles.headerContainer}>
         <View style={styles.header}>
           <Image source={PhosphorLogo} style={styles.logoImage} />
@@ -66,42 +44,30 @@ export default function HomeScreen() {
                 textTransform: 'capitalize',
               }}
             >
-              {weight}
+              Duotone test lab
             </Text>
           </View>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleChangeIconColor}
-          >
-            <IconPack.Palette color="#FFF" weight={weight} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleChangeWeight}
-          >
-            <IconPack.PencilLine color="#FFF" weight={weight} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.weightSelect}
-            onPress={handleToggleMirror}
-          >
-            <IconPack.Swap color="#FFF" weight={weight} />
+          <TouchableOpacity style={styles.weightSelect} onPress={handleToggle}>
+            <IconPack.Swap color="#FFF" weight={'regular'} />
           </TouchableOpacity>
         </View>
       </SafeAreaView>
       <FlatList
         style={styles.scrollView}
         contentContainerStyle={styles.main}
-        data={Object.entries(Icons).filter(([, Icon]) => !!Icon) as any[]}
+        data={Object.entries(Icons)
+          .filter(([, Icon]) => !!Icon)
+          .slice(0, 6)}
         keyExtractor={(item) => item[0]}
         numColumns={3}
         renderItem={({ item: [name, Icon] }) => (
           <View style={styles.iconItem}>
             <Icon
               size={48}
-              weight={weight}
-              mirrored={mirrorActive}
-              color={iconColor}
+              weight={'duotone'}
+              color={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
+              duotoneColor={`#${Math.floor(Math.random() * 16777215).toString(16)}`}
+              duotoneOpacity={Math.random()}
             />
             <Text style={styles.iconName}>{name}</Text>
           </View>
