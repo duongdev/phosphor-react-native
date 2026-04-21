@@ -6,10 +6,9 @@ describe('package.json metadata', () => {
   });
 
   it('has an exports field for modern bundler resolution', () => {
-    const exports = (pkg as Record<string, unknown>).exports as Record<
-      string,
-      unknown
-    > | undefined;
+    const exports = (pkg as Record<string, unknown>).exports as
+      | Record<string, unknown>
+      | undefined;
     expect(exports).toBeDefined();
     expect(exports!['.']).toBeDefined();
   });

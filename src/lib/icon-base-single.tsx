@@ -2,8 +2,10 @@ import React, { useContext, type ReactElement } from 'react';
 import Svg from 'react-native-svg';
 import { type IconProps, IconContext } from '../lib';
 
-interface IconBaseSingleProps
-  extends Omit<IconProps, 'weight' | 'duotoneColor' | 'duotoneOpacity'> {
+interface IconBaseSingleProps extends Omit<
+  IconProps,
+  'weight' | 'duotoneColor' | 'duotoneOpacity'
+> {
   paths: ReactElement;
   name: string;
 }

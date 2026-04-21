@@ -20,18 +20,34 @@ describe('per-weight subpath build outputs', () => {
     expect(fs.existsSync(filePath)).toBe(true);
   });
 
-  it.each(WEIGHTS)('lib/commonjs/%s/package.json has type:commonjs', (weight) => {
-    const pkgPath = path.join(root, 'lib', 'commonjs', weight, 'package.json');
-    expect(fs.existsSync(pkgPath)).toBe(true);
-    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
-    expect(pkg.type).toBe('commonjs');
-  });
+  it.each(WEIGHTS)(
+    'lib/commonjs/%s/package.json has type:commonjs',
+    (weight) => {
+      const pkgPath = path.join(
+        root,
+        'lib',
+        'commonjs',
+        weight,
+        'package.json'
+      );
+      expect(fs.existsSync(pkgPath)).toBe(true);
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+      expect(pkg.type).toBe('commonjs');
+    }
+  );
 
   it('regular subpath exports do NOT import from the full-weight defs Map', () => {
-    const filePath = path.join(root, 'lib', 'module', 'regular', 'icons', 'Acorn.js');
+    const filePath = path.join(
+      root,
+      'lib',
+      'module',
+      'regular',
+      'icons',
+      'Acorn.js'
+    );
     if (!fs.existsSync(filePath)) return; // skip if not built yet
     const content = fs.readFileSync(filePath, 'utf8');
     // Should NOT reference the full 6-weight defs map
-    expect(content).not.toContain("new Map");
+    expect(content).not.toContain('new Map');
   });
 });
