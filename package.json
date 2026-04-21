@@ -10,39 +10,74 @@
   "source": "src/index",
   "exports": {
     ".": {
-      "import": "./lib/module/index.js",
-      "require": "./lib/commonjs/index.js",
-      "types": "./lib/typescript/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/index.d.ts",
+        "default": "./lib/module/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/index.d.ts",
+        "default": "./lib/commonjs/index.js"
+      }
     },
     "./regular": {
-      "import": "./lib/module/regular/index.js",
-      "require": "./lib/commonjs/regular/index.js",
-      "types": "./lib/typescript/regular/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/regular/index.d.ts",
+        "default": "./lib/module/regular/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/regular/index.d.ts",
+        "default": "./lib/commonjs/regular/index.js"
+      }
     },
     "./bold": {
-      "import": "./lib/module/bold/index.js",
-      "require": "./lib/commonjs/bold/index.js",
-      "types": "./lib/typescript/bold/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/bold/index.d.ts",
+        "default": "./lib/module/bold/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/bold/index.d.ts",
+        "default": "./lib/commonjs/bold/index.js"
+      }
     },
     "./thin": {
-      "import": "./lib/module/thin/index.js",
-      "require": "./lib/commonjs/thin/index.js",
-      "types": "./lib/typescript/thin/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/thin/index.d.ts",
+        "default": "./lib/module/thin/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/thin/index.d.ts",
+        "default": "./lib/commonjs/thin/index.js"
+      }
     },
     "./light": {
-      "import": "./lib/module/light/index.js",
-      "require": "./lib/commonjs/light/index.js",
-      "types": "./lib/typescript/light/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/light/index.d.ts",
+        "default": "./lib/module/light/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/light/index.d.ts",
+        "default": "./lib/commonjs/light/index.js"
+      }
     },
     "./fill": {
-      "import": "./lib/module/fill/index.js",
-      "require": "./lib/commonjs/fill/index.js",
-      "types": "./lib/typescript/fill/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/fill/index.d.ts",
+        "default": "./lib/module/fill/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/fill/index.d.ts",
+        "default": "./lib/commonjs/fill/index.js"
+      }
     },
     "./duotone": {
-      "import": "./lib/module/duotone/index.js",
-      "require": "./lib/commonjs/duotone/index.js",
-      "types": "./lib/typescript/duotone/index.d.ts"
+      "import": {
+        "types": "./lib/typescript/duotone/index.d.ts",
+        "default": "./lib/module/duotone/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/duotone/index.d.ts",
+        "default": "./lib/commonjs/duotone/index.js"
+      }
     },
     "./regular/icons/*": {
       "import": "./lib/module/regular/icons/*.js",
