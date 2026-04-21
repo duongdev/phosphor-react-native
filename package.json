@@ -57,6 +57,7 @@
     "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.mjs",
     "build:weights": "node scripts/build-weights.mjs",
+    "bundle-size": "node scripts/bundle-size.mjs",
     "postbuild": "node -e \"require('fs').writeFileSync('lib/module/package.json', JSON.stringify({type:'module'}, null, 2) + '\\n')\" && node scripts/build-weights.mjs",
     "prepare": "husky && touch src/index.tsx && bob build"
   },
@@ -91,6 +92,7 @@
     "case": "^1.6.3",
     "chalk": "^5",
     "commitlint": "^20.4.1",
+    "esbuild": "^0.28.0",
     "eslint": "9.x",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ft-flow": "^3.0.11",
@@ -115,7 +117,6 @@
     "react-native": "*",
     "react-native-svg": "*"
   },
-
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
