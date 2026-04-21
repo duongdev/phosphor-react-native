@@ -126,17 +126,30 @@ import * as Icon from "phosphor-react-native";
 <Icon.AirplaneTakeoffIcon size="24px" mirrored={true} />
 ```
 
-In cases where tree shaking does not work (resulting in large bundle size), you can import icons individually in this format:
+In cases where tree shaking does not work (resulting in large bundle size), you can import icons individually using one of the following patterns:
 
+**Per-weight subpath** — compiled, no barrel, smallest import for a fixed weight:
 ```tsx
-// Javascript
-import { StarIcon } from "phosphor-react-native/lib/commonjs/icons/Star";
-
-// Typescript
-import { StarIcon } from 'phosphor-react-native/src/icons/Star';
-
-<StarIcon size="24px" />
+import { StarIcon } from 'phosphor-react-native/regular';
+import { StarIcon } from 'phosphor-react-native/bold';
+import { StarIcon } from 'phosphor-react-native/thin';
+// also: light, fill, duotone
 ```
+
+**Deep subpath** — single icon file, zero barrel overhead:
+```tsx
+import { StarIcon } from 'phosphor-react-native/regular/icons/Star';
+```
+
+**TypeScript source** — useful during development:
+```tsx
+import { StarIcon } from 'phosphor-react-native/src/icons/Star';
+```
+
+> The per-weight subpaths require Metro to have package exports resolution enabled. Add this to your `metro.config.js`:
+> ```js
+> config.resolver.unstable_enablePackageExports = true;
+> ```
 
 ## Related Projects
 
