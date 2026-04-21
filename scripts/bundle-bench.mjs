@@ -456,7 +456,7 @@ const baseline = results.find((r) => r.id === 'baseline' && !r.error);
 const LW = Math.max(...results.map((r) => r.label.length)) + 2;
 const RW = 11; // minified
 const GW = 10; // gz
-const DW =  8; // vs base
+const DW = 8; // vs base
 const HR = `  ${'─'.repeat(LW + RW + GW + DW + 6)}`;
 
 console.log(`
@@ -480,8 +480,8 @@ for (const r of results) {
     console.log(`  ${r.label.padEnd(LW)} ${'✗'.padStart(RW + GW + DW + 4)}`);
     continue;
   }
-  const raw   = fmtKB(r.raw).padStart(RW);
-  const gz    = fmtKB(r.gz).padStart(GW);
+  const raw = fmtKB(r.raw).padStart(RW);
+  const gz = fmtKB(r.gz).padStart(GW);
   const delta = fmtDelta(baseline?.gz, r.gz).padStart(DW);
   console.log(`  ${r.label.padEnd(LW)} ${raw} ${gz} ${delta}`);
 }
