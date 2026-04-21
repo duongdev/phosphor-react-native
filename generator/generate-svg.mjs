@@ -1,5 +1,3 @@
-/* global process:readable */
-
 import { fileURLToPath } from 'url';
 import { transform } from '@svgr/core';
 import path from 'path';
