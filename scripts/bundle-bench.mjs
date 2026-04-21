@@ -90,7 +90,11 @@ fs.readdirSync(root)
 
 step('npm pack');
 try {
-  run('npm pack');
+  // --ignore-scripts: skip the prepare/build lifecycle so we pack the
+  // already-built lib/ without re-running bob build (which is slow and
+  // requires dev tooling not present in CI).  The library must be built
+  // before running this script.
+  run('npm pack --ignore-scripts');
 } catch (e) {
   die(`npm pack failed: ${e.stderr || e.message}`);
 }

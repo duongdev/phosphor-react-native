@@ -1,5 +1,3 @@
-import React from 'react';
-
 describe('icon-base memo', () => {
   it('IconBase export is wrapped in React.memo', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
