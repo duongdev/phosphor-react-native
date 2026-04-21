@@ -1,5 +1,5 @@
 import React, { useContext, type ReactElement, type FC } from 'react';
-import Svg from 'react-native-svg';
+import Svg, { G } from 'react-native-svg';
 import { type IconProps, type IconWeight, IconContext } from '../lib';
 
 interface IconBaseProps extends IconProps {
@@ -56,13 +56,17 @@ function IconBase({
       {...props}
     >
       {title ? <title id={titleId}>{title}</title> : null}
-      {(weight ?? contextWeight) === 'duotone'
-        ? // @ts-expect-error not callable
-          weights.get(weight ?? contextWeight)({
-            duotoneColor: duotoneColor ?? contextDuotoneColor ?? color,
-            duotoneOpacity: duotoneOpacity ?? contextDuotoneOpacity,
-          })
-        : weights.get(weight ?? contextWeight)}
+      {(weight ?? contextWeight) === 'duotone' ? (
+        // @ts-expect-error not callable
+        weights.get(weight ?? contextWeight)({
+          duotoneColor: duotoneColor ?? contextDuotoneColor ?? color,
+          duotoneOpacity: duotoneOpacity ?? contextDuotoneOpacity,
+        })
+      ) : (
+        <G fill={color ?? contextColor}>
+          {weights.get(weight ?? contextWeight) as ReactElement}
+        </G>
+      )}
     </Svg>
   );
 }

@@ -21,7 +21,7 @@ const weights = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
 
 export default function HomeScreen() {
   const [weightIdx, setWeightIdx] = useState(2);
-  const [iconColor, setIconColor] = useState(undefined);
+  const [iconColor, setIconColor] = useState("#000000");
   const [mirrorActive, setMirrorActive] = useState(false);
 
   const weight: IconPack.IconWeight = useMemo(
@@ -34,13 +34,14 @@ export default function HomeScreen() {
   }, [weightIdx]);
 
   const handleChangeIconColor = useCallback(() => {
-    setIconColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+    setIconColor(`#${Math.floor(Math.random() * 0xffffff).toString(16).padStart(6, '0')}`);
   }, []);
 
   const handleToggleMirror = useCallback(() => {
     setMirrorActive(!mirrorActive);
   }, [mirrorActive]);
 
+console.log('Rendering HomeScreen with color and weight:', iconColor, weight);
   return (
     <View style={styles.rootView}>
       <StatusBar barStyle="light-content" />

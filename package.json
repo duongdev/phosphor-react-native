@@ -157,6 +157,7 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.10",
     "@types/react-native": "0.73.0",
+    "baseline-browser-mapping": "^2.10.20",
     "caniuse-lite": "^1.0.30001767",
     "case": "^1.6.3",
     "chalk": "^5",
