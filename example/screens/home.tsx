@@ -41,7 +41,6 @@ export default function HomeScreen() {
     setMirrorActive(!mirrorActive);
   }, [mirrorActive]);
 
-console.log('Rendering HomeScreen with color and weight:', iconColor, weight);
   return (
     <View style={styles.rootView}>
       <StatusBar barStyle="light-content" />
