@@ -57,7 +57,6 @@
     "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.mjs",
     "build:weights": "node scripts/build-weights.mjs",
-    "bundle-size": "node scripts/bundle-size.mjs",
     "bundle-bench": "node scripts/bundle-bench.mjs",
     "postbuild": "node -e \"require('fs').writeFileSync('lib/module/package.json', JSON.stringify({type:'module'}, null, 2) + '\\n')\" && node scripts/build-weights.mjs",
     "prepare": "husky && touch src/index.tsx && bob build"
