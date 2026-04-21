@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
-import * as IconPack from '@/components/icons';
+import * as IconPack from 'phosphor-react-native';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { IconContext, ...Icons } = IconPack;

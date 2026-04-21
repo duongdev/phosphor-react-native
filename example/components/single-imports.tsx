@@ -13,21 +13,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import PhosphorLogo from '@/assets/images/phosphor-mark-tight-yellow.png';
 
 // ─── Multi-weight import (loads all 6 weight variants) ───────────────────────
-import { AcornIcon } from '@/components/icons/icons/Acorn';
-import { PaletteIcon } from '@/components/icons/icons/Palette';
-import { SwapIcon } from '@/components/icons/icons/Swap';
+import { AcornIcon } from 'phosphor-react-native/icons/Acorn';
+import { PaletteIcon } from 'phosphor-react-native/icons/Palette';
+import { SwapIcon } from 'phosphor-react-native/icons/Swap';
 
 // ─── Per-weight imports (loads only the needed weight) ───────────────────────
 // Equivalent to: import { AcornIcon } from 'phosphor-react-native/regular'
-import { AcornIcon as AcornRegular } from '@/components/icons/regular/icons/Acorn';
-import { PaletteIcon as PaletteRegular } from '@/components/icons/regular/icons/Palette';
-import { SwapIcon as SwapRegular } from '@/components/icons/regular/icons/Swap';
+import { AcornIcon as AcornRegular } from 'phosphor-react-native/regular/icons/Acorn';
+import { PaletteIcon as PaletteRegular } from 'phosphor-react-native/regular/icons/Palette';
+import { SwapIcon as SwapRegular } from 'phosphor-react-native/regular/icons/Swap';
 
 // ─── Per-weight bold import ───────────────────────────────────────────────────
 // Equivalent to: import { AcornIcon } from 'phosphor-react-native/bold'
-import { AcornIcon as AcornBold } from '@/components/icons/bold/icons/Acorn';
-import { PaletteIcon as PaletteBold } from '@/components/icons/bold/icons/Palette';
-import { SwapIcon as SwapBold } from '@/components/icons/bold/icons/Swap';
+import { AcornIcon as AcornBold } from 'phosphor-react-native/bold/icons/Acorn';
+import { PaletteIcon as PaletteBold } from 'phosphor-react-native/bold/icons/Palette';
+import { SwapIcon as SwapBold } from 'phosphor-react-native/bold/icons/Swap';
 
 /**
  * Counts how many times this component rendered. Using a ref (not state)
