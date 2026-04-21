@@ -440,64 +440,147 @@ for (const scenario of scenarios) {
 
 // ── Phase 4: report ───────────────────────────────────────────────────────────
 
+const baseline = results.find((r) => r.id === 'baseline' && !r.error);
+const maxGz = Math.max(...results.filter((r) => !r.error).map((r) => r.gz), 1);
+
+const BAR_W = 26;
+
+/** Two-tone bar: ░ = baseline share of max, █ = overhead above baseline. */
+function bar(gz) {
+  const baseLen = baseline ? Math.round((baseline.gz / maxGz) * BAR_W) : 0;
+  const totalLen = Math.round((gz / maxGz) * BAR_W);
+  return '░'.repeat(baseLen) + '█'.repeat(Math.max(0, totalLen - baseLen));
+}
+
 function fmtKB(n) {
-  return `${(n / 1024).toFixed(1)} kB`;
+  const [int, dec] = (n / 1024).toFixed(1).split('.');
+  return int.replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + dec + ' kB';
 }
 
 function fmtDelta(base, val) {
   if (!base || val === base) return '—';
   const d = ((val - base) / base) * 100;
-  return `${d > 0 ? '+' : ''}${d.toFixed(0)}%`;
+  return (d > 0 ? '+' : '') + d.toFixed(0) + '%';
 }
 
-const LW = 50,
-  RW = 11,
-  GW = 10,
-  DW = 9;
-const HR = `  ${'─'.repeat(LW + RW + GW + DW + 6)}`;
+function fmtOverhead(base, val) {
+  if (!base) return '—';
+  const kb = Math.round((val - base) / 1024);
+  if (kb === 0) return '—';
+  const s = Math.abs(kb).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return (kb > 0 ? '+' : '-') + s + ' kB';
+}
 
-const baseline = results.find((r) => r.id === 'baseline' && !r.error);
+function groupOf(id) {
+  if (id === 'baseline') return 'baseline';
+  return id.replace(/-\d+$/, '');
+}
 
-console.log(`
+const GROUP_DEFS = {
+  baseline:        { title: 'Baseline',          hint: null },
+  barrel:          { title: 'Main barrel',        hint: `import { Icon } from 'phosphor-react-native'` },
+  'src-deep':      { title: 'Src deep import',    hint: `import { Icon } from 'phosphor-react-native/src/icons/<Name>'` },
+  subpath:         { title: `Subpath /${W}`,       hint: `import { Icon } from 'phosphor-react-native/${W}'` },
+  'subpath-deep':  { title: `Subpath deep /${W}/icons`, hint: `import { Icon } from 'phosphor-react-native/${W}/icons/<Name>'` },
+};
 
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║     Phosphor React Native — Metro Bundle Size Report            ║
-  ╚══════════════════════════════════════════════════════════════════╝
+// Column widths
+const LW = 30; // scenario label (with leading indent)
+const RW = 11; // minified
+const GW = 10; // gz
+const OW = 10; // overhead kB
+const PW =  6; // overhead %
+// total row width (excl. leading "  ")
+const ROW = LW + 1 + RW + 1 + GW + 1 + OW + 1 + PW + 2 + BAR_W;
+const HR  = `  ${'─'.repeat(ROW)}`;
 
-  Platform : iOS   Minified: ${NO_MINIFY ? 'no ' : 'yes'}   Weight: ${W}   Tree-shake: ${TREE_SHAKE ? 'yes (experimental)' : 'no'}
-  Tarball  : ${tarball}
-  Measured : real Metro bundles via \`expo export --platform ios\`
-${HR}
-  ${'Scenario'.padEnd(LW)} ${'minified'.padStart(RW)} ${'min+gz'.padStart(GW)} ${'vs base'.padStart(DW)}
-${HR}`);
+const out = [];
+
+// ── Header ──────────────────────────────────────────────────────────────────
+const boxTitle = 'Phosphor React Native — Metro Bundle Benchmark';
+out.push('');
+out.push('');
+out.push(`  ╔${'═'.repeat(ROW)}╗`);
+out.push(`  ║  ${boxTitle.padEnd(ROW - 2)}║`);
+out.push(`  ╚${'═'.repeat(ROW)}╝`);
+out.push('');
+out.push(
+  `  Platform   iOS  ·  Minified   ${NO_MINIFY ? 'no ' : 'yes'}  ·  Weight   ${W}  ·  Tree-shake   ${TREE_SHAKE ? 'yes (experimental)' : 'no'}`
+);
+out.push(`  Tarball    ${tarball}`);
+out.push(`  Bundler    real Metro via \`expo export --platform ios\``);
+const charKB = Math.ceil(maxGz / 1024 / BAR_W);
+out.push(`  Bar scale  1 char ≈ ${charKB} kB gz    ░ = baseline portion    █ = overhead`);
+out.push('');
+
+// ── Table ───────────────────────────────────────────────────────────────────
+out.push(HR);
+out.push(
+  `  ${'Scenario'.padEnd(LW)} ` +
+  `${'minified'.padStart(RW)} ` +
+  `${'gz'.padStart(GW)} ` +
+  `${'overhead'.padStart(OW)} ` +
+  `${'vs base'.padStart(PW)}  ` +
+  `gz bar`
+);
+out.push(HR);
+
+let lastGroup = null;
 
 for (const r of results) {
+  const g = groupOf(r.id);
+
+  // Section divider + group title when group changes
+  if (g !== lastGroup) {
+    if (lastGroup !== null) out.push('');
+    const def = GROUP_DEFS[g];
+    if (def) {
+      out.push(`  ${def.title}`);
+      if (def.hint) out.push(`    ${def.hint}`);
+    }
+    lastGroup = g;
+  }
+
+  // Build label
+  let label;
+  if (g === 'baseline') {
+    label = '    (no import)';
+  } else {
+    const n = r.id.match(/-(\d+)$/)?.[1];
+    if (n === '1') label = `    1 icon   (${I1})`;
+    else if (n === '3') label = `    3 icons  (${I1}, ${I2}, ${I3})`;
+    else label = `    ${r.id}`;
+  }
+
   if (r.error) {
-    console.log(`  ${'ERROR  ' + r.label}`.slice(0, LW + 4));
+    out.push(`  ${label.padEnd(LW)} ${'✗  (failed)'.padStart(RW + GW + OW + PW + 5)}`);
     continue;
   }
-  const raw = fmtKB(r.raw).padStart(RW);
-  const gz = fmtKB(r.gz).padStart(GW);
-  const delta = (baseline ? fmtDelta(baseline.gz, r.gz) : '—').padStart(DW);
-  console.log(`  ${r.label.padEnd(LW)} ${raw} ${gz} ${delta}`);
+
+  const rawStr = fmtKB(r.raw).padStart(RW);
+  const gzStr  = fmtKB(r.gz).padStart(GW);
+  const ovhStr = fmtOverhead(baseline?.gz, r.gz).padStart(OW);
+  const pctStr = fmtDelta(baseline?.gz, r.gz).padStart(PW);
+  const barStr = bar(r.gz);
+
+  out.push(`  ${label.padEnd(LW)} ${rawStr} ${gzStr} ${ovhStr} ${pctStr}  ${barStr}`);
 }
 
-console.log(`${HR}
+out.push('');
+out.push(HR);
+out.push('');
+out.push(`  Sizes include the full Metro runtime and all resolved dependencies.`);
+out.push(`  Overhead and "vs base" compare gzip size against the no-phosphor baseline.`);
+out.push('');
+out.push(`  Tips`);
+out.push(`    --verbose      show Metro output per scenario`);
+out.push(`    --no-minify    compare unminified sizes`);
+out.push(`    --weight <w>   change per-weight subpath  (default: regular)`);
+out.push(`    --no-pack      skip npm pack + install  (reuse existing tarball)`);
+out.push(`    --setup        force-recreate the bench Expo app`);
+out.push(`    --tree-shake   Expo experimental tree shaking`);
+out.push(`                   metro: experimentalImportSupport + inlineRequires`);
+out.push(`                   env:   EXPO_UNSTABLE_METRO_OPTIMIZE_GRAPH=1 EXPO_UNSTABLE_TREE_SHAKING=1`);
+out.push('');
 
-  Sizes include the full Metro runtime + all resolved dependencies.
-  "vs base" = gzip delta relative to the no-phosphor baseline.
-  Metro resolves 'phosphor-react-native' via the "react-native" field
-  (→ src/index.tsx), and subpath imports via the "exports" field
-  (→ lib/module/<weight>/index.js).
-
-  Tips:
-    --verbose    show Metro output for each export
-    --no-minify  compare unminified sizes
-    --weight     change the per-weight subpath (default: regular)
-    --no-pack    skip npm pack + install (reuse existing tarball + node_modules)
-    --setup      force-recreate the bench Expo app
-    --tree-shake enable Expo experimental tree shaking
-               (experimentalImportSupport + inlineRequires in metro config,
-                EXPO_UNSTABLE_METRO_OPTIMIZE_GRAPH=1 EXPO_UNSTABLE_TREE_SHAKING=1)
-`
-);
+console.log(out.join('\n'));
