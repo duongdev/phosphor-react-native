@@ -13,7 +13,6 @@
  *   node scripts/bundle-bench.mjs --setup-only    # create app, install, stop
  *   node scripts/bundle-bench.mjs --no-pack       # skip npm pack + install (reuse existing tarball)
  *   node scripts/bundle-bench.mjs --no-minify     # disable Metro minification
- *   node scripts/bundle-bench.mjs --weight bold   # test a different weight subpath
  *   node scripts/bundle-bench.mjs --verbose       # show Metro / expo output
  *
  * The bench Expo app lives in bundle-bench/ (gitignored).
@@ -23,7 +22,6 @@
  * Pre-requisites:
  *   node generator/generate-svg.mjs   (generate icon source)
  *   yarn build                        (or react-native-builder-bob build)
- *   node scripts/build-weights.mjs    (build per-weight subpaths)
  */
 
 import { execSync } from 'child_process';
@@ -47,8 +45,6 @@ const SETUP_ONLY = argv.includes('--setup-only');
 const NO_PACK = argv.includes('--no-pack');
 const NO_MINIFY = argv.includes('--no-minify');
 const TREE_SHAKE = argv.includes('--tree-shake');
-const wi = argv.indexOf('--weight');
-const TARGET_WEIGHT = wi !== -1 ? argv[wi + 1] : 'regular';
 
 // ── helpers ───────────────────────────────────────────────────────────────────
 
@@ -167,19 +163,12 @@ if (needsCreate) {
 
 // Always (re-)write metro.config.js so changes to the resolver polyfill
 // take effect even when running with --no-pack against an existing bench dir.
-// Patch metro.config.js — enable package.json "exports" field so
-// 'phosphor-react-native/regular' resolves via the subpath exports map.
-// Also add a custom resolver to polyfill wildcard subpath patterns
-// (e.g. "./regular/icons/*") which Metro does not yet support natively.
 step('patch metro.config.js for package exports');
 fs.writeFileSync(
   path.join(benchDir, 'metro.config.js'),
   `const { getDefaultConfig } = require('expo/metro-config');
-const path = require('path');
-const fs = require('fs');
 const config = getDefaultConfig(__dirname);
-// Enable package.json "exports" field resolution (needed for per-weight
-// subpath imports like 'phosphor-react-native/regular')
+// Enable package.json "exports" field resolution.
 config.resolver.unstable_enablePackageExports = true;
 // Experimental tree shaking (SDK 52+): keep full graph, then dead-code-eliminate.
 if (${TREE_SHAKE}) {
@@ -187,26 +176,6 @@ if (${TREE_SHAKE}) {
     transform: { experimentalImportSupport: true, inlineRequires: true },
   });
 }
-// Metro does not support wildcard subpath patterns in "exports" maps.
-// Polyfill: intercept all deep icon imports before Metro touches the
-// exports map, resolving them directly to the correct file on disk.
-//   phosphor-react-native/src/icons/<Icon>       → src/icons/<Icon>.tsx
-//   phosphor-react-native/<weight>/icons/<Icon>  → lib/module/<weight>/icons/<Icon>.js
-config.resolver.resolveRequest = (context, moduleName, platform) => {
-  const m = moduleName.match(/^phosphor-react-native\\/([a-z]+)\\/icons\\/(.+)$/);
-  if (m) {
-    const [, weight, icon] = m;
-    const candidate = weight === 'src'
-      ? path.join(__dirname, 'node_modules', 'phosphor-react-native',
-          'src', 'icons', icon + '.tsx')
-      : path.join(__dirname, 'node_modules', 'phosphor-react-native',
-          'lib', 'module', weight, 'icons', icon + '.js');
-    if (fs.existsSync(candidate)) {
-      return { type: 'sourceFile', filePath: candidate };
-    }
-  }
-  return context.resolveRequest(context, moduleName, platform);
-};
 module.exports = config;
 `
 );
@@ -247,12 +216,10 @@ const icons = [
 if (!icons.length) die('No icons found in installed lib/module/index.js');
 
 const [I1 = 'Acorn', I2 = 'List', I3 = 'Palette'] = icons;
-const W = TARGET_WEIGHT;
 
 console.log(
   `  │  ${icons.length} icons in tarball. Sample: ${I1}, ${I2}, ${I3}`
 );
-console.log(`  └─ per-weight target: ${W}`);
 
 // ── App.tsx templates ─────────────────────────────────────────────────────────
 
@@ -326,47 +293,6 @@ import { ${I3}Icon } from 'phosphor-react-native/src/icons/${I3}';`,
     ),
   },
 
-  // ── Per-weight subpath (exports field → lib/module/<weight>/index.js) ──────
-  // Metro resolves 'phosphor-react-native/regular' via the "exports" map,
-  // landing in lib/module/regular/index.js (compiled, single-weight).
-  {
-    id: 'subpath-1',
-    label: `Subpath /${W}, 1 icon  (${I1}Icon)`,
-    app: makeApp(
-      `import { ${I1}Icon } from 'phosphor-react-native/${W}';`,
-      `<${I1}Icon size={24} color="black" />`
-    ),
-  },
-  {
-    id: 'subpath-3',
-    label: `Subpath /${W}, 3 icons  (${I1}, ${I2}, ${I3})`,
-    app: makeApp(
-      `import { ${I1}Icon, ${I2}Icon, ${I3}Icon } from 'phosphor-react-native/${W}';`,
-      `<${I1}Icon size={24} color="black" /><${I2}Icon size={24} color="black" /><${I3}Icon size={24} color="black" />`
-    ),
-  },
-
-  // ── Subpath deep import (per-weight compiled file, no barrel at all) ────────
-  // Goes directly to lib/module/<weight>/icons/<Icon>.js — the deepest
-  // possible import, one file per icon, zero barrel overhead.
-  {
-    id: 'subpath-deep-1',
-    label: `Subpath deep /${W}/icons, 1 icon  (${I1}Icon)`,
-    app: makeApp(
-      `import { ${I1}Icon } from 'phosphor-react-native/${W}/icons/${I1}';`,
-      `<${I1}Icon size={24} color="black" />`
-    ),
-  },
-  {
-    id: 'subpath-deep-3',
-    label: `Subpath deep /${W}/icons, 3 icons  (${I1}, ${I2}, ${I3})`,
-    app: makeApp(
-      `import { ${I1}Icon } from 'phosphor-react-native/${W}/icons/${I1}';
-import { ${I2}Icon } from 'phosphor-react-native/${W}/icons/${I2}';
-import { ${I3}Icon } from 'phosphor-react-native/${W}/icons/${I3}';`,
-      `<${I1}Icon size={24} color="black" /><${I2}Icon size={24} color="black" /><${I3}Icon size={24} color="black" />`
-    ),
-  },
 ];
 
 // ── Phase 3: benchmark ────────────────────────────────────────────────────────
@@ -467,7 +393,6 @@ console.log(`
 
   Platform   : iOS
   Minified   : ${NO_MINIFY ? 'no' : 'yes'}
-  Weight     : ${W}
   Tree-shake : ${TREE_SHAKE ? 'yes (experimental)' : 'no'}
   Tarball    : ${tarball}
   Bundler    : real Metro via \`expo export --platform ios\`
@@ -494,7 +419,6 @@ console.log(`${HR}
   Tips:
     --verbose      show Metro output per scenario
     --no-minify    compare unminified sizes
-    --weight <w>   change per-weight subpath  (default: regular)
     --no-pack      skip npm pack + install  (reuse existing tarball)
     --setup        force-recreate the bench Expo app
     --tree-shake   Expo experimental tree shaking

@@ -16,22 +16,24 @@ describe('package.json metadata', () => {
   it('exports field has import (ESM) and require (CJS) conditions', () => {
     const exports = (pkg as Record<string, unknown>).exports as Record<
       string,
-      Record<string, string>
+      Record<string, Record<string, string>>
     >;
     const main = exports['.'];
     expect(main.import).toBeDefined();
     expect(main.require).toBeDefined();
-    expect(main.types).toBeDefined();
+    expect(main.import.types).toBeDefined();
+    expect(main.require.types).toBeDefined();
   });
 
-  it('has weight-specific subpath exports', () => {
+  it('does not expose weight-specific subpath exports', () => {
     const exports = (pkg as Record<string, unknown>).exports as Record<
       string,
       unknown
     >;
     const weights = ['regular', 'bold', 'thin', 'light', 'fill', 'duotone'];
     for (const weight of weights) {
-      expect(exports[`./${weight}`]).toBeDefined();
+      expect(exports[`./${weight}`]).toBeUndefined();
+      expect(exports[`./${weight}/icons/*`]).toBeUndefined();
     }
   });
 });

@@ -19,96 +19,6 @@
         "default": "./lib/commonjs/index.js"
       }
     },
-    "./regular": {
-      "import": {
-        "types": "./lib/typescript/regular/index.d.ts",
-        "default": "./lib/module/regular/index.js"
-      },
-      "require": {
-        "types": "./lib/typescript/regular/index.d.ts",
-        "default": "./lib/commonjs/regular/index.js"
-      }
-    },
-    "./bold": {
-      "import": {
-        "types": "./lib/typescript/bold/index.d.ts",
-        "default": "./lib/module/bold/index.js"
-      },
-      "require": {
-        "types": "./lib/typescript/bold/index.d.ts",
-        "default": "./lib/commonjs/bold/index.js"
-      }
-    },
-    "./thin": {
-      "import": {
-        "types": "./lib/typescript/thin/index.d.ts",
-        "default": "./lib/module/thin/index.js"
-      },
-      "require": {
-        "types": "./lib/typescript/thin/index.d.ts",
-        "default": "./lib/commonjs/thin/index.js"
-      }
-    },
-    "./light": {
-      "import": {
-        "types": "./lib/typescript/light/index.d.ts",
-        "default": "./lib/module/light/index.js"
-      },
-      "require": {
-        "types": "./lib/typescript/light/index.d.ts",
-        "default": "./lib/commonjs/light/index.js"
-      }
-    },
-    "./fill": {
-      "import": {
-        "types": "./lib/typescript/fill/index.d.ts",
-        "default": "./lib/module/fill/index.js"
-      },
-      "require": {
-        "types": "./lib/typescript/fill/index.d.ts",
-        "default": "./lib/commonjs/fill/index.js"
-      }
-    },
-    "./duotone": {
-      "import": {
-        "types": "./lib/typescript/duotone/index.d.ts",
-        "default": "./lib/module/duotone/index.js"
-      },
-      "require": {
-        "types": "./lib/typescript/duotone/index.d.ts",
-        "default": "./lib/commonjs/duotone/index.js"
-      }
-    },
-    "./regular/icons/*": {
-      "import": "./lib/module/regular/icons/*.js",
-      "require": "./lib/commonjs/regular/icons/*.js",
-      "types": "./lib/typescript/regular/icons/*.d.ts"
-    },
-    "./bold/icons/*": {
-      "import": "./lib/module/bold/icons/*.js",
-      "require": "./lib/commonjs/bold/icons/*.js",
-      "types": "./lib/typescript/bold/icons/*.d.ts"
-    },
-    "./thin/icons/*": {
-      "import": "./lib/module/thin/icons/*.js",
-      "require": "./lib/commonjs/thin/icons/*.js",
-      "types": "./lib/typescript/thin/icons/*.d.ts"
-    },
-    "./light/icons/*": {
-      "import": "./lib/module/light/icons/*.js",
-      "require": "./lib/commonjs/light/icons/*.js",
-      "types": "./lib/typescript/light/icons/*.d.ts"
-    },
-    "./fill/icons/*": {
-      "import": "./lib/module/fill/icons/*.js",
-      "require": "./lib/commonjs/fill/icons/*.js",
-      "types": "./lib/typescript/fill/icons/*.d.ts"
-    },
-    "./duotone/icons/*": {
-      "import": "./lib/module/duotone/icons/*.js",
-      "require": "./lib/commonjs/duotone/icons/*.js",
-      "types": "./lib/typescript/duotone/icons/*.d.ts"
-    },
     "./src/icons/*": {
       "react-native": "./src/icons/*.tsx",
       "import": "./src/icons/*.tsx",
@@ -126,7 +36,7 @@
     "release": "release-it",
     "format": "prettier --write src/**/* src/lib/index.tsx",
     "generate": "node generator/generate-svg.mjs",
-    "bundle-bench": "node scripts/bundle-bench.mjs --no-pack",
+    "bundle-bench": "node scripts/bundle-bench.mjs",
     "postbuild": "node -e \"require('fs').writeFileSync('lib/module/package.json', JSON.stringify({type:'module'}, null, 2) + '\\n')\"",
     "prepare": "husky && touch src/index.tsx && bob build"
   },

@@ -17,18 +17,6 @@ import { AcornIcon } from 'phosphor-react-native/src/icons/Acorn';
 import { PaletteIcon } from 'phosphor-react-native/src/icons/Palette';
 import { SwapIcon } from 'phosphor-react-native/src/icons/Swap';
 
-// ─── Per-weight imports (loads only the needed weight) ───────────────────────
-// Equivalent to: import { AcornIcon } from 'phosphor-react-native/regular'
-import { AcornIcon as AcornRegular } from 'phosphor-react-native/regular/icons/Acorn';
-import { PaletteIcon as PaletteRegular } from 'phosphor-react-native/regular/icons/Palette';
-import { SwapIcon as SwapRegular } from 'phosphor-react-native/regular/icons/Swap';
-
-// ─── Per-weight bold import ───────────────────────────────────────────────────
-// Equivalent to: import { AcornIcon } from 'phosphor-react-native/bold'
-import { AcornIcon as AcornBold } from 'phosphor-react-native/bold/icons/Acorn';
-import { PaletteIcon as PaletteBold } from 'phosphor-react-native/bold/icons/Palette';
-import { SwapIcon as SwapBold } from 'phosphor-react-native/bold/icons/Swap';
-
 /**
  * Counts how many times this component rendered. Using a ref (not state)
  * so the count itself doesn't trigger another render.
@@ -91,45 +79,27 @@ export default function SingleImportsScreen() {
           </View>
         </View>
 
-        {/* ── Section 2: Per-weight subpath imports ─────────────────────── */}
-        <Text style={styles.sectionTitle}>Per-weight subpath imports</Text>
+        {/* ── Section 2: Single icon source imports ─────────────────────── */}
+        <Text style={styles.sectionTitle}>Single icon source imports</Text>
         <Text style={styles.sectionDesc}>
-          Import only the weight you need. Bundlers tree-shake other weights
-          entirely — no Map, no switch, no dead code.
+          Import from the icon source path to bypass the package barrel and
+          pull in only the icon modules you use.
         </Text>
 
         <Text style={styles.weightLabel}>
-          {'import { AcornIcon } from "phosphor-react-native/regular"'}
+          {'import { AcornIcon } from "phosphor-react-native/src/icons/Acorn"'}
         </Text>
         <View style={styles.iconRow}>
           <View style={styles.iconItem}>
-            <AcornRegular size={48} color="#e76f51" />
+            <AcornIcon size={48} color="#e76f51" />
             <Text style={styles.iconName}>Acorn</Text>
           </View>
           <View style={styles.iconItem}>
-            <PaletteRegular size={48} color="#2a9d8f" />
+            <PaletteIcon size={48} color="#2a9d8f" />
             <Text style={styles.iconName}>Palette</Text>
           </View>
           <View style={styles.iconItem}>
-            <SwapRegular size={48} color="#264653" />
-            <Text style={styles.iconName}>Swap</Text>
-          </View>
-        </View>
-
-        <Text style={styles.weightLabel}>
-          {'import { AcornIcon } from "phosphor-react-native/bold"'}
-        </Text>
-        <View style={styles.iconRow}>
-          <View style={styles.iconItem}>
-            <AcornBold size={48} color="#e76f51" />
-            <Text style={styles.iconName}>Acorn</Text>
-          </View>
-          <View style={styles.iconItem}>
-            <PaletteBold size={48} color="#2a9d8f" />
-            <Text style={styles.iconName}>Palette</Text>
-          </View>
-          <View style={styles.iconItem}>
-            <SwapBold size={48} color="#264653" />
+            <SwapIcon size={48} color="#264653" />
             <Text style={styles.iconName}>Swap</Text>
           </View>
         </View>
