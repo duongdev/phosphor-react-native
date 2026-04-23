@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "paths": {
       "phosphor-react-native": [
         "./src/index"
@@ -26,5 +25,10 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
-  }
+  },
+  "exclude": [
+    "bundle-bench",
+    "example",
+    "core"
+  ]
 }
