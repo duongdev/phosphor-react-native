@@ -2,6 +2,9 @@
   "extends": "./tsconfig",
   "exclude": [
     "example",
-    "core"
+    "core",
+    "bundle-bench",
+    "__tests__",
+    "__mocks__"
   ]
 }

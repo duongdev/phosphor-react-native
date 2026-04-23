@@ -1,1 +1,1 @@
-export { default } from '@/components/single-imports';
+export { default } from '@/screens/single-imports';

@@ -1,3 +1,10 @@
 /src
 lib/**/*.map
 /example
+/bundle-bench
+/.vscode
+/__tests__
+/__mocks__
+/.circleci
+/.github
+/.cursor

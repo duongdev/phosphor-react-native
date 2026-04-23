@@ -1,5 +1,3 @@
-/* global process:readable */
-
 import { fileURLToPath } from 'url';
 import { transform } from '@svgr/core';
 import path from 'path';
@@ -190,6 +188,10 @@ const cleanup = () => {
     fs.removeSync(srcDir + '/' + folders[index]);
   }
   fs.removeSync(srcDir + '/index.tsx');
+  // Clean legacy per-weight dirs
+  Object.keys(weights).forEach((w) => {
+    fs.removeSync(path.join(srcDir, w));
+  });
 };
 
 cleanup();
