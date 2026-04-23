@@ -126,11 +126,16 @@ import * as Icon from "phosphor-react-native";
 <Icon.AirplaneTakeoffIcon size="24px" mirrored={true} />
 ```
 
-In cases where tree shaking does not work (resulting in large bundle size), you can import icons individually using one of the following patterns:
+In cases where tree shaking does not work (resulting in large bundle size), you can import icons individually in this format:
 
-**TypeScript source** — useful during development:
 ```tsx
+// Javascript
+import { StarIcon } from "phosphor-react-native/lib/commonjs/icons/Star";
+
+// Typescript
 import { StarIcon } from 'phosphor-react-native/src/icons/Star';
+
+<StarIcon size="24px" />
 ```
 
 ## Related Projects

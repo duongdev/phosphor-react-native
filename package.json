@@ -72,7 +72,6 @@
     "case": "^1.6.3",
     "chalk": "^5",
     "commitlint": "^20.4.1",
-    "esbuild": "^0.28.0",
     "eslint": "9.x",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ft-flow": "^3.0.11",
