@@ -15,7 +15,7 @@ export interface IconProps {
   duotoneOpacity?: number;
   mirrored?: boolean;
   size?: string | number;
-  style?: StyleProp<ViewStyle | TextStyle>;
+  style?: StyleProp<ViewStyle | Omit<TextStyle, 'cursor'>>;
   testID?: string;
   title?: string; // SVGRProps
   titleId?: string; // SVGRProps
