@@ -1,7 +1,7 @@
-import type { SvgProps as DefaultSvgProps } from 'react-native-svg';
+import 'react-native-svg';
 
 declare module 'react-native-svg' {
-  interface SvgProps extends DefaultSvgProps {
+  interface SvgProps {
     className?: string;
   }
 }
